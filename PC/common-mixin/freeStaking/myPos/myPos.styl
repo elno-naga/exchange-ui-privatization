@@ -1,0 +1,57 @@
+.pos-history{
+  width 1180px
+  margin: 30px auto;
+  .pos-history-title{
+    padding 20px 0 10px 19px
+    font-size: 16px;
+  }
+  .date-select-cont{
+    padding 26px 0 0 20px
+    .date-selecter{
+      float left
+      margin-right: 20px
+    }
+  }
+  .date-table-cont{
+    padding:24px;
+    .table-custom-class{
+      width:65%;
+      text-align:right;
+    }
+  }
+  .nav-tab{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-left: 16px;
+  }
+}
+.sub-table-btn {
+  cursor: pointer;
+  position: relative;
+  padding: 0 20px 0 10px;
+  display: inline-block;
+  height: 24px;
+  line-height: 26px;
+  border-radius: 2px;
+  vertical-align: middle;
+  user-select: none;
+  .view-icon {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: block;
+    border-width: 5px;
+    border-style: solid dashed dashed;
+    border-bottom-color: transparent!important;
+    border-right-color: transparent!important;
+    border-left-color: transparent!important;
+    font-size: 0;
+    line-height: 0;
+  }
+  &.isopen {
+    .view-icon {
+      transform: rotate(180deg);
+      top: 5px;
+    }
+  }
+}

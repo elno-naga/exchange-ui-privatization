@@ -1,0 +1,456 @@
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+html.en_US {
+  .page-login {
+    font-family: HarmonyOS-Medium;
+
+    .input_line_prompt {
+      font-family: HarmonyOS-Medium;
+    }
+
+    .v5-input-content {
+      font-family: HarmonyOS-Medium;
+    }
+
+    .v5-common-button {
+      font-family: HarmonyOS-Medium;
+    }
+  }
+}
+
+.page-login {
+  min-height: calc(100vh - 60px);
+  font-family: 'PingFang SC';
+
+  .input_line_prompt {
+    font-weight: 400;
+    font-family: 'PingFang SC medium';
+  }
+
+  .v5-input-content {
+    font-family: 'PingFang SC';
+
+    input {
+      font-size: 14px;
+    }
+  }
+
+  .v5-common-button {
+    font-family: 'PingFang SC';
+  }
+
+  .website {
+    text-align: center;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  // 主体
+  .page-login-content {
+    padding-top: 100px;
+    width: 725px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    .content-title {
+      font-size: 32px;
+      line-height: 52px;
+      font-weight: 600;
+      white-space: nowrap;
+      font-family: HarmonyOS-Medium;
+    }
+
+    .guide-text {
+      font-family: HarmonyOS-Medium;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .content-warp {
+      display: flex;
+
+      .hidePassword {
+        cursor: pointer;
+        margin-right: 15px;
+      }
+
+      .sub-title {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        margin-top: 20px;
+        margin-bottom: 4px;
+        width: 340px;
+      }
+
+      .content-center {
+        // width: 380px;
+        // margin: 0 auto;
+        & + .content-center {
+          // margin-left: 120px;
+        }
+
+        // 忘记密码
+        .forgetPassword {
+          font-size: 12px;
+          line-height: 20px;
+          margin-top: 6px;
+        }
+
+        .guide-text {
+          font-size: 12px;
+          line-height: 20px;
+          margin-top: 5px;
+
+          .guide-ht {
+            font-weight: 500;
+            font-family: HarmonyOS-Medium;
+          }
+        }
+
+        .thirdBox {
+          margin-top: 20px;
+          position: relative;
+
+          .thirdBoxTitle {
+            font-size: 14px;
+            margin-bottom: 6px;
+          }
+
+          .thirdInfor {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            padding: 6px 0;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            height: 32px;
+
+            img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              float: left;
+              margin-right: 10px;
+            }
+
+            .thirdName {
+              float: left;
+              line-height: 32px;
+            }
+
+            .dowm-icon {
+              border-style: solid;
+              float: right;
+              width: 6px;
+              height: 6px;
+              border-width: 0;
+              margin: 12px 20px 0 0;
+              border-bottom-width: 2px;
+              border-right-width: 2px;
+              transform: rotate(45deg);
+            }
+          }
+
+          .notborder {
+            border: none;
+          }
+
+          .third-list {
+            position: absolute;
+            transform-origin: center top 0px;
+            top: 66px;
+            left: 0;
+            right: 0;
+            z-index: 9;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1) !important;
+            border-radius: 2px;
+            font-size: 14px;
+            padding: 10px 0;
+            display: none;
+          }
+
+          &:hover {
+            .third-list {
+              display: block;
+            }
+          }
+
+          .third-item {
+            height: 32px;
+            line-height: 32px;
+            cursor: pointer;
+            padding: 6px 20px;
+
+            img {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              float: left;
+              margin-right: 10px;
+            }
+
+            .third-val {
+              float: left;
+              line-height: 32px;
+            }
+          }
+        }
+
+        .link {
+          cursor: pointer;
+          font-weight: 500;
+          font-family: HarmonyOS-Medium;
+          font-size: 12px;
+        }
+
+        .forget-password {
+          margin-top: 20px;
+          display: block;
+          font-family: HarmonyOS-Medium;
+          font-weight: 500;
+        }
+
+        // 扫码登录 - 文字
+        .scan-tip {
+          margin-top: 11px;
+          font-size: 12px;
+          line-height: 20px;
+          text-align: center;
+
+          .appName {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .copy {
+    display: none;
+  }
+}
+
+// 返回首页按钮
+.go-home-btn {
+  border-width: 1px;
+  border-style: solid;
+  height: 30px;
+  line-height: 30px;
+  width: 110px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+  user-select: none;
+  display: none;
+}
+
+// 国际版
+.Int {
+  .go-home-btn {
+    display: block;
+  }
+
+  .page-login {
+    .into-guide-center {
+      .guide-center {
+        p {
+          text-align: left;
+        }
+
+        .guide-text {
+          text-align: right;
+        }
+      }
+    }
+
+    .copy {
+      display: block;
+      position: absolute;
+      bottom: 34px;
+      text-align: center;
+      font-size: 12px;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.phone_msg {
+  display: flex;
+  flex-direction: row;
+}
+
+.phone_input {
+  transition: unset !important;
+}
+.login_country_code{
+  .select-options-box{
+    width:338px;
+    .select-option{
+      width:100% !important;
+    }
+  }
+}
+
+.img-container {
+  width: 308px;
+  height: 405px;
+  margin-left: 140px;
+  position: relative;
+
+  .qr-bg {
+    background-size: 200px auto;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    height: 276px;
+    width: 100%;
+
+    img {
+      position: absolute;
+      width: 32px;
+      right: 23px;
+      top: 50px;
+      -webkit-animation: scale 1s infinite;
+      animation: scale 1s infinite;
+    }
+  }
+
+  // 扫码登录 - 二维码
+  .qrcode-wrap {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    margin: 0;
+    border: 1px solid transparent;
+
+    .qrcode-img {
+      position: relative;
+      top: 14px;
+      left: 14px;
+
+      img {
+        width: 132px;
+        height: 132px;
+      }
+    }
+
+    .qrcode-loading, .qrcode-refresh, .qrcode-confirm {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 4px;
+      text-align: center;
+      font-size: 14px;
+      // color: #ffffff;
+    }
+
+    .text-6-cl {
+      color: #FFFFFF;
+    }
+
+    .qrcode-loading {
+      line-height: 164px;
+
+      img {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+        vertical-align: middle;
+        animation: rotate 1s linear infinite;
+      }
+
+      span {
+        vertical-align: middle;
+      }
+    }
+
+    .qrcode-refresh {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .expire {
+        margin-bottom: 7px;
+        font-size: 12px;
+        line-height: 22px;
+
+        // color: #FFFFFF;
+        .refresh {
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .qrcode-confirm {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .icon-60 {
+        font-size: 60px;
+        margin-bottom: 6px;
+        margin-top: 30px;
+      }
+
+      .wait-confirm {
+        line-height: 22px;
+        font-size: 12px;
+      }
+    }
+
+    .placeholder-h {
+      position: absolute;
+      left: 13px;
+      top: -1px;
+      width: 132px;
+      height: 100%;
+      border-style: solid;
+      border-width: 1px;
+      border-left: none;
+      border-right: none;
+    }
+
+    .placeholder-v {
+      position: absolute;
+      left: -1px;
+      top: 13px;
+      width: 100%;
+      height: 132px;
+      border-style: solid;
+      border-width: 1px;
+      border-top: none;
+      border-bottom: none;
+    }
+  }
+}

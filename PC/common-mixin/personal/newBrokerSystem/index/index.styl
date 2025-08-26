@@ -1,0 +1,258 @@
+.broker-system {
+  border-radius: 8px;
+  .broker-table {
+    margin-bottom: 30px;
+    padding-top: 28px;
+  }
+
+  .pagination-box {
+    margin-bottom: 32px;
+    margin-top: 26px;
+  }
+
+  .valid-form_item {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .user-management-child-header {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    padding: 18px 0 18px 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  .broker-system-header {
+    border-radius: 8px 8px 0 0;
+    margin-top: 1px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    position: relative;
+    padding: 0 30px;
+
+    .v5-common-navTab {
+      float: left;
+    }
+
+    .update-time {
+      font-size: 12px;
+      float: right;
+      line-height: 56px;
+    }
+  }
+
+  .broker-user-info {
+    // border-bottom-width: 10px;
+    // border-bottom-style: solid;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 10px
+    height: 185px;
+    padding: 0 30px;
+    position: relative;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 340px 164px;
+
+    .invite-help {
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin-left: -10px;
+    }
+
+    .user-name {
+      display: inline-block;
+      font-family: HarmonyOS-Regular;
+      letter-spacing: 0;
+      padding-top: 30px;
+
+      // padding: 30px 48px 12px 0;
+      // float: left;
+      .top {
+        font-size: 14px;
+        line-height: 12px;
+        height: 12px;
+        padding-left: 6px;
+        border-left-width: 2px;
+        border-left-style: solid;
+        margin-bottom: 12px;
+      }
+
+      .phone {
+        font-size: 16px;
+        font-family: HarmonyOS-Medium;
+        line-height: 30px;
+      }
+    }
+
+    .user-text-bar {
+      // float: left;
+      padding-top: 22px;
+      // width: 459px;
+      display: flex;
+
+      .v5-common-button.common-button-hollow-big{
+        font-size: 12px;
+        height:30px;
+        line-height: 28px !important;
+      }
+    }
+    .scale-text{
+      min-width :192px !important;
+      .title{
+        margin-right : 10px;
+      }
+      .msg_tip_icon{
+        width:12px;
+        height:12px;
+        cursor pointer;
+      }
+      .tip_container{
+        padding:4px 8px;
+        min-width:140px;
+        &>div{
+          font-size:12px;
+          line-height :20px;
+          span{
+            margin-left:8px;
+          }
+        }
+        .tip_title{
+          margin-bottom 4px;
+        }
+      }
+    }
+    .user-text {
+      padding: 0 16px;
+      box-sizing: border-box;
+      min-width: 150px;
+      height: 30px;
+      line-height: 30px;
+      font-family: HarmonyOS-Regular;
+      margin-right: 10px;
+      display: inline-block;
+      border-radius: 4px;
+
+      .title {
+        text-align: left;
+        font-size: 12px;
+      }
+
+      .info {
+        float: right;
+        font-family: PingFangSC-Medium;
+        padding-left: 12px;
+        // font-size: 22px;
+      }
+
+      .common-button {
+        .common-button-slot {
+          display: block;
+        }
+      }
+
+      .copy {
+        margin-left: 8px;
+      }
+    }
+
+    .invite-box {
+      padding: 0 10px;
+      display: flex;
+      line-height: 40px;
+      font-size: 12px;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+
+      .copy {
+        position: relative;
+        top: -2px;
+      }
+
+      .invite-right {
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .broker-system {
+    .broker-user-info {
+      height: 300px;
+
+      .user-name {
+        padding: 40px 0 12px 0;
+      }
+
+      .user-text-bar {
+        width: 100%;
+
+        .user-text {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .broker-content {
+      border-radius: 8px;
+      .overview-chars {
+        .overviewChars-content {
+          .overviewChars-content-left {
+            width: 100%;
+            float: none;
+
+            .overviewChars-content-messL {
+              float: none;
+            }
+
+            .overviewChars-content-messR {
+              float: none;
+              margin-top: 20px;
+            }
+          }
+
+          .overviewChars-content-right {
+            float: none;
+
+            .overviewChars-content-rightT {
+              text-align: left;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+
+      .broker-customer {
+        height: auto;
+
+        .broker-customer-content {
+          .broker-customer-sum {
+            float: none;
+          }
+
+          .broker-customer-mess {
+            float: none;
+            margin-left: 0px;
+            margin-top: 20px;
+          }
+
+          .broker-customer-sort {
+            float: none;
+            margin-left: 0;
+            padding-left: 0;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}

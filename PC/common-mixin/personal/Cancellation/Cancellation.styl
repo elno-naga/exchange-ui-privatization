@@ -1,0 +1,118 @@
+.cancellation {
+  width: 100%;
+
+  .cancellation-header {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    padding: 18px 0 18px 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .cancellation-center {
+    height: 799px;
+    float: left;
+    width: 100%;
+    font-family: 'PingFangSC-Medium';
+
+    .cancellation-center-con {
+      width: 304px;
+      margin: auto;
+
+      .cancellation-header-img {
+        display: block;
+        margin: auto;
+        margin-bottom: 24px;
+        margin-top: 80px;
+        width:139px;
+        height:73px;
+      }
+
+      .cancellation-tip {
+        dt {
+          font-weight: 500;
+          font-size: 18px;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        dd {
+          position: relative;
+          line-height: 18px;
+          font-weight: 500;
+          font-size: 12px;
+          padding-left: 35px;
+
+          span {
+            position: absolute;
+            top: 12px;
+            left: -17px;
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            position: relative;
+            border-radius: 50%;
+            // background-color: #fff;
+          }
+        }
+      }
+
+      .cancellation-understand {
+        margin-top: 40px;
+        display: flex;
+        font-size: 12px;
+        align-items: baseline;
+
+        .cancellation-understand-checkbox {
+          margin-right: 8px;
+        }
+
+        .cancellation-understand-text {
+          font-size: 12px;
+          line-height: 17px;
+          cursor: pointer;
+
+          .balance {
+            font-family: HarmonyOS-Medium;
+          }
+        }
+      }
+    }
+  }
+
+  .requirement-list {
+    dt, dd {
+      margin-bottom: 20px;
+    }
+    dt{
+      font-size: 16px;
+    }
+
+    dd {
+      height: 54px;
+      line-height: 54px;
+      border-radius: 4px;
+
+      .requirement-icon {
+        margin-left: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    dd:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .valid-form_item {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

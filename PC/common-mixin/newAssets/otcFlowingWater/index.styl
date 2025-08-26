@@ -1,0 +1,104 @@
+
+.v5-page-otcFlowingWater {
+  height: 100%;
+  .slide-fade-enter-active {
+    transition: all .5s;
+  }
+  .slide-fade-leave-active {
+    transition: all .5s;
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  .copy {
+    cursor: pointer;
+  }
+  .flowingWater-header {
+    padding: 36px 24px 28px 40px;
+    font-size: 20px;
+    line-height: 32px;
+    position: relative;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    .icon-back {
+      cursor pointer
+      margin-right: 16px;
+    }
+    .selectParam {
+      position: absolute;
+      bottom: 28px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+    }
+    .type-select {
+      margin-right: 20px;
+    }
+    .flowWater-select {
+      .input_line_content img {
+        width: 20px;
+        height: 20px;
+      }
+      .select-options-box .select-option-list .select-option-item img {
+        width: 20px;
+        height: 20px;
+      }
+      .select-options-box {
+        top: 46px;
+        .search-input {
+          height: 24px;
+          .icon {
+            vertical-align: 0;
+          }
+        }
+      }
+    }
+  }
+  .flowingWater-nav {
+    height: 56px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-left: 40px;
+  }
+  .flowingWater-table {
+    padding: 20px 24px 26px;
+    .table-coin {
+      display: flex;
+      align-items: center;
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        margin-right: 12px;
+      }
+      dd {
+        line-height: 18px;
+      }
+      .coinShowName {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .coinLongName {
+        font-size: 12px;
+      }
+    }
+  }
+  .copyValue {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+}
+// 国际版
+.Int {
+  .v5-page-flowingWater{
+    width: 940px;
+    margin: 0 auto;
+    .flowingWater-nav,
+    .flowingWater-table,
+    .flowingWater-options {
+      padding: 0;
+    }
+  }
+}

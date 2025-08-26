@@ -1,0 +1,54 @@
+@font-face {
+  font-family:Open Sans;
+  src:url('../fonts/Open-Sans.ttf') format("truetype");
+  font-weight:400;
+  font-style:normal
+  font-display:fallback
+
+}
+@font-face {
+  font-family:robotoregular;
+  src:url('../fonts/robotoregular.woff2') format("woff2"), url('../fonts/robotoregular.woff') format("woff");
+  font-weight:400;
+  font-style:normal
+  font-display:fallback
+}
+
+@font-face {
+  font-family: HarmonyOS-Medium;
+  font-weight: 500;
+  src: url('../fonts/HarmonyOS_Sans_SC_Medium.woff') format("opentype");
+}
+@font-face {
+  font-family: HarmonyOS-Regular;
+  font-weight: 400;
+  src: url('../fonts/HarmonyOS_Sans_SC_Regular.woff') format("opentype");
+}
+
+@font-face {
+  font-family: HarmonyOS-Bold;
+  font-weight: 700;
+  src: url('../fonts/HarmonyOS_Sans_SC_Bold.woff') format("opentype");
+}
+
+html body {
+  font:14px/1 HarmonyOS-Medium, robotoregular, PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, WenQuanYi Micro Hei, serif;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;
+  font-weight: 500;
+}
+
+html.mn_MN body {
+  font-family: Arial;
+}
+/** 越南语 */
+html.vi_VN div, html.vi_VN li, html.vi_VN span, html.vi_VN h1, html.vi_VN h2, html.vi_VN h3, html.vi_VN h4, html.vi_VN h5, html.vi_VN h6, html.vi_VN p {
+  font-family: Arial!important;
+}
+
+.medium{
+  font-weight 600
+}
+.min-medium{
+  font-weight 400
+}

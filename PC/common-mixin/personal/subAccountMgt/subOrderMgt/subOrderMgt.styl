@@ -1,0 +1,139 @@
+.order-mgt-box{
+  .lines_new{
+    height: 1px;
+    padding: 0 32px; 
+    .sub_line{
+      height: 1px;  
+    } 
+  }
+  .title{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 32px;  
+  }
+    font-family: HarmonyOS-Medium ;
+    min-height: 992px;
+    position: relative;
+    .noMargin {
+      margin-right: 0;
+    }
+    .textNormal{
+        color: #00B595;    
+    }
+    .table-data {
+      .table-div{
+        margin: 0 32px;  
+      }
+        .table-btn_item {
+            display: inline-block;
+            position: relative;
+            margin-right: 20px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .pagination{
+            position: absolute;
+            bottom: 40px;
+            right: 0;    
+        }
+        .cancel_cause{
+            .cancel_cause_text{
+                display: none;
+                position: absolute;
+                right: 19px;
+                top: -2px;
+                min-width: 65px;       
+            }
+            .cancel_cause-btn{
+                position: relative;
+                &:hover{
+                    .cancel_cause_text{
+                        display: block;
+                    }   
+                }    
+            }
+        }
+    }
+    .order-nav{
+        position: relative;
+        padding: 0 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 2px 0 0 0;
+        .exchangeOrder-nav-switch{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .button-nav{
+        padding: 24px 32px 32px 32px;
+        display: flex;
+        gap: 12px;
+        button{
+            height: 32px !important;
+            border: none !important;
+            border-radius: 2px 0px 0px 2px;
+            &:last-child{
+                border-radius: 0px 2px 2px 0px;   
+            }
+            .common-button-slot{
+                font-family: HarmonyOS-Medium ;    
+            }
+        }
+    }
+    .search-box{
+        display: flex;
+        justify-content: space-between; 
+        padding: 0 32px;
+        align-items: flex-end;
+        padding-bottom: 24px;
+        >div{
+            >div{
+                margin-right: 8px;
+            }
+            .operation-button{
+                height: 32px !important;
+            }
+        }
+    }
+    .disable-dialog{
+    }
+    .stop-order-info-dialog .closeBtnClass {
+        display: none;
+    }
+
+    .stop-order-info {
+        .item {
+        margin-bottom: 1px;
+
+        .line {
+            padding: 20px 20px 15px 20px;
+
+            .td {
+            display: inline-block;
+            width: 50%;
+
+            .tit {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+
+            .status {
+                font-size: 18px;
+            }
+            }
+
+            .right-text {
+            text-align: right;
+            }
+        }
+        }
+    }
+    .__rail-is-horizontal {
+        display: none; 
+    }
+}

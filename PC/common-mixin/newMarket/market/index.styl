@@ -1,0 +1,105 @@
+.v5Market-container {
+  font-family: HarmonyOS-Medium;
+  font-weight: 500;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+
+  .v5Market-content {
+    width: 1200px;
+    margin: auto;
+    padding-top: 32px;
+  }
+
+  .v5Market-title {
+    line-height: 46px;
+    font-family: HarmonyOS-Bold;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    padding-left: 16px;
+  }
+
+  .v5Market-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+  }
+
+  .v5Market-options {
+    padding-left: 16px;
+    display: flex;
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 4px;
+      height: 32px;
+      text-align: center;
+      font-size: 14px;
+      margin-right: 20px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      svg.icon {
+        margin-right: 8px;
+        vertical-align: 0;
+      }
+    }
+  }
+
+  .v5Market-tab {
+    margin-top: 24px;
+
+    .v5Market-tabList {
+      display: flex;
+    }
+
+    .v5Market-tabItem {
+      padding: 0 15px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &.border-tab {
+        border-left-style: solid;
+        border-left-width: 1px;
+      }
+    }
+  }
+
+  .v5Market-table {
+    margin-top: 32px;
+
+    .symbol-detail {
+      cursor: pointer;
+
+      .icon {
+        margin-right: 8px;
+      }
+
+      .symbol-coinLabel {
+        padding: 0px 2px;
+        font-size: 12px;
+        line-height: 14px;
+        display: inline-block;
+        border-radius: 2px;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .v5Market-tab-opt {
+    .v5Market-tabItem {
+      &.border-tab {
+        border-right-style: solid !important;
+        border-right-width: 1px !important;
+        border-left-style: solid !important;
+        border-left-width: 0px !important;
+      }
+    }
+  }
+}

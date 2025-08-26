@@ -1,0 +1,483 @@
+.promotion{
+  * {
+    font-family: HarmonyOS-Medium !important;
+  }
+  width: 100%;
+  color: #000;
+  background: white;
+  padding-bottom: 50px;
+  .banner-row{
+    width: 100%;
+    min-height: 480px;
+    background-size: cover !important;
+    >img{
+      width:100%;
+      min-height: 420px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .text-row{
+      width: 1200px;
+      margin: auto;
+      min-height: 480px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .img-item{
+        width: 18%;
+      }
+      .title-item{
+        width: 480px;
+        position: relative;
+        .title-text{
+          justify-content: space-between;
+          margin-bottom: 28px;
+          p{
+            color: #000;
+            font-size: 54px;
+            font-weight: 700;
+          }
+          span{
+            font-size: 14px;
+            cursor: pointer;
+          }
+        }
+        .label-text{
+          display: inline-block;
+          padding: 8px 16px;
+          align-items:center;
+          font-size:16px;
+          line-height:24px;
+          font-weight: 500;
+          font-family: "HarmonyOS Sans SC";
+        }
+        .rewardRules{
+          margin-top:40px;
+          > button{
+            display:inline-block;
+            width:auto !important;
+            .rewardRulesHid{
+              display:none;
+            }
+            &:hover{
+              .rewardRulesShow{
+                display:none;
+              }
+              .rewardRulesHid{
+                display:inline-block;
+              }
+            }
+          }
+          span.btnText{
+            font-family: "HarmonyOS Sans SC";
+            font-size: 14px;
+            font-weight: 500;
+            line-height:16px;
+            display:flex;
+            align-items:center;
+            cursor:pointer;
+            .icon{
+              margin-left:5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content-row{
+    width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+    >div{
+      margin-top: 120px;
+      >p{
+        font-size: 32px;
+        color: #16181D;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+    }
+    .form-item{
+      height: 220px;
+      border-radius: 12px;
+      padding:40px 32px;
+      box-sizing: border-box;
+      display:flex;
+      flex-direction:column;
+      margin-top:40px !important;
+      .form-title{
+        justify-content: space-between;
+        margin-bottom: 32px;
+        p{
+          font-size: 24px;
+          font-weight: 500;
+          line-height:28px;
+        }
+        span{
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+      .form-body{
+        display:flex;
+        .form-code{
+          width: 363px;
+          height: auto;
+          box-sizing: border-box;
+          border-radius: 4px;
+          margin-right:23px;
+          display:flex;
+          flex-direction:column;
+          // opacity: 0.7;
+          >p{
+            width: auto;
+            font-weight: 500;
+            line-height:16px;
+            font-size:14px;
+            margin-bottom:16px;
+            font-family: "HarmonyOS Sans SC";
+          }
+          .form-item-center{
+            display:flex;
+            height:44px;
+            line-height:44px;
+            border-radius:4px;
+            span{
+              flex:1;
+              display: block;
+              text-align: left;
+              color: #16181D;
+              font-weight: 500;
+              white-space: nowrap;
+              overflow: hidden;
+              padding:0 16px;
+              // text-overflow:ellipsis;
+              font-family: HarmonyOS-Medium;
+            }
+            .iconP{
+              width:30px;
+              text-align: center;
+              display: flex;
+              align-items: center;
+              img{
+                width: 14px;
+                cursor: pointer;
+              }
+            }
+
+          }
+        }
+        .form-button{
+          justify-content: space-between;
+          display:flex;
+          margin-top:32px;
+
+          .form-buttonQR{
+            .form-buttonHid{
+              display:none;
+            }
+            &:hover{
+              .form-buttonShow{
+                display:none;
+              }
+              .form-buttonHid{
+                display:inline-block;
+              }
+            }
+          }
+
+          button{
+            border-radius: 4px !important;
+            margin-right: 20px;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            .common-button-slot{
+              vertical-align: baseline;
+            }
+          }
+          p{
+            width: 44px;
+            height: 44px;
+            background: #F2F4FB;
+            cursor: pointer;
+            align-items: center;
+            line-height: 44px;
+            display: flex;
+            justify-content: center;
+            border-radius: 4px;
+            img{
+              width: 18px;
+            }
+          }
+        }
+      }
+    }
+    .steps{
+      width: 100%;
+      margin-top: 160px;
+      >p{
+        margin-bottom: 48px;
+        line-height:42px;
+        font-size:36px;
+        font-weight:500;
+        text-align:center;
+      }
+      >div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .steps-item{
+        width: 400px;
+        position:relative;
+        >div{
+          width:100%;
+          margin-bottom: 40px;
+          text-align: center;
+          img{
+            height: 100px;
+          }
+        }
+        p{
+          width:100%;
+          text-align: center;
+          font-family: "HarmonyOS Sans SC";
+          font-size: 16px;
+          font-weight: 500;
+        }
+        .steps-line{
+          width:161px;
+          height:70px;
+          position:absolute;
+          top:50px;
+          right:-80px;
+          img{
+            width:100%;
+            height:2px;
+          }
+        }
+      }
+    }
+    .invitation{
+      width:100%;
+      margin-top: 160px;
+      >p{
+        margin-bottom: 48px;
+        line-height:42px;
+        font-size:36px;
+        font-weight:500;
+        text-align:center;
+      }
+      .total-box{
+        width:100%;
+        box-sizing: border-box;
+        display: flex;
+        .total-item{
+          width:400px;
+          display:flex;
+          justify-content:center;
+          position:relative;
+          .total-icon{
+            flex:0 0 70px;
+            width:70px
+            height:70px;
+            margin-right:20px;
+            border:1px solid #000;
+            border-radius:50%;
+            position: relative;
+            >img{
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          .total-center{
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between
+            position:relative;
+            >p{
+              font-family: "HarmonyOS Sans SC";
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 500;
+            }
+            >span{
+              font-size:32px;
+              font-weight:500;
+            }
+            .ranking{
+              position:absolute;
+              left:0;
+              bottom:-30px;
+              cursor:pointer;
+              .iconRankingHid{
+                display:none;
+              }
+              > button:hover{
+                .iconRankingShow{
+                  display:none;
+                }
+                .iconRankingHid{
+                  display:inline-block;
+                }
+              }
+            }
+          }
+        }
+      }
+      .remark-box{
+        display:flex;
+        margin-top: 72px;
+        color: #888FA1;
+        border-radius:12px;
+        .reward{
+          padding:40px;
+          width:50%;
+        }
+        .reward-dis,.reward-center{
+          .dis-head{
+            font-size:20px;
+            font-weight:500;
+            font-family: "HarmonyOS Sans SC";
+          }
+          .dis-msg{
+            font-size:16px;
+            font-weight:400;
+            font-family: "HarmonyOS Sans SC";
+            line-height:22px;
+          }
+        }
+        .reward-center{
+          display:flex;
+          >div{
+
+          }
+        }
+        .marginTop20{
+          margin-top:20px;
+        }
+        .marginTop40{
+          margin-top:40px;
+        }
+        .reward-center-column{
+          flex-direction:column;
+        }
+        .reward-centerNoColmn{
+          width:100%;
+          >div{
+            flex:1;
+            justify-content:start;
+            margin-top:0px;
+          }
+        }
+      }
+    }
+    .details{
+      >p {
+        margin-bottom: 48px;
+        font-size:36px;
+        font-family: "HarmonyOS Sans SC";
+        font-weight: 500;
+        text-align:center;
+      }
+      .table-box{
+        margin-top:40px;
+        .invitation-table{
+          div{
+            //&:first-child{
+            //  border: none !important;
+            //}
+          }
+          >.table-body{
+            tr{
+              border-color: #e8ebf3 !important;
+              td{
+                div{
+                  font-weight: 600;
+                  font-family: HarmonyOS-Medium;
+                }
+              }
+            }
+          }
+          tr{
+            th{
+              div{
+                color: #888FA1;
+              }
+            }
+          }
+          .fill-6-bd{
+            border-color: #E8EBF3;
+          }
+        }
+        .invitation-page{
+          padding: 0;
+          div{
+            background: #fff;
+          }
+          .fill-6-bd{
+            border-color: #E8EBF3 !important;
+          }
+          .pagination-btn{
+            background: none !important;
+            text-align: right !important;
+          }
+          .pagination-btn:hover{
+            background: none !important;
+          }
+          .pagination-bar{
+            .text-2-cl {
+              color: rgba(136,143,161,1) !important;
+            }
+          }
+        }
+      }
+      .c_list_nav{
+        float:none;
+      }
+    }
+  }
+  .tips-msg{
+    display:flex;
+    flex-direction:column;
+    min-width:160px;
+    >span{
+      font-size:12px;
+      font-weight:500;
+      font-family: "HarmonyOS Sans SC";
+    }
+    .margin4{
+      margin: 4px 0;
+    }
+  }
+
+}
+.con_promotion_invite{
+  .text-1-cl{
+    color:#000 !important;
+  }
+  .fill-2-bg{
+    background-color:#fff !important;
+  }
+  .fill-3-bg{
+    background-color: rgb(247, 247, 247) !important;
+  }
+  .fill-1-cl{
+    color:rgba(245, 245, 245, 1) !important;
+  }
+  .fill-4-bg{
+    background-color: rgb(249, 249, 249) !important;
+  }
+  /deep/.tr-content{} .skeleton-dark{
+          background-image: linear-gradient(90deg, #f7f7f7 18.75%, #ececec 48.21%, #f7f7f7 73.44%) !important;
+        }
+  .fill-6-bd{
+    border-color:#e8ebf3 !important;
+  }
+  .special-6-bg{
+    background-color:#f7f7f7 !important;
+  }
+}

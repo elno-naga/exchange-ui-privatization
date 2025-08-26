@@ -1,0 +1,241 @@
+.page-otcOrder {
+  .cancel_cause {
+    .cancel_cause_text {
+      width:150px !important;}
+    }
+  .orderId {
+    margin-left: -10px !important;
+  }
+
+  .otcOrder-nav {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    position: relative;
+    padding-left: 32px;
+
+
+    .otcOrder-nav-switchs {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+
+      .switchWrap {
+        display: inline-block;
+        display: inline-block;
+      }
+
+      .text {
+        font-size: 12px;
+        margin-left: 10px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .otcOrder-options {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 14px;
+    display:flex;
+    & > div{
+      margin:0 20px 0 0;
+    }
+    .search-box{
+      margin-right: 20px;
+    }
+    .select-options-box{
+      top:45px !important;
+    }
+    .common-select {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+  .otcOrder-options {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 14px;
+    display:flex;
+    position: relative;
+
+    .cancleAll-btn {
+      position: absolute;
+      right: 24px;
+      top: -10px;
+    }
+
+    .tabRight {
+      margin-right: 20px;
+    }
+
+    .common-select {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+
+  .otcOrder-table {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px;
+    margin-top: 28px;
+
+    .pagination-box {
+      margin-bottom: 32px;
+      position: relative;
+      right: -10px;
+    }
+
+    .pagination {
+      padding: 0 !important;
+    }
+
+    .table-body td {
+      font-size: 14px;
+      font-family: HarmonyOS-Medium;
+      text-align: left;
+
+      .zs-btn {
+        position: relative;
+        right: 20px;
+      }
+    }
+
+    .table-body td:last-child {
+      text-align: right;
+
+      .common-button-text {
+        // padding-right: 0px !important;
+        position: relative;
+        right: -10px;
+      }
+    }
+
+
+    .table-head th {
+      text-align: left;
+    }
+
+    .table-head th:last-child {
+      text-align: right;
+    }
+  }
+
+  .floatLeft {
+    float: left;
+  }
+
+  .cancel_cause {
+    min-width: 80px;
+
+    .icon {
+      vertical-align: middle;
+    }
+
+    .cancel_cause_text {
+      display: none;
+      position: absolute;
+      width: 200px;
+      padding: 10px;
+      position: absolute;
+      right: 20px;
+      top: -10px;
+      z-index: 10;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      line-height: 1.5;
+      text-align: center;
+
+      &.position-bottom {
+        bottom: -10px;
+        top: auto;
+      }
+    }
+
+    .cancel_cause-btn {
+      position: relative;
+
+      &:hover {
+        .cancel_cause_text {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .cancel_cause_right {
+    .cancel_cause_text {
+      text-align: left;
+      left: 20px;
+      right: auto;
+    }
+  }
+
+  .stop-order-info-dialog .closeBtnClass {
+    display: none;
+  }
+
+  .stop-order-info {
+    .item {
+      margin-bottom: 1px;
+
+      .line {
+        padding: 20px 20px 15px 20px;
+
+        .td {
+          display: inline-block;
+          width: 50%;
+
+          .tit {
+            font-size: 12px;
+            margin-bottom: 5px;
+          }
+
+          .status {
+            font-size: 18px;
+          }
+        }
+
+        .right-text {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .mr-5{
+    margin-right:5px;
+  }
+
+  .table-body {
+    min-height: 370px;
+  }
+
+  @media only screen and (max-width: 960px) {
+  .common-table {
+    .table-body {
+      min-height: 370px;
+    }
+  }
+}
+  .table-head th > div{
+    text-align: left;
+    padding: 0 2px 8px;
+  }
+  .table-head th:last-child > div{
+    text-align: right;
+  }
+  .table-body td > div{
+    text-align: left;
+    padding: 0 2px;
+  }
+  .table-body td:last-child > div{
+    text-align: right;
+  }
+  .h5Box{
+    min-height: 612px;
+  }
+  .copywriter {
+    line-height: 22px;
+  }
+}

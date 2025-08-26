@@ -1,0 +1,108 @@
+.page-coflowingWater {
+  min-height: 800px;
+  .flowingWater-nav {
+    height: 88px;
+    line-height: 88px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-left: 24px;
+    .title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-left: 14px;
+    }
+    .gocoAccount {
+      cursor: pointer;
+      font-size: 20px;
+    }
+  }
+  .flowingWater-options {
+    box-sizing: border-box;
+    float: right;
+    .common-select,
+    .common-v5-select {
+      display: inline-block;
+      margin-right: 24px;
+      vertical-align: middle;
+      &:first-child {
+        margin: 0px;
+      }
+    }
+    .date_range_warpper{
+      margin-right:24px;
+    }
+
+  }
+  .flowingWater-table {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 24px 24px 24px;
+    .pagination{
+      padding: 0!important;
+    }
+    .table-head {
+      margin-top: 14px;
+      th {
+        text-align: left;
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+    .table-body {
+      font-family: HarmonyOS-Medium;
+      td {
+        text-align: left;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 500;
+        &:last-child {
+          text-align: right;
+        }
+        &:nth-child(3){
+          div {
+            width: 100px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+    .symbol-td {
+      .symbol-icon {
+        width: 24px;
+        height: 24px;
+        float: left;
+        margin-top: 4px;
+      }
+      .symbol-name {
+        float: left;
+        margin-left: 12px;
+        height: 35px;
+        h5 {
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: 500;
+          margin-bottom: 3px;
+        }
+        .notlongTitle {
+          margin-top: 8px;
+        }
+        p {
+          font-size: 12px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+// 国际版
+.Int {
+  .page-coflowingWater {
+    width: 940px;
+    margin: 0 auto;
+    .flowingWater-table,
+    .flowingWater-options {
+      padding: 0;
+    }
+  }
+}

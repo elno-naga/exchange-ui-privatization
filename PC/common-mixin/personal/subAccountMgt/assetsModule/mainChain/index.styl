@@ -1,0 +1,60 @@
+.mainChain {
+  margin-bottom: 16px;
+  .mainChain-title {
+    font-size: 12px;
+  }
+  .mainChain-page-icon {
+    cursor pointer
+    display inline-block
+    position relative
+    margin-left: 4px;
+
+    .mainChain-page-market {
+      word-break: break-all
+      box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+      position absolute
+      top 20px
+      max-width 340px
+      width max-content
+      padding 8px 12px;
+      left 50%
+      transform translate(-50%, 0)
+      box-sizing border-box
+      border-radius: 4px;
+      font-size 12px
+      letter-spacing 0
+      line-height 20px
+      z-index 4
+      .triangle {
+        position: absolute;
+        left: 50%;
+        transform translate(-50%, 0)
+        border: 6px solid;
+        border-left-color: transparent!important;
+        border-right-color: transparent!important;
+        border-top-color: transparent!important;
+        top: -10px;
+      }
+    }
+  }
+
+  .branchList {
+    margin-top 10px
+    display: flex;
+    flex-wrap: wrap;
+    width: 340px;
+    li {
+      font-size 14px
+      height 32px
+      min-width 66px
+      padding: 0 8px;
+      box-sizing: border-box;
+      text-align: center;
+      cursor pointer
+      line-height 32px
+      border-radius 4px
+      margin-right: 12px;
+      margin-bottom: 16px;
+    }
+  }
+}

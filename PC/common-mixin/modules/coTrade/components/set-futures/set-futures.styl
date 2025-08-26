@@ -1,0 +1,88 @@
+.set-up-window {
+  .redio-block {
+    align-items: center;
+    padding: 20px 0px;
+    .label {
+      display: block;
+    }
+    .redio-box {
+      padding-top: 16px;
+      >span {
+        display: inline-block;
+        margin-right: 28px;
+        cursor: pointer;
+        min-width: 60px;
+      }
+    }
+    .switchWrap {
+      float: right;
+    }
+  }
+  .ts-1 {
+    padding: 15px 0 10px;
+    font-size: 12px;
+  }
+  .redio-block2 {
+    margin-top: 30px;
+    .item {
+      padding: 10px 0;
+    }
+    p.ts-2 {
+      line-height: 20px;
+      padding: 10px 0 0 26px;
+      font-size 12px;
+    }
+    span {
+      display: block;
+      cursor pointer
+    }
+    em {
+      font-size 12px;
+    }
+    .common-redio {
+      margin-right: 6px;
+    }
+  }
+  .ts-3 {
+    padding-top: 15px;
+    margin-bottom: -10px;
+  }
+  .ts-4 {
+    padding-left: 20px;
+    font-size: 12px;
+  }
+  .button-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+
+    button {
+      margin-right: 20px;
+    }
+  }
+  .redio-box2 {
+    margin-top: 24px;
+    .item {
+      border-width: 1px;
+      border-style: solid;
+      padding 12px;
+      margin-bottom 22px;
+      border-radius 2px;
+      cursor pointer;
+      transition: border-color .3s ease-in-out, box-shadow .15s ease-in-out
+    }
+    &.disbledRedio {
+      cursor: no-drop;
+      .item {
+        border-width: 0;
+        cursor: no-drop;
+        span {
+          cursor: no-drop;
+        }
+        .common-redio {
+          cursor: no-drop;
+        }
+      }
+    }
+  }
+}

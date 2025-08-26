@@ -1,0 +1,439 @@
+.v5-page-withdraw {
+  width: 1200px;
+  margin: 0 auto;
+  .slide-fade-enter-active {
+    transition: all .5s;
+  }
+  .slide-fade-leave-active {
+    transition: all .5s;
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  .copy {
+    cursor: pointer;
+  }
+  .withdraw-form {
+    border-radius: 8px;
+  }
+  .withdraw-header {
+    padding: 36px 0 0 40px;
+    font-size: 20px;
+    line-height: 28px;
+    .icon {
+      cursor pointer
+      margin-right: 16px;
+    }
+  }
+  .withdraw-details {
+    padding: 30px 40px 40px 40px;
+    display: flex;
+    position: relative;
+    justify-content:space-between;
+    .withdraw-tab {
+      margin-bottom: 27px;
+      display: flex;
+      .tabItem {
+        height: 32px;
+        padding: 0 18px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 32px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+        margin-right: 12px;
+        cursor: pointer;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    .cut-line {
+      width: 1px;
+      height: 336px;
+      margin: 27px 80px 0 80px;
+    }
+    .details-left {
+      width: 340px;
+    }
+    .numberList {
+      width: 100%;
+      line-height: 16px;
+      font-size: 12px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      li {
+        margin-bottom: 16px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .numberList-key {
+      text-align: left;
+    }
+    .numberList-value {
+      text-align: right;
+    }
+    .amount-tips {
+      margin-top: 32px;
+      font-size: 12px;
+      div {
+        margin-bottom: 12px;
+      }
+      li {
+        margin-bottom: 12px;
+        line-height: 15px;
+        display: flex;
+        justify-content: space-between;
+        span {
+          text-align: left;
+        }
+        i {
+          text-align: right;
+        }
+      }
+    }
+    .details-warking {
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 32px;
+      display: flex;
+      .limit-tip {
+        line-height: 20px;
+      }
+    }
+    .withdrawMsg {
+      margin-top: 30px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .withdraw-address {
+      width: 378px;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 10px;
+        .addressMent {
+          cursor: pointer;
+        }
+      }
+      //.address-select {
+      //  width: 100%;
+      //  position: relative;
+      //  .input-content {
+      //    width: 100%;
+      //    height: 40px;
+      //    box-sizing: border-box;
+      //    border-radius: 4px;
+      //    border-style: solid;
+      //    border-width: 1px;
+      //    font-size: 14px;
+      //    padding: 0 12px;
+      //    display: flex;
+      //    align-items: center;
+      //    transition: 0.3s;
+      //    input {
+      //      width: 0;
+      //      flex: 1;
+      //      font-family: HarmonyOS-Medium;
+      //    }
+      //    .clear {
+      //      margin-left: 12px;
+      //      cursor: pointer;
+      //      height: 12px;
+      //      .icon {
+      //        vertical-align: 0;
+      //      }
+      //    }
+      //  }
+      //  .select-option {
+      //    width: 100%;
+      //    position: absolute;
+      //    top: 44px;
+      //    left: 0;
+      //    padding-top: 12px;
+      //    border-radius: 4px;
+      //    border-style: solid;
+      //    border-width: 1px;
+      //    box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28);
+      //    box-sizing: border-box;
+      //    max-height: 400px;
+      //    overflow: auto;
+      //    z-index: 2;
+      //    cursor: pointer;
+      //    .option {
+      //      margin: 0 8px 4px;
+      //      padding: 8px 12px;
+      //      border-radius: 4px;
+      //      margin-bottom: 4px;
+      //      .text {
+      //        font-size: 14px;
+      //        line-height: 18px;
+      //        margin-bottom: 3px;
+      //        word-break: break-all;
+      //      }
+      //      .subText {
+      //        font-size: 12px;
+      //        line-height: 17px;
+      //        word-break: break-all;
+      //      }
+      //    }
+      //    .addNew {
+      //      height: 50px;
+      //      line-height: 50px;
+      //      text-align: center;
+      //      border-top-style: solid;
+      //      border-top-width: 1px;
+      //      margin-top: 16px;
+      //      cursor: pointer;
+      //      .icon {
+      //        margin-right: 8px;
+      //        vertical-align: 0;
+      //      }
+      //    }
+      //  }
+      //}
+    }
+    .address, .addressPage  {
+      width: 340px;
+      height: 40px;
+      font-size: 14px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input {
+        opacity 0;
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+      }
+    }
+    .memo {
+      position: relative;
+      margin-top: 32px;
+      .addressBox-page-icon {
+        position: absolute;
+        right: 12px;
+        bottom: 14px;
+      }
+      .iconPage-market {
+        word-break: break-all
+        box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+        position absolute
+        top 30px
+        width 378px
+        padding 20px
+        right -12px
+        box-sizing border-box
+        border-radius: 4px;
+        font-size 12px
+        letter-spacing 0
+        line-height 20px
+        z-index 4
+      }
+    }
+    .withdraw-num {
+      margin-top: 32px;
+      .allWithdraw {
+        font-size: 14px;
+        margin-right: 12px;
+        cursor: pointer;
+        margin-bottom: 0;
+      }
+      &.hasError {
+        margin-bottom: 20px;
+      }
+    }
+    .withdraw-fee {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+  }
+  .withdrawRecord {
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-bottom: 50px;
+    .withdrawRecord-title {
+      width: 100%;
+      padding-left: 16px;
+      margin-bottom: 20px;
+      position: relative;
+      box-sizing: border-box;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      font-size: 14px;
+      .title-text {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+      }
+      .title-line {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        border-radius: 2px 2px 0px 0px;
+        left: 50%;
+        bottom: 0;
+        margin-left: -20px;
+      }
+      .all-record {
+        cursor: pointer;
+        position: absolute;
+        font-size: 14px;
+        line-height: 30px;
+        right: 24px;
+        top: 12px;
+      }
+    }
+    .table-coin {
+      display: flex;
+      align-items: center;
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        margin-right: 12px;
+      }
+      dd {
+        line-height: 18px;
+      }
+      .coinShowName {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .coinLongName {
+        font-size: 12px;
+      }
+    }
+    .copy {
+      margin-left: 4px;
+    }
+    .revoke {
+      cursor: pointer;
+    }
+    .address-col {
+      position: relative;
+      .long-value {
+        visibility: hidden;
+        transform: translateY(-5px);
+        opacity: 0;
+        position: absolute;
+        width: 204px;
+        padding: 9px 12px;
+        left: 0;
+        top: 22px;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28);
+        border-radius: 4px;
+        word-break: break-all;
+        z-index: 2;
+        transition: all 0.5s;
+      }
+      &:hover {
+        .long-value {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  .copyValue {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+  .valid-form_item {
+    margin-bottom: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .assets-loading {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: 1000;
+  }
+  .withdraw-confirm {
+    .confirm-title {
+      text-align: center;
+      margin-bottom: 20px;
+      div {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 8px;
+      }
+      p {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 500;
+      }
+    }
+    .info-list {
+      .list-item {
+        display: flex;
+        line-height: 18px;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        .key {
+          font-size: 12px;
+        }
+        .value {
+          font-size: 14px;
+          word-break: break-all;
+          flex: 1;
+          text-align: right;
+          margin-left: 20px;
+        }
+      }
+    }
+    .trust-tip {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 12px 0 4px;
+    }
+    .doWithdrawTip {
+      font-size: 12px;
+      line-height: 16px;
+      padding-top: 24px;
+    }
+  }
+  .noPermission-main{
+    flex-direction:column;
+  }
+  .noPermission-title{
+    font-size:24px;
+    line-height:24px;
+  }
+  .noPermission-title-msg{
+    font-size:14px;
+    line-height:14px;
+    margin:10px 0 20px;
+  }
+  .withdrawaTips{
+    font-size:14px;
+    line-height:14px;
+    margin-top:40px;
+  }
+  .label-address-type{
+    display:inline-block;
+    padding:2px 4px;
+    font-size:12px;
+    font-weight:500;
+    font-family: HarmonyOS-Medium;
+    margin-left:3px;
+  }
+}

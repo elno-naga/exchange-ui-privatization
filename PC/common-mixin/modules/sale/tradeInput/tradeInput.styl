@@ -1,0 +1,109 @@
+.newTrade-input.newTrade-input-china-container {
+  position: relative;
+  .input-item {
+    width: 100%;
+    height: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    cursor: text;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-right: 16px;
+    .tit {
+      padding: 0 16px;
+    }
+    .inputs {
+      text-align: right;
+      flex: 1;
+      font-size: 14px;
+      position: static;
+      width: inherit;
+      margin-top: 0!important;
+      font-family: HarmonyOS-Medium;
+    }
+  }
+  .price-rate {
+    position: absolute;
+    right: 0;
+    top: -28px;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 6px 16px;
+    .arrow {
+      position: absolute;
+      border-width: 4px;
+      border-style: solid;
+      border-bottom-color: transparent!important;
+      border-left-color: transparent!important;
+      border-right-color: transparent!important;
+      left: 25%;
+      bottom: -8px;
+    }
+  }
+  .disabledText {
+    font-size: 14px;
+    flex: 1;
+    text-align: right;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .error-msg {
+    position: absolute;
+    right: 0;
+    top: -28px;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 6px 16px;
+    .arrow {
+      position: absolute;
+      border-width: 4px;
+      border-style: solid;
+      border-bottom-color: transparent!important;
+      border-left-color: transparent!important;
+      border-right-color: transparent!important;
+      left: 25%;
+      bottom: -8px;
+    }
+  }
+  &.disabledForm {
+    .input-item {
+      // border-style: dashed;
+      border-color: transparent;
+    }
+  }
+  .units {
+    display:flex;
+    align-items:center;
+    .unitsLine{
+      width:1px;
+      flex:0 0 1px;
+      height:12px;
+      margin:0 8px;
+    }
+    .unitsIcon{
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      & > img{
+        width:16px;
+        height:16px;
+        vertical-align:middle;
+      }
+      & > span{
+        vertical-align:middle;
+        margin-left:4px;
+        line-height:16px;
+        margin-top:2px;
+      }
+    }
+  }
+}
+.slide-fade-enter-active {
+  transition: all .5s;
+}
+.slide-fade-leave-active {
+  transition: all .5s;
+}

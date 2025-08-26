@@ -1,0 +1,442 @@
+.order-list-box {
+  .hide-updateDom {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    display: none;
+    z-index: -1px;
+  }
+  .common-position-table {
+    min-height: 255px;
+    position: relative;
+
+    .positionLis-table {
+      table {
+        width: 100%;
+      }
+
+      .thead {
+        line-height: 30px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        text-align: center;
+
+        th {
+          padding-left: 10px;
+
+          &:last-child {
+            padding-right: 10px;
+          }
+        }
+      }
+
+      .tbody {
+        tr {
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
+
+        td {
+          text-align: left;
+          padding: 5px 0;
+          line-height: 16px;
+          vertical-align: middle;
+          position: relative;
+          padding-left: 10px;
+          min-width: 80px;
+
+          .icon-s {
+            vertical-align: middle;
+            margin-right: 5px;
+            cursor: pointer;
+          }
+
+          &:first-child {
+            padding-left: 15px;
+            text-align: left;
+          }
+
+          &:last-child {
+            padding-right: 15px;
+            min-width: 50px;
+            text-align: right;
+          }
+        }
+
+        .position-td7 {
+          min-width: 120px;
+        }
+
+        .close-position {
+          min-width: 230px;
+        }
+
+        .sideBg {
+          position: absolute;
+          width: 2px;
+          height: 80%;
+          top: 2px;
+          left: 0;
+        }
+
+        .symbol-name {
+          font-size: 14px;
+          font-weight: 500;
+          padding-left: 5px;
+          position: relative;
+        }
+
+        .symbol-type {
+          font-size: 12px;
+          padding-left: 5px;
+          margin-top: 4px;
+        }
+
+        .edit-stop-order {
+          cursor: pointer;
+        }
+
+        .position-td7 {
+          min-width: 140px;
+        }
+      }
+
+      .close-position {
+        width: 238px;
+        text-align: left !important;
+
+        .tab-tilte {
+          display: flex;
+
+          li {
+            margin-right: 22px;
+            cursor: pointer;
+          }
+        }
+
+        .tab-content {
+          position: relative;
+
+          input {
+            height: 30px;
+            line-height: 30px;
+            border-width: 1px;
+            border-style: solid;
+            box-sizing: border-box;
+            margin-right: 4px;
+            padding: 0 5px;
+            font-size: 12px;
+            border-radius: 4px;
+          }
+
+          .tab-item-1 {
+            input {
+              width: 100px;
+            }
+
+            .common-button {
+              border-radius: 4px;
+            }
+          }
+
+          .tab-item-2 {
+            position: relative;
+
+            input {
+              width: 80px;
+            }
+          }
+        }
+
+        // div {
+        // min-width: 135px;
+        // }
+        .limit-btn {
+          position: absolute;
+          top: -5px;
+          right: -8px;
+        }
+
+        .common-button {
+          margin-right: 5px;
+          font-size: 12px;
+          line-height: 24px !important;
+        }
+
+        .close-order-btn {
+          display: inline-block;
+          width: 45%;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+
+    .tip-text {
+      width: 240px;
+      padding: 8px 12px;
+      position: absolute;
+      left: 0px;
+      bottom: 255px;
+      z-index: 10;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      line-height: 1.5;
+      border-width: 0px;
+      border-style: solid;
+      white-space: initial;
+      text-align: left;
+      border-radius: 3px;
+      font-size: 12px;
+      background-color:#7B828E;
+    }
+
+    .tip-arrow {
+      position: absolute;
+      left: 10%;
+      bottom: -12px;
+    }
+
+    .tip-text6, .tip-text8, .tip-text9, .tip-text10 {
+      left: auto;
+      right: 0;
+    }
+
+    .tip-text10 {
+      .tip-arrow {
+        left: 48%;
+      }
+    }
+
+    .loadingIng {
+      span {
+        cursor: wait !important;
+      }
+    }
+
+    .Slect-price-type {
+      .s-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .slect-redio {
+        cursor: pointer;
+
+        span {
+          margin: 0 10px 0 0;
+        }
+
+        p {
+          padding-bottom: 10px;
+        }
+
+        .common-button {
+          float: right;
+        }
+      }
+    }
+    .adlLevel {
+      margin-left: 4px;
+      cursor: pointer;
+      .adlLevel-item {
+        width: 2px;
+        height: 8px;
+        display inline-block;
+        margin-right: 2px;
+      }
+      .highlight {
+        &:nth-child(1) { background: #00B595}
+        &:nth-child(2) { background: #00B595}
+        &:nth-child(3) { background: #FFA693}
+        &:nth-child(4) { background: #D1425E}
+        &:nth-child(5) { background: #D1425E}
+      }
+    }
+  }
+
+  .not-data {
+    padding-top: 80px;
+    text-align: center;
+    font-size: 12px;
+
+    .icon {
+      font-size: 36px;
+    }
+
+    p {
+      margin-top: 5px;
+    }
+  }
+
+  .thead-box {
+    height: 40px;
+    line-height: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: 0;
+    display: flex;
+    min-width: 100%;
+    width: 100%;
+
+    .cell {
+      display: inline-block;
+      padding-left: 10px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 12px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 9%;
+      min-width: min-content;
+
+      &:first-child {
+        padding-left: 15px;
+        text-align: left;
+      }
+
+      &:last-child {
+        padding-right: 15px;
+        text-align: right;
+      }
+
+      &:nth-child(8) {
+        // min-width: 140px;
+        min-width: 110px;
+      }
+
+      &:nth-child(8) {
+        min-width: 140px;
+      }
+
+      .item-div:hover {
+        .tip-text {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .positionLis-table-box {
+    height: 215px;
+    font-size: 12px;
+    padding-top: 40px;
+  }
+
+  .columns-item {
+    position: relative;
+    cursor: pointer;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+  }
+
+  .amountDialog-box {
+    .copywriter {
+      font-size: 12px;
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+
+    .amount-item {
+      padding: 18px 20px;
+
+      p {
+        line-height: 18px;
+        margin-top: 5px;
+
+        &.tit {
+          font-size: 14px;
+        }
+
+        .f_r {
+          float: right;
+        }
+      }
+
+      .profit {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .position-profit {
+    user-select: none;
+    cursor: pointer;
+
+    span {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    .h-s {
+      display: none;
+    }
+
+    &:hover {
+      .h-s {
+        display: inline;
+      }
+
+      .h-i {
+        display: none;
+      }
+    }
+  }
+
+  .percentage-slide {
+    padding: 0 5px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 3px;
+    position: absolute;
+    z-index: 9;
+
+    span {
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin: 4px 2px;
+      font-size: 12px;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+
+  .percentage-vol {
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    margin-right: 4px;
+    padding: 0 5px;
+    font-size: 12px;
+    border-radius: 2px;
+    width: 100px;
+    display: inline-block;
+  }
+
+  .percentage-vol2 {
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    margin-right: 4px;
+    padding: 0 5px;
+    font-size: 12px;
+    border-radius: 2px;
+    width: 80px;
+    display: inline-block;
+  }
+}
+
+.positionzoomIn-enter-active {
+  transition: all 0.2s 0.1s ease;
+}
+
+.positionzoomIn-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.positionzoomIn-enter, .positionzoomIn-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
+}

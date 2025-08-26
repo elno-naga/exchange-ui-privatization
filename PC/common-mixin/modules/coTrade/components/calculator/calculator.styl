@@ -1,0 +1,351 @@
+
+.calculator-mode {
+  .dialog-left-body {
+    width: 100% !important
+    margin: 0 !important
+    padding: 0 !important
+  }
+}
+
+.calculatorMode-box {
+  min-height: 700px;
+
+  .category-select-box {
+    width: 100%;
+    display: flex;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+
+    .tab {
+      flex: 1;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+
+      &.active {
+        color: #fff;
+      }
+    }
+
+    .tab-active-bg {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      transition: all 0.5s;
+      left: 50%;
+      border-radius: 4px;
+    }
+  }
+
+  .category-tab-box {
+    margin-bottom: 16px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding: 0 24px;
+  }
+  .block-box {
+    padding: 0 24px;
+  }
+
+
+  .form-block {
+    font-size: 14px;
+
+    .positionTypeSelect {
+      margin-bottom: 16px;
+    }
+
+    .select-price {
+      margin-top: 8px;
+    }
+  }
+
+  .form-info {
+    margin: 32px 0 0;
+    padding: 24px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+
+    .tit {
+      border-bottom-width: 0;
+      border-bottom-style: solid;
+      display: flex;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .info-item {
+      margin-bottom: 1px;
+      display: flex;
+      box-sizing: border-box;
+      height: 32px;
+      align-items: center;
+      border-bottom-width: 0;
+      border-bottom-style: solid;
+      font-size: 14px;
+
+      p {
+        flex: 1;
+      }
+
+      .text1 {
+        max-width: 120px;
+      }
+
+      .text2 {
+        text-align: right;
+        border-left-width: 0;
+        border-left-style: solid;
+      }
+    }
+  }
+
+  .active-lever {
+    line-height: 30px;
+    border-width: 1px;
+    border-style: solid;
+    text-align: right;
+    padding: 0 8px;
+
+    span {
+      float: left;
+    }
+  }
+
+  .transaction-drag {
+    position: relative;
+    width: calc(100% - 15px);
+    margin-top: 40px;
+    height: 40px;
+
+    .drag-def, .drag-cover {
+      position: absolute;
+      display: block;
+      height: 4px;
+      top: 3px;
+      left: 4px;
+    }
+
+    .drag-def {
+      width: 100%;
+    }
+
+    .drag-cover {
+      background: #ff00ff;
+    }
+
+    .drag-turnColor {
+      background: red;
+    }
+
+    .drag-step {
+      position: absolute;
+      left: 0%;
+      display: block;
+      top: -1px;
+      border-radius: 100px;
+      border-width: 2px;
+      border-style: solid;
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      z-index: 5;
+      box-sizing: border-box;
+
+      &.transition {
+        transition: all 0.2s ease;
+      }
+
+      .icon_h {
+        display: block;
+        height: 8px;
+        width: 3px;
+        margin: 3px 0 0 5px;
+        background: none;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+      }
+
+      .value {
+        position: absolute;
+        top: -35px;
+        width: 60px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 4px;
+        left: 50%;
+        margin-left: -30px;
+        user-select: none;
+        font-size: 12px;
+
+        .arrow {
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          bottom: -6px;
+          left: 25px;
+          line-height: 0;
+        }
+      }
+    }
+
+    i {
+      // background: #293448;
+      position: absolute;
+      top: 1px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      cursor: pointer;
+      z-index: 4;
+      text-align: right;
+      border-width: 1px;
+      border-style: solid;
+      border-top: none;
+      border-bottom: none;
+      border-radius: 50px;
+    }
+
+    i.selected {
+      background: $input-focus-border;
+    }
+
+    i.drag-step0 {
+      left: calc(25% + 4px);
+    }
+
+    .drag-step-wrap {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+    }
+
+    .mark {
+      display: inline-block;
+      width: 36px;
+      text-align: center;
+      left: -12px;
+      top: 20px;
+      position: absolute;
+      user-select: none;
+      font-size: 12px;
+    }
+  }
+
+  .drag-bar {
+    position: absolute;
+    height: 4px;
+    top: 0;
+    z-index: 1;
+    left: 4px;
+  }
+
+  .max-can-open {
+    padding: 10px 0;
+  }
+
+  .no-drop {
+    .transaction-drag i, .drag-step.transition {
+      cursor: no-drop;
+    }
+  }
+
+  .add-and-sub {
+    height: 40px;
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    align-items: center;
+    border-radius: 2px;
+
+    .label {
+      padding-left: 8px;
+      font-size: 14px;
+      padding-right: 16px;
+      user-select: none;
+    }
+
+    .options {
+      width: 38px;
+      height: 40px;
+    }
+
+    .add, .sub {
+      display: block;
+      width: 100%;
+      height: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 2px;
+
+      .hover-show {
+        display: none;
+      }
+
+      .icon {
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        .hover-hide {
+          display: none;
+        }
+
+        .hover-show {
+          display: block;
+        }
+      }
+    }
+
+    .add {
+      border-right-width: 0px;
+      border-top-width: 0px;
+      border-bottom-width: 0px;
+
+      .icon {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .sub {
+      border-right-width: 0px;
+      border-bottom-width: 0px;
+    }
+
+    .content {
+      flex: 1;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+
+      input {
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+        text-align: left;
+        user-select: none;
+      }
+    }
+  }
+
+  .warning-text {
+    line-height: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+  }
+    .warning-text-all {
+    line-height: 18px;
+  }
+}

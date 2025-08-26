@@ -1,0 +1,346 @@
+// 信用卡入金
+.page-window{
+  width:100%;
+  height:100%;
+  margin-top :4px;
+}
+.credit-card-purchase {
+  width: 1027px;
+  min-height: 800px;
+  margin: 0 auto;
+  padding: 60px 50px;
+  box-sizing: content-box;
+  position: relative;
+  .icon-change{
+    width:17px;
+    height:15px;
+  }
+  .flex-row{
+    display :flex;
+    flex-direction:row;
+    align-items :center
+  }
+  .side-tip{
+    padding:2px 8px;
+    font-size:12px;
+    margin-left :10px;
+    border-radius :2px;
+    line-height:14px;
+  }
+
+  dl {
+    .title{
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .record{
+      font-size: 14px;
+      float: right;
+      cursor:  pointer;
+      span{
+        margin-left :4px;
+      }
+    }
+
+    dt{
+      margin-bottom: 28px;
+    }
+
+
+  }
+
+  .step-one{
+    margin-bottom: 66px;
+
+    dt{
+      //border-bottom-width:1px;
+      //border-bottom-style: solid;
+      margin-bottom: 28px;
+    }
+    dd{
+      display:flex;
+    }
+  }
+
+  .content{
+    display:flex;
+    justify-content: space-between;
+
+    dl{
+      width:auto;
+    }
+    dt{
+      display :flex;
+      align-items:center;
+      flex-direction:row;
+    }
+
+    .count-down{
+      cursor:pointer;
+      margin-left: 10px;
+      font-size:12px;
+      .icon {
+        vertical-align: -0.20em;
+      }
+    }
+  }
+
+  .step-tow{
+    width:480px;
+    .noProvider{
+      margin-top :190px;
+    }
+    ul{
+
+      li{
+        display: flex;
+        height: 50px;
+        margin-bottom: 14px;
+        justify-content: space-between;
+        align-items:center;
+        padding:16px 20px;
+        border-radius: 4px;
+        border:1px solid transparent;
+        position:relative;
+        font-size :16px;
+        cursor :pointer;
+        .icon-select{
+          position:absolute;
+          top:-1px;
+          right:0;
+        }
+
+        .payment-info {
+          display: flex;
+          flex-direction: column;
+        }
+        .channel-warp{
+          display: flex;
+          align-items: center;
+          margin-top :8px;
+          .pay-type{
+            height:16px;
+            margin-right:8px;
+          }
+        }
+
+        .common-redio{
+          margin-right: 20px;
+        }
+
+        .payment-icon{
+          width:auto;
+          height:16px;
+          margin-right: 8px
+        }
+
+        .payment-box{
+          display: flex;
+          flex-direction: row;
+          align-items:center;
+        }
+
+        .channel-warp{
+
+          .channel{
+            width: 28px;
+            height: 18px;
+            border-radius:2px;
+            margin-right: 10px;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -ms-interpolation-mode: nearest-neighbor;
+          }
+        }
+
+        .payment-rate{
+          font-size :14px;
+        }
+      }
+    }
+  }
+
+  .step-three{
+    width:440px;
+    .detail_msg{
+      height:190px;
+      position :relative;
+      .common-loading{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform :translate(-50%,-50%);
+      }
+    }
+    .noProvider{
+      //margin-top :70px;
+      //margin-bottom :12px;
+      margin-top :0;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform :translate(-50%,-50%);
+      span{
+        white-space :nowrap;
+      }
+    }
+    .single-limit{
+      margin-bottom: 25px;
+    }
+
+    ul{
+      border-bottom-width:1px;
+      border-bottom-style: solid;
+      margin-bottom: 20px;
+
+      li{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        line-height:14px;
+
+        .des-icon{
+          position relative
+          div{
+            position absolute
+            box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+            border-radius: 2px;
+            padding: 8px 12px;
+            left: 26px;
+            top: 0;
+            display: none;
+            z-index : 1;
+            max-width:295px;
+          }
+          &:hover{
+            div{
+              display:block;
+            }
+          }
+        }
+        .details-key{
+          font-size :12px;
+        }
+        .details-value{
+          display:flex;
+          align-items: center;
+          font-size :14px;
+
+          img{
+            width:auto;
+            height:14px;
+            border-radius:4px;
+            margin-right: 10px
+          }
+        }
+        .details-value-extra{
+          font-size :10px;
+          font-weight :400;
+        }
+        .gas-tip{
+          display :flex;
+          flex-direction :column;
+          align-items :flex-end;
+        }
+      }
+    }
+
+    .disclaimer{
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .clause{
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    .confirm-warp{
+      display: flex;
+      flex-direction:column
+      margin-top: 16px;
+
+      .agree-protocol{
+        cursor pointer;
+        margin-bottom:8px;
+        line-height:normal;
+      }
+    }
+  }
+
+  .common-problem{
+    margin-top: 60px;
+    .title{
+      line-height: 40px;
+      font-size: 22px;
+      font-weight: 500;
+      padding-bottom:12px;
+    }
+
+    ul{
+      padding-bottom: 60px;
+
+      li{
+        padding: 16px 0;
+        font-size :12px;
+        line-height 18px;
+        font-weight :400;
+        border-bottom :1px solid transparent;
+        .questions{
+          font-weight :400;
+          font-size :16px;
+          line-height :22px;
+          margin-bottom :4px;
+        }
+      }
+    }
+  }
+
+  .noProvider{
+    display: flex;
+    flex-direction: column;
+    justify-center: center;
+    align-items:center;
+    margin-top: 100px;
+
+    span{
+      margin-top:20px;
+      font-family: HarmonyOS-Regular;
+    }
+  }
+
+  .step{
+    border-radius: 50%;
+    display:inline-block;
+    width:26px;
+    height:26px;
+    text-align:center;
+    line-height 26px;
+    margin-right:16px;
+    font-size :16px !important;
+    span{
+      vertical-align :middle;
+      margin-top :1px;
+    }
+  }
+
+  .direction-change{
+    width:38px;
+    height:38px;
+    border-radius :50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:26px 12px 0 12px;
+    cursor :pointer;
+  }
+  .input-title{
+    font-size :14px;
+    margin-bottom:8px;
+  }
+}

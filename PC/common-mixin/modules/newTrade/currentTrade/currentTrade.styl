@@ -1,0 +1,199 @@
+.trade-shrinks {
+  .newTrade-index-container {
+    .block-header {
+      display none
+    }
+  }
+}
+
+.currentTrade-index-container {
+  &.currentTrade {
+    width 100%
+    flex 1
+    overflow: hidden;
+  }
+
+  .block-header {
+    height 39px
+    line-height 39px
+    padding 0 15px
+    font-size 14px
+    border: none;
+    .h4 {
+      font-size: 14px;
+    }
+  }
+
+  .thead {
+    height 25px
+    line-height 25px
+    // border-bottom-width 1px
+    // border-bottom-style solid
+    padding 0 15px 0 0
+    font-size 12px
+
+    span {
+      display inline-block
+      white-space nowrap
+    }
+  }
+
+  .tbody {
+    // padding 5px 0 5px
+    font-size 12px
+    transiton height 0.5s ease
+    -webkit-transition height 0.5s ease
+
+    &.no-padding {
+      padding 0
+    }
+
+    .symbol-item {
+      padding 0 15px 0 0
+      line-height 20px;
+      cursor pointer
+      position relative
+
+      .bg {
+        display none
+      }
+
+      &:hover {
+        .bg {
+          display block
+          position absolute
+          top 0
+          left 0
+          height 100%
+          width 100%
+        }
+      }
+
+      &.change-item {
+        .change {
+          position absolute
+          animation 2s opacityZ 0s 1
+          top 2px
+          left 0
+          height 90%
+          width 100%
+          opacity 0
+        }
+      }
+    }
+  }
+
+  @keyframes opacityZ {
+    0% {
+      opacity 1
+    }
+
+    100% {
+      opacity 0
+    }
+  }
+
+  @keyframes opacityZ {
+    0% {
+      opacity 1
+    }
+
+    100% {
+      opacity 0
+    }
+  }
+
+  @keyframes opacityZ {
+    0% {
+      opacity 1
+    }
+
+    100% {
+      opacity 0
+    }
+  }
+
+  .thead, .tbody {
+    span {
+      display inline-block
+      text-align right
+      position relative
+
+      .icon {
+        display inline-block
+        vertical-align middle
+        height 15px
+        background #f00
+        float left
+        margin 8px 5px 0 0
+      }
+
+      .hover_show {
+        display none
+      }
+
+      &:hover {
+        .hover_show {
+          display block
+        }
+
+        .hover_hide {
+          display none
+        }
+      }
+
+      &.td-symbol, &.td-symbol0 {
+        text-align left
+        padding-left 20px
+      }
+    }
+  }
+
+  .tr-bg {
+    position absolute
+    height 20px
+    top 0
+    left 0
+    z-index 1
+    opacity 0.16
+    padding 0
+    width 10%
+    transiton width 0.5s ease
+    -webkit-transition width 0.5s ease
+  }
+
+  .newTrade-tbody {
+    height 329px
+    &.gridFix {
+      height: 451px;
+    }
+  }
+}
+
+// 国际版
+.Int-trade {
+  .newTrade-index-container {
+    &.newTrade {
+      height 100%
+      .block-content {
+        height 100%
+      }
+
+      .newTrade-tbody {
+        height calc(100% - 35px)
+      }
+    }
+
+    &.lever-newTrade {
+      .block-content {
+        height calc(100% - 40px)
+      }
+    }
+  }
+}
+// 专业版
+.new-pro-trade {
+  .currentTrade-index-container .newTrade-tbody {
+    height 414px
+  }
+}

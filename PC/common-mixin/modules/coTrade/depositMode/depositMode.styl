@@ -1,0 +1,68 @@
+.depositMode-box {
+    //width: 320px;
+    z-index: 11;
+  .depositMode-header {
+    height: 36px;
+    line-height: 36px;
+    padding: 10px 0;
+    .depositMode-title {
+      font-size: 16px;
+    }
+    .depositMode-header-close {
+      float: right;
+    }
+  }
+  .footer-button {
+    padding: 10px 0;
+    height: 60px;
+    .common-button {
+      float: right;
+    }
+  }
+  .category-select-box {
+    display: flex;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 10px 36px 15px 36px;
+    position: relative;
+    .tab {
+      flex: 1;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    .tab-active-bg {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      transition: all 0.5s;
+      left: 50%;
+      border-radius: 2px;
+    }
+  }
+  .text {
+    line-height: 20px;
+    padding: 20px 0 0;
+  }
+}
+.depositModeDialog .dialog-frame {
+  //width: 480px;
+  .dialog-frame-body {
+    //width: 440px
+  }
+}
+.depositMode-show-enter-active {
+    transition: all .2s ease;
+  }
+  .depositMode-show-leave-active {
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .depositMode-show-enter, .depositMode-show-leave-to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }

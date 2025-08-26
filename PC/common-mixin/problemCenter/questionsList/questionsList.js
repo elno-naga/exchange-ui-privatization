@@ -1,0 +1,133 @@
+import { formatTime, imgMap, colorMap } from '@/utils';
+
+export default {
+  name: 'questionsList',
+  data() {
+    return {
+      imgMap,
+      colorMap,
+      tabelLoading: false,
+      paginationObj: {
+        total: 0, // 数据总条数
+        display: 10, // 每页显示条数
+        currentPage: 1, // 当前页码
+      },
+      tabelList: [],
+      revokeList: [], // 撤销队列
+    };
+  },
+  computed: {
+    columns() {
+      return [
+        // 提交时间
+        {
+          title: this.$t('questions.list1'),
+          key: 'time',
+          width: '100px',
+        },
+        // 编号
+        {
+          title: this.$t('questions.list2'),
+          key: 'number',
+        },
+        // 类型
+        {
+          title: this.$t('questions.list3'),
+          key: 'type',
+        },
+        // 描述
+        {
+          title: this.$t('questions.list4'),
+          width: '30%',
+          styleClass: 'wordBreak',
+          key: 'describe',
+        },
+        // 状态
+        {
+          title: this.$t('questions.list5'),
+          key: 'status',
+        },
+        // 操作
+        {
+          title: this.$t('questions.list6'),
+          key: 'operation',
+        },
+      ];
+    },
+  },
+  methods: {
+    init() {
+      this.getData();
+    },
+    getData() {
+      this.tabelLoading = true;
+      this.axios({
+        url: 'question/list_problem',
+        params: {
+          pageSize: this.paginationObj.display, // 每页条数
+          page: this.paginationObj.currentPage, // 页码
+        },
+      }).then((data) => {
+        this.tabelLoading = false;
+        if (data.code.toString() === '0') {
+          const arr = [];
+          data.data.rqInfoList.forEach((item) => {
+            arr.push({
+              id: item.id,
+              time: formatTime(item.ctime),
+              number: [
+                {
+                  type: 'button',
+                  text: item.id,
+                  eventType: 'details',
+                },
+              ],
+              type: item.rqTypeText,
+              describe: item.rqDescribe,
+              status: item.rqStatusText,
+              operation: [
+                {
+                  type: 'button',
+                  text: this.$t('questions.delete'),
+                  eventType: 'delete',
+                },
+              ],
+            });
+          });
+          this.tabelList = arr;
+          this.paginationObj.total = data.data.count;
+        } else {
+          this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+        }
+      });
+    },
+    tableClick(type, id) {
+      if (type === 'details') {
+        this.$router.push(`/questions/questionsDetails?id=${id}`);
+      } else if (type === 'delete') {
+        if (this.revokeList.indexOf(id) === -1) {
+          this.revokeList.push(id);
+          this.axios({
+            url: '/question/delete_problem',
+            params: {
+              id,
+            },
+          }).then((data) => {
+            const ind = this.revokeList.indexOf(id);
+            this.revokeList.splice(ind, 1);
+            if (data.code.toString() === '0') {
+              this.$bus.$emit('tip', { text: data.msg, type: 'success' });
+              this.getData();
+            } else {
+              this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+            }
+          });
+        }
+      }
+    },
+    pagechange(v) {
+      this.paginationObj.currentPage = v;
+      this.getData();
+    },
+  },
+};

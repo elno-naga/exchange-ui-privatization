@@ -1,0 +1,171 @@
+.page-content-chain .newTradeModel-exchange {
+  .box-shadow {
+    box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28)!important;
+  }
+  .light-theme {
+    .box-shadow {
+      box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.06)!important;
+    }
+  }
+  .trade-limit-text {
+    font-size 12px
+    line-height 18px
+    margin-top 15px
+  }
+  .newTrade-content {
+    display: flex;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    font-family: HarmonyOS-Medium;
+    font-weight: 500;
+    min-width: 1300px;
+    .tradeInfo-block {
+      flex: 1;
+      margin-right: 5px;
+      overflow: hidden;
+    }
+    .tradeView-block {
+      width: 100%;
+      display: flex;
+    }
+    .newTrading-view {
+      flex: 1;
+    }
+    .market-block {
+      width: 356px;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      border-top-right-radius:2px;
+      border-bottom-right-radius:2px;
+    }
+
+    .kLine-content{
+      flex:1;
+      margin:0 4px;
+      height:auto;
+      border-radius:2px;
+      .kLine-contentHeader{
+        width:100%;
+        padding:24px 28px;
+        box-sizing:border-box;
+        & > p{
+          line-height:24px;
+          font-size:12px;
+          display:flex;
+          .coinShowName{
+            font-size:16px;
+            margin:0 4px 0 8px;
+          }
+          & > img{
+            width:24px;
+            height:24px;
+          }
+        }
+        .kLine-coinData{
+          display:flex;
+          margin-top:12px;
+          justify-content: space-between;
+          align-items: center;
+
+        }
+        .kLine-coinDataRealTime{
+          display:flex;
+          flex-direction:column;
+          & > span{
+            font-size:12px;
+            line-height: 14px;
+          }
+          & > span:first-child{
+            font-size:24px;
+            margin-bottom:4px;
+            line-height:28px;
+          }
+        }
+      }
+      .bar_echarts{
+        height:351px;
+      }
+    }
+    .dealForm{
+      flex: 0 0 356px;
+      width:356px;
+      height:auto;
+      padding:16px;
+      box-sizing:border-box;
+      border-top-left-radius:2px;
+      border-bottom-left-radius:2px;
+    }
+  }
+
+  .newTrade-historical{
+    .trade-historicalHead{
+      padding:0 16px;
+      height:44px;
+      box-sizing:border-box;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size:14px;
+      border-bottom-width:1px;
+      border-bottom-style:solid;
+      .all-order-btn{
+        font-size:12px;
+      }
+    }
+    .sale-tableCoin{
+      display:flex;
+      align-items:center;
+      &>img{
+        width:20px;
+        height:20px;
+        margin-right:8px;
+      }
+      .tableCoin-text{
+        display:flex;
+        font-size:14px;
+        flex-direction:column;
+        & > .fontSize12{
+          font-weight:400;
+        }
+      }
+    }
+    .sale-tableStatus{
+      display:flex;
+      align-items:center;
+      justify-content: flex-end;
+      .sale-statusDot{
+        width:8px;
+        height:8px;
+        border-radius:50%;
+      }
+      .sale-tableStatusText{
+        margin:0 8px;
+      }
+    }
+  }
+  .order-conent {
+    width: 100%;
+    position: relative;
+    //max-height: 519px;
+    height: 350px;
+    margin-top:16px;
+  }
+  .isNotLogin {
+    width: 100%;
+    height: 600px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    span {
+      padding: 0 5px;
+      cursor: pointer;
+    }
+  }
+  .fontSize12{
+    font-size:12px !important;
+  }
+}

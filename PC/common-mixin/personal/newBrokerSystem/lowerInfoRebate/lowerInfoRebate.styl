@@ -1,0 +1,27 @@
+
+.prompt {
+  position relative
+  span {
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+    cursor: default;
+  }
+
+  .promptText {
+    display: none;
+    width: 200px;
+    padding: 20px;
+    position: absolute;
+    right: -20px;
+    top: 26px;
+    z-index: 10;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  &:hover .promptText {
+    display: block;
+  }
+}

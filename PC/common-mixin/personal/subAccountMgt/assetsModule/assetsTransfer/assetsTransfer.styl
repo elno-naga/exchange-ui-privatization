@@ -1,0 +1,163 @@
+// 划转
+.transfer-modules{
+    font-family: HarmonyOS-Medium;
+    width:1180px;
+    margin: auto;
+    .top{
+        padding: 36px 40px;
+        // border-bottom-style: solid;
+        border-radius: 8px;
+        box-sizing: border-box;
+        .title {
+            margin-bottom: 36px;
+            font-size: 20px;
+            span{
+                margin-left: 16px;
+            }
+        }
+        .content{
+            display: flex;
+            justify-content: flex-start;
+            .divider{
+                width: 1px;
+                height: 369px;    
+                margin-right: 60px;
+                margin-top: 24px;
+            }
+            .left-form {
+                width: 416px;
+                margin-right: 133px; 
+                .transfer-account {
+                    display: flex;
+                    margin-bottom: 24px;
+                    height: 140px;
+                    position: relative;
+                    .topSelect{
+                        .input_line_content {
+                            .input_line_inp{
+                                text-overflow: ellipsis !important;
+                                width: 140px !important;
+                                flex: 0 !important;
+                            }     
+                        }
+                    }
+                    .exchange {
+                        position: absolute;
+                        left: 0px;
+                    }
+                    .change-icon{
+                        position: absolute;
+                        left: 184px;  
+                    }
+                    .other {
+                        position: absolute;
+                        left: 232px;
+                        .topSelect {
+                            margin-bottom: 8px;    
+                        }
+                        .available{
+                            margin-top: 8px;    
+                        }
+                    }
+                    &.ani {
+                        .exchange {
+                            left: 232px;
+                            transition:all 0.5s;
+                        }
+                        .other {
+                            left: 0px;
+                            transition:all 0.5s;
+                        }
+                    }
+                }
+                .account-side {
+                    width: 184px;
+                    // transition: all 0.5s;
+                    .transfer-accountType{
+                        .topSelect {
+                            margin-bottom: 8px;    
+                        }
+                    }
+                    .available{
+                        margin-top: 8px;    
+                    }
+                }
+                .available {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+                .change-icon {
+                    padding: 60px 12px 0;
+                .icon {
+                    cursor pointer
+                }
+                }
+                .transfer-all {
+                    font-size: 14px;
+                    margin-right: 12px;
+                    cursor: pointer;
+                }
+                .transfer-symbol, .transfer-coin, .transfer-num {
+                    width: 100%;
+                    margin-bottom: 24px;
+                }
+                .transfer-num {
+                    margin-bottom: 40px; 
+                }
+            }
+            .right-compare{ 
+                .right-title{
+                    margin-bottom: 10px;
+                }
+                .right-search{
+                    display: flex; 
+                    margin-bottom: 24px;
+                    .findClass{
+                        margin-right: 20px;
+                    }   
+                    .input_line_prompt{
+                        display: none !important;    
+                    }
+                } 
+                .right-table{
+                    height: 300px;
+                    width: 416px;
+                    .common-table{
+                        height: 100%;
+                    }
+                }
+            }
+        }  
+    }
+    .bottom{
+        // border-top-style: solid;
+        // border-top-width: 10px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        border-radius: 8px;
+        padding-bottom: 10px;
+       .bottom-nav-table{
+            margin-bottom: 10px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            .history-nav-search {
+                display: flex;
+                align-items: center;
+                >div{
+                    margin-right: 20px;
+                }
+            }
+            .allRecords{
+                position: absolute;
+                cursor: pointer;
+                right: 24px;    
+                height: 100%;
+                line-height: 60px;
+                top: 0;
+            }
+        }     
+    }
+}

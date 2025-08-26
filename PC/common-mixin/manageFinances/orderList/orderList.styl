@@ -1,0 +1,68 @@
+.orderList{
+  .page-banner {
+    height: 220px
+    .title {
+      margin-top: 110px;
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+  .orderListCon{
+    width:1180px;
+    margin:40px auto;
+    .orderListTop{
+      height:54px;
+      font-size: 14px;
+      line-height 54px;
+      padding-left:20px;
+      border-bottom-style:solid;
+      border-bottom-width:1px;
+    }
+    .orderListCon-options{
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 20px 0px;
+      & > div{
+        margin-right:10px;
+      }
+      .common-select {
+        display: inline-block;
+        margin-right: 30px;
+      }
+    }
+    .orderListCon-table{
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .sub-table-btn {
+  cursor: pointer;
+  position: relative;
+  padding: 0 20px 0 10px;
+  display: inline-block;
+  height: 24px;
+  line-height: 26px;
+  border-radius: 2px;
+  vertical-align: middle;
+  user-select: none;
+  .view-icon {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: block;
+    border-width: 5px;
+    border-style: solid dashed dashed;
+    border-bottom-color: transparent!important;
+    border-right-color: transparent!important;
+    border-left-color: transparent!important;
+    font-size: 0;
+    line-height: 0;
+  }
+  &.isopen {
+    .view-icon {
+      transform: rotate(180deg);
+      top: 5px;
+    }
+  }
+}
+}

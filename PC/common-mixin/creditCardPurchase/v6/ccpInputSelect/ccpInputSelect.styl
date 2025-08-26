@@ -1,0 +1,294 @@
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  & + * {
+    cursor: auto;
+    font-size: 12px !important;
+    transform: translate3d(0, -20px, 0);
+    transform-origin: top left;
+  }
+}
+.select-input-line-content {
+  position: relative;
+  // input基础占位容器 (默认)
+  .input-line-baseStance {
+    height: 44px;
+    box-sizing: border-box;
+    position: relative;
+    .camouflage {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    // 输入框
+    .input_line_inp {
+      position: absolute;
+      bottom: 0px;
+      // z-index: 2;
+      width: 100%;
+      border: 0px;
+      font-size: 14px;
+      height: 44px;
+      background: none;
+      box-sizing: border-box;
+      outline: none;
+      .input {
+        height: 44px;
+        width: 100%;
+        font-size: 14px;
+        display: block;
+        padding-right: 160px;
+        box-sizing: border-box;
+        padding-left :12px;
+        border-radius :4px;
+        border :1px solid transparent;
+      }
+      .input-line-slot {
+        float: left;
+        display: inline-block;
+        position: absolute;
+        height: auto;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    // 提示文案容器
+    .input-line-prompt {
+      display: block;
+      cursor: text;
+      z-index: 1;
+      position: absolute;
+      height: 44px;
+      line-height: 44px;
+      bottom: 0px;
+      left: 0;
+      font-size: 12px;
+      transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+      transform-style: preserve-3d;
+      transform-origin: top left;
+      backface-visibility hidden
+      user-select:none;
+    }
+    // input聚焦/具有文本 时 提示文案浮起
+    .input-line-prompt-active {
+      display:none
+    }
+    // 下划线动效容器
+    .input-line-activeLine {
+      position: absolute;
+      z-index: 3;
+      // top: 43px;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      transition: 0.5s;
+      -webkit-transition: 0.5s;
+      -ms-transition: 0.5s;
+      animation-delay: 0.5s
+      -webkit-animation-delay: 0.5s
+      -ms-animation-delay: 0.5s
+    }
+  }
+  // 基础占位容器 (禁用时)
+  .input-line-baseStance-disabled {
+    border-bottom-width: 2px;
+    border-bottom-style: dotted;
+    .input-line-prompt-active {
+      cursor: no-drop;
+    }
+    input {
+      cursor: no-drop;
+    }
+  }
+  // 基础占位容器 (错误时)
+  .input-line-baseStance-error {
+    // 提示文案容器 (错误时)
+    .input-line-prompt {
+      animation: shakes 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+    }
+  }
+  // 错误信息占位容器
+  .input-line-errorStence {
+    position: relative;
+    margin-top :4px;
+    p{
+      position: absolute;
+      top: 4px;
+      margin: 0;
+      font-size: 14px;
+      line-height :14px;
+      user-select:none;
+    }
+    //// 错误文案容器
+    //.input-line-error {
+    //  position: absolute;
+    //  top: 4px;
+    //  margin: 0;
+    //  font-size: 14px;
+    //  line-height :14px;
+    //  user-select:none;
+    //}
+    //// 警示框
+    //.input-line-warning {
+    //  position: absolute;
+    //  bottom: 4px;
+    //  font-size :14px;
+    //}
+    //// 提示
+    //.input-line-tip{
+    //  font-size :14px;
+    //}
+  }
+
+  .input_line_inp:focus+.input-line-prompt,
+  .input_line_inp:valid+.input-line-prompt {
+  }
+  // 错误 label 抖动 动画
+  @-webkit-keyframes shakes {
+    59% {
+      margin-left: 0;
+    }
+    60%, 80% {
+      margin-left: 2px;
+    }
+    70%, 90% {
+      margin-left: -2px;
+    }
+  }
+  @keyframes shakes {
+    59% {
+      margin-left: 0;
+    }
+    60%, 80% {
+      margin-left: 2px;
+    }
+    70%, 90% {
+      margin-left: -2px;
+    }
+  }
+
+  // select
+  .flex-content{
+    display: flex;
+  }
+  .selct_content{
+    margin-left: -170px;
+    width: 170px;
+    cursor:pointer;
+    font-size:14px;
+    display :flex;
+    flex-direction :row;
+    justify-content :flex-end;
+    align-items :center;
+    span{
+      margin-right :30px;
+    }
+    // ICON
+    .coin-icon{
+      border-radius: 100%;
+      font-size: 12px;
+      display: inline-block;
+      margin: 10px 4px 10px 12px;
+      line-height: 20px;
+      text-align: center;
+      width:20px;
+      height:20px;
+    }
+    .icon-triangle {
+      position: absolute;
+      right: 12px;
+      top:16px;
+    }
+
+    // 清除 ICON
+    .icon-clear-btn {
+      position: absolute;
+      right: 0;
+      bottom:0
+      text-align: center;
+      width: 20px;
+      line-height: 44px;
+      cursor: pointer;
+      display: none;
+    }
+  }
+   // 下拉框
+  .select-options-box {
+    position: absolute;
+    transform-origin: center top 0px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.10)
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 4px 0;
+    .select-option-list {
+      .select-option-item-icon{
+          font-size: 14px;
+          height: 40px;
+          padding: 0 20px;
+          cursor: pointer;
+          display:flex;
+          align-items :center;
+          .icon-wrap{
+            display:flex;
+            align-items: center;
+          }
+          .coin-icon{
+            padding:3px;
+            border-radius: 100%;
+            font-size: 16px;
+            display: inline-block;
+            margin-right:10px;
+            line-height: 20px;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+          }
+      }
+    }
+    // 没有选项的样式
+    .not_option {
+      font-size: 12px;
+      line-height: 40px;
+      padding 0 20px;
+    }
+  }
+  .search-content{
+    input{
+      padding: 8px 16px 8px 40px;
+      width: calc(100% - 32px);
+      margin: 8px 16px;
+      height:32px;
+      border-radius :16px;
+      border-style: solid;
+      box-sizing: border-box;
+      font-size :14px;
+    }
+
+    .icon{
+      position: absolute;
+      top: 20px;
+      left: 32px;
+    }
+  }
+  // 展开样式
+  &.select-visible {
+    // 三角旋转180度
+    .icon-triangle-down {
+      transform: rotate(180deg);
+    }
+  }
+  .center-text{
+    vertical-align :middle;
+    margin-top :1px;
+  }
+}

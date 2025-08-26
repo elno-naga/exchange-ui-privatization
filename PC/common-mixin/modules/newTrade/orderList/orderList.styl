@@ -1,0 +1,314 @@
+.newTrade-order {
+  .order-list-box {
+    font-family: HarmonyOS-Medium;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    //max-height: 559px;
+    .order-conent {
+      width: 100%;
+      position: relative;
+      //max-height: 519px;
+      overflow: hidden;
+      .table-body .marketPriceOrder {
+        display: none;
+      }
+      .symbol {
+        cursor: pointer;
+        display:inline-block;
+        & .symbolColor{
+          display:inline-block;
+        }
+        & .symbolColor1{
+          display:none;
+        }
+        &:hover {
+          & .symbolColor1{
+            display:inline-block;
+          }
+          & .symbolColor{
+            display:none;
+          }
+        }
+      }
+      .hide-smaill-account{
+        .smail-account{
+          display:none
+        }
+      }
+      .table-head {
+        border: none;
+        margin-top: 14px;
+      }
+      .table-head th, .table-body td {
+        text-align: center;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+      .table-body {
+        tr {
+          border-top: none;
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
+      }
+      .column-hasTip:hover {
+        text-decoration: underline;
+      }
+    }
+    .grid_class {
+      height: 300px;
+
+      .table-body-bar {
+        min-height: auto;
+      }
+    }
+    .notData {
+      position: absolute;
+      top: 88px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding-top: 80px;
+      text-align: center;
+      font-size: 12px;
+      &.hasSearch {
+        top: 126px;
+      }
+      p {
+        margin-top: 5px;
+      }
+      .icon {
+        font-size: 36px;
+      }
+    }
+    .historyOrder {
+      .table-body {
+        tr:first-child {
+          background: rgba(0, 0, 0, 0);
+        }
+        tr:nth-child(1){
+          border: none;
+        }
+      }
+      .status-select {
+        width: 69px;
+        height: 23px;
+        text-align: center;
+        line-height: 23px;
+        border-radius: 2px;
+        border-width: 1px;
+        border-style: solid;
+        .icon-btn {
+          vertical-align: baseline;
+          line-height: 23px;
+          margin-left: 0;
+          padding: 0;
+          border-radius: 2px;
+          position: relative;
+          margin-right: 5px;
+          .icon-triangle {
+            i {
+              // color: #828EA1;
+              position: absolute;
+              right: -10px;
+              bottom: 10px;
+              width:0;
+              height:0;
+              border-width:3px 3px 0;
+              border-style:solid;
+              border-left-color: transparent!important;
+              border-right-color: transparent!important;
+              transition: all .3s ease-in-out;
+            }
+          }
+        }
+        // 展开样式
+        &:hover {
+          border-color: #24A0F5;
+          .icon-btn .icon-triangle  {
+            // 三角旋转180度
+            i {
+              transform: rotate(180deg);
+            }
+          }
+        }
+        .select-box {
+          width: 66px;
+          min-width: 66px;
+          border-radius: 2px;
+          top: 24px;
+          .select-option {
+            height: 30px;
+            line-height: 30px;
+            padding: 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .tab-box {
+    height: 45px;
+    padding: 0 16px;
+    position: relative;
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+    .tab-item {
+      font-size: 14px;
+      margin-right: 40px;
+      display: inline-block;
+      cursor: pointer;
+      border: 0;
+      height: auto;
+    }
+    .all-order-btn {
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      .common-checkout .icon {
+        position: relative;
+        margin-right: 8px;
+      }
+    }
+    .tab-underline {
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      bottom: 0px;
+      left: 24px;
+      transition: all 0.3s;
+    }
+  }
+  .opera {
+    padding-right: 0;
+    div {
+      float: right;
+      // width: 40px;
+      height: 23px;
+      text-align: center;
+      line-height: 23px;
+      cursor: pointer;
+      padding-right: 0;
+    }
+  }
+  .isNotLogin {
+    width: 100%;
+    height: 250px;
+    line-height: 250px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    span {
+      padding: 0 5px;
+      cursor: pointer;
+    }
+  }
+  .search-form {
+    display: flex;
+    height: 40px;
+    padding-left: 16px;
+    align-items: center;
+    margin-bottom: 6px;
+    .time-conv {
+      display: flex;
+      li {
+        border-radius: 2px;
+        font-size: 12px;
+        padding: 0 8px;
+        margin-right: 15px;
+        height: 23px;
+        line-height: 23px;
+      }
+    }
+    .date-area {
+      display: flex;
+      font-size: 12px;
+      padding: 0 8px;
+      height: 23px;
+      border-radius: 2px;
+      text-align: center;
+      align-items: center;
+      margin-right: 15px;
+      >span {
+        padding: 0 5px;
+      }
+      .input_line_content {
+        border: 0;
+        height: 23px;
+        line-height: 23px;
+        input {
+          height: 23px;
+          line-height: 23px;
+          left: 0px;
+          font-size: 12px;
+        }
+        .input_line_prompt {
+          height: 23px;
+          line-height: 23px;
+        }
+        .icon-triangle {
+          bottom: 10px;
+        }
+      }
+    }
+    .search-btn {
+      button {
+        width: 50px;
+        height: 23px;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+    }
+  }
+  .column-tip {
+    position: fixed;
+    line-height 23px
+    padding 0 8px
+    font-size: 12px;
+    border-radius: 2px;
+    .arrow {
+      position: absolute;
+      border-width: 5px;
+      border-style: solid;
+      border-left-color: transparent!important;
+      border-right-color: transparent!important;
+      border-bottom-color: transparent!important;
+      left: 10px;
+      bottom: -10px;
+    }
+  }
+}
+  // 国际版
+  .Int-trade {
+    .order-list-box {
+      height: 400px;
+      .order-conent {
+        height: 350px;
+      }
+      .table-head {
+        padding: 0 20px;
+      }
+    }
+  }
+    // 专业版
+  .new-pro-trade {
+    .newTrade-order {
+      height: 486px;
+      margin-top: 5px;
+      .order-list-box .order-conent {
+        height: 446px;
+      }
+    }
+    .isNotLogin {
+      height: 446px;
+    }
+  }

@@ -1,0 +1,126 @@
+.newTrade-themeSetting {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 201;
+  .modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  @keyframes expand {
+    from {
+      transform: translate(400px);
+    }
+    to {
+      transform: translate(0);
+    }
+  }
+  @keyframes shrink {
+    from {
+      transform: translate(0);
+    }
+    to {
+      transform: translate(400px);
+    }
+  }
+  .newTrade-themeSetting_wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    animation: expand 0.5s;
+  }
+  .newTrade-themeSetting_close {
+    animation: shrink 0.5s;
+  }
+  .setting-title {
+    height: 62px;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 24px;
+    b {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .themeSetting-close {
+      cursor: pointer;
+
+      .hoverShow {
+        display: none;
+      }
+      &:hover {
+        .hoverShow {
+          display: block;
+        }
+        .hoverHide {
+          display: none;
+        }
+      }
+    }
+  }
+  .theme-bg {
+    padding-left: 32px;
+    margin-bottom: 40px;
+    h5 {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 23px;
+    }
+    li {
+      display: inline-block;
+      margin-top: 0;
+      &:nth-child(1) {
+        margin-right: 66px;
+      }
+      span {
+        margin-left: 8px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+    }
+  }
+  .theme-layout {
+    padding: 0 32px;
+    h5 {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor pointer
+      div {
+        width: 140px;
+        height: 87px;
+        margin-bottom: 12px;
+        border-width: 1px;
+        border-style: solid;
+        img {
+          width 100%;
+          height: 100%;
+        }
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,382 @@
+.future-canter-echart-box {
+  z-index: 9;
+  position: relative;
+  border-radius: 2px;
+
+  .kline-bg {
+    position: absolute;
+    bottom: 130px;
+    left: 15px;
+    z-index: 999;
+
+    .kline-img {
+      max-width: calc(100% - 85px);
+    }
+  }
+
+  .mmd-loading-circle-right, .mmd-loading-circle-left {
+    // border-color: rgba(19, 82, 245, 1);
+  }
+
+  .inline {
+    position: absolute;
+    top: 30px;
+    height: 1px;
+    z-index: 9;
+    width: 100%;
+  }
+
+  .top-menu {
+    line-height: 30px;
+    font-size: 12px;
+    padding: 0;
+    position: absolute;
+    left: 108px;
+    right: 180px;
+    transition: all 0.5s ease;
+    z-index: 101;
+
+    &.lefts {
+      left: 0;
+    }
+
+    .top-menu-bar {
+      position: relative;
+      height: 30px;
+      width: 100%;
+
+      .hover_hide {
+        display: block;
+      }
+
+      .hover_show {
+        display: none;
+      }
+
+      .slide-btn {
+        position: absolute;
+        top: 0px;
+        padding: 8px 0;
+        z-index: 9;
+        cursor: pointer;
+        display: none;
+
+        &:hover {
+          .hover_show {
+            display: block;
+          }
+
+          .hover_hide {
+            display: none;
+          }
+        }
+      }
+
+      .slide-btn-cur {
+        display: block;
+      }
+
+      .icon-left {
+        left: 0;
+        padding-right: 5px;
+      }
+
+      .icon-right {
+        right: 0;
+        padding-left: 5px;
+      }
+    }
+
+    .top-menu-box {
+      height: 30px;
+      width: max-content;
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transiton: left 0.2s linear;
+      -webkit-transition: left 0.2s linear;
+    }
+
+    .time-line {
+      padding: 2px 5px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 2px;
+      margin-right: 4px;
+
+      .hoverShow {
+        display: none;
+      }
+
+      &:hover {
+        .hoverHide {
+          display: none;
+        }
+
+        .hoverShow {
+          display: inline-block;
+        }
+      }
+    }
+
+    &.hide {
+      opacity: 0;
+      z-index: 1;
+    }
+  }
+
+  .mask-bg {
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+
+    &.selected {
+      transform: translateX(0%);
+      opacity: 1;
+      z-index: 3;
+    }
+  }
+
+  .top-tab {
+    position: absolute;
+    right: 0;
+    height: 30px;
+    line-height 30px;
+    text-align: right;
+    z-index: 101;
+    display:flex;
+    align-items:center;
+
+    .switch-chart-type {
+      margin-right: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 0 6px;
+      border-radius: 2px;
+      float: left
+    }
+  }
+
+  .tv_chart_container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .loading-indicator {
+    background: none;
+  }
+
+  .coverKlineBox {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+  }
+
+  // 页面动画
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.8s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    margin: -25px 0 0 -25px;
+  }
+}
+
+.canter-echart-full {
+  object-fit: contain;
+  position: fixed !important;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  box-sizing: border-box !important;
+  min-width: 0px !important;
+  max-width: none !important;
+  min-height: 0px !important;
+  max-height: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  margin: 0px !important;
+}
+
+@media (max-width: 460px) {
+  .ex-canter-echart-box .top-menu {
+    left: 75px;
+  }
+}
+
+.select-more {
+  padding: 2px 20px 2px 0px;
+  position: relative;
+  cursor: pointer;
+  line-height: 17px;
+  display: inline-block;
+  border-radius: 2px;
+  height: 21px;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  em {
+    margin-left: 5px;
+  }
+
+  .icon-triangle {
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease-in-out;
+    svg {
+      vertical-align top
+    }
+  }
+
+  .time-more-list {
+    position: absolute;
+    top: 21px;
+    left: -80px;
+    padding: 0 5px;
+    border-radius: 2px;
+    height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    min-width: 160px;
+
+    .time-line {
+      padding: 4px 5px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 2px;
+      margin-right: 4px;
+      margin-top: 5px;
+      display: inline-block;
+    }
+  }
+
+  &:hover {
+    .time-more-list {
+      height: 35px;
+    }
+
+    .icon-triangle {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.show-order-line {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    // margin-left: 6px;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 12px !important;
+    // margin-right: 6px;
+
+    &:hover.order-line-option {
+      padding: 5px 10px;
+      height: 90px;
+      display: block;
+    }
+
+  .order-line-option {
+    position: absolute;
+    top: 28px;
+    left: -70px;
+    border-radius: 2px;
+    height: 0;
+    // overflow: hidden;
+    display: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    min-width: 160px;
+    padding: 0 10px;
+    text-align: left;
+
+    .common-checkout {
+      margin-right: 10px;
+    }
+
+    
+
+    li {
+      line-height: 28px;
+      cursor: pointer;
+      font-size: 12px;
+
+     .checkBoxlabel {
+        user-select: none;
+        cursor: pointer;
+        display: inline-block;
+        .tooltip-container span {
+          border-bottom-style: dashed;
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
+
+  .hover-show {
+    display: none;
+  }
+
+  &:hover {
+    .order-line-option {
+      padding: 5px 10px;
+      height: 90px;
+      display: block;
+    }
+
+    .hover-show {
+      display: inline-block;
+    }
+
+    .hover-hide {
+      display: none;
+    }
+  }
+}
+
+.full-btn {
+  margin: 0 5px 0 0;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 2px;
+}

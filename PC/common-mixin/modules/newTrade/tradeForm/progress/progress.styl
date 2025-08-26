@@ -1,0 +1,83 @@
+.newTrade-progress {
+  width: 100%;
+  padding: 8px 0;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 8px;
+  user-select: none;
+  &:hover .progress-current .progress-percent {
+    display: block;
+  }
+  &.disabled {
+    .progress-current .progress-percent {
+      display: none;
+    }
+  }
+  .progress-line {
+    width: 100%;
+    height: 4px;
+  }
+  .progress-percent {
+    display: none;
+    position: absolute;
+    bottom: 18px;
+    right: -28px;
+    padding: 6px 18px;
+    font-size: 12px;
+    border-radius: 2px;
+    .arrow {
+      position: absolute;
+      border-width: 4px;
+      border-style: solid;
+      border-bottom-color: transparent!important;
+      border-left-color: transparent!important;
+      border-right-color: transparent!important;
+      left: 40%;
+      bottom: -8px;
+    }
+  }
+  .progress-dot {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li {
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 10px;
+      &:first-child {
+        transform: translateX(-4px);
+      }
+      span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+      }
+    }
+  }
+  .progress-current {
+    width: 14px;
+    height: 4px;
+    position: absolute;
+    top: 8px;
+    user-select: none;
+    .spot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      border-width: 3px;
+      border-style: solid;
+      top: -5px;
+      right: -5px;
+      z-index: 2;
+    }
+  }
+}

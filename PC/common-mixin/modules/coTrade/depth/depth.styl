@@ -1,0 +1,251 @@
+.codepath-container {
+  .coDepth {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .block-header {
+    display: none;
+
+    .depath-tab {
+    }
+  }
+
+  .tab-item {
+    display: block;
+    margin-bottom: 5px;
+
+    .block-header {
+      display: block;
+      height: 61px;
+      padding: 10px 10px 0 10px;
+      font-size: 14px;
+      z-index: 99;
+      position: relative;
+      box-sizing: border-box;
+
+      .switch-btn {
+        display: block !important;
+        float: left;
+        border-radius: 2px;
+        margin-top: 5px;
+
+        .tooltip-container {
+          line-height: 8px;
+          font-size: 12px;
+          margin: 0 10px 0 0;
+        }
+        .dtIcon {
+          font-size: 16px;
+          cursor: pointer;
+          display: inline-block;
+          height: 23px;
+          line-height: 23px;
+          text-align: center;
+          border-radius: 50%;
+          width: 23px;
+          position: relative;
+        }
+
+        .dtIcon-act {
+          opacity: 1;
+        }
+      }
+    }
+
+    .coNewTrade-container {
+      .block-header {
+        padding: 0 10px;
+      }
+    }
+
+    &.is-show {
+      display: block;
+    }
+  }
+
+  .current-price {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    font-size: 12px;
+    margin-top: 0;
+    position: relative;
+    top: -6px;
+
+    .price-box {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      position: relative;
+
+      span {
+        vertical-align: middle;
+        min-width: 100px;
+        display: inline-block;
+        box-sizing: border-box;
+      }
+
+      .price {
+        margin-right: 10px;
+      }
+
+      .indexPrice {
+        font-size: 14px;
+        margin-right: 15px;
+      }
+
+      .tagPrice {
+        position: absolute;
+        right: 0px;
+        text-align: right;
+        .tagPrice-icon {
+          margin-right:1px;
+        }
+      }
+    }
+
+    .jb {
+      margin-left: 10px;
+      display: inline-block;
+      float: right;
+
+      i {
+        vertical-align: middle;
+        display: inline-block;
+        width: 6px;
+        margin-right: 3px;
+        height: 14px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .title-tab {
+    .tab {
+      display: inline-block;
+      border-bottom-style: solid;
+      border-bottom-width: 0px;
+      height: 38px;
+      cursor: pointer;
+      user-select: none;
+      margin-right: 28px;
+      font-size: 14px;
+
+      &.main-1-bd {
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+      }
+    }
+
+    .tab-rtwo {
+      margin: 0;
+    }
+  }
+
+  .depath-class {
+    position: absolute;
+    padding: 0 0 0 0;
+    cursor: pointer;
+    top: 22px;
+    right: 15px;
+
+    .depath-class-select {
+      padding: 0 5px;
+      height: 23px;
+      line-height: 23px;
+      border-radius: 2px;
+      font-size: 12px;
+      min-width: 50px;
+      display: inline-block;
+      text-align: right;
+    }
+
+    .triangle-down {
+      width: 10px;
+      height: 10px;
+      margin: 0;
+      vertical-align: middle;
+      padding: 0;
+      display: inline-block;
+      transition: all 0.3s ease-in-out;
+      svg {
+        vertical-align top
+      }
+
+      &.triangle-down-active {
+        transform: rotate(180deg);
+      }
+    }
+
+    span {
+      user-select: none;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 23px;
+      right: 0;
+      min-width: 50px;
+      text-align: right;
+
+      li {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+        cursor: pointer;
+        margin-bottom: 1px;
+        font-size: 12px;
+      }
+    }
+
+    .slideInDown-enter-active {
+      transition: all 0.3s ease;
+    }
+
+    .slideInDown-leave-active {
+      transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+
+    .slideInDown-enter, .slideInDown-leave-to {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+
+    .hoverShow {
+      display: none;
+    }
+
+    &:hover {
+      .hoverHide {
+        display: none;
+      }
+
+      .hoverShow {
+        display: block;
+      }
+
+      ul {
+        display: block;
+      }
+    }
+  }
+
+  // 如果宽度大于 1820px
+  @media screen and (min-width: 1820px) {
+    .title-tab {
+      display: none;
+    }
+
+    .tab-item {
+      display: block;
+
+      .block-header {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,356 @@
+.newTrade-box.newTrade-box-ex-container {
+    font-size: 12px;
+    height: 390px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    transition: height 0.3s;
+    &.grid-fix {
+      height: 477px;
+    }
+    .volume-trade-opt {
+      position: relative;
+      .volume-trade-opt-sell {
+        position: absolute;
+        right: 0;
+        top: 24%;
+      }
+    }
+    .tradePage-change_bolck {
+      padding: 0 16px;
+      margin-bottom: 4px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      position: relative;
+
+      .buy-coin {
+        position: absolute;
+        right: 16px;
+        bottom: 9px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+
+    .trade_way {
+      padding: 12px 16px;
+      margin-bottom: 8px;
+    }
+    .title-block {
+      position: relative;
+      .total-assets {
+        float: right;
+        height: 38px;
+      }
+    }
+    .trade-block {
+      flex: 1;
+      .newTrade-select {
+        margin-left: 20px;
+        .s-selectd {
+          height: 40px;
+          line-height: 40px;
+          &.noSelect {
+            width: 85px;
+          }
+        }
+        .icon-triangle svg {
+          bottom: 12px;
+        }
+        .select-options-box {
+          top: 42px;
+        }
+      }
+    }
+    .trade-form {
+      display: flex;
+      &.newTrade-grid {
+        padding-top: 12px;
+        height: 334px;
+        overflow-y: scroll;
+        padding-bottom: 16px;
+        box-sizing: border-box;
+      }
+      .form-block {
+        padding: 0 15px;
+      }
+      .form-progress {
+        padding-left: 9px;
+        box-sizing: border-box;
+      }
+      .top-mag {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        .lovText {
+          margin-left: 5px;
+        }
+      }
+      .volume-trade {
+        width: 100%;
+        height: 32px;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        .dealMoney, .units {
+          padding: 0 16px;
+        }
+        .vol {
+          flex: 1;
+          text-align: right;
+        }
+      }
+      .model-info {
+        padding-top: 35px;
+        .text-1-cl{
+          margin-top: 10px;
+          line-height: 24px;
+        }
+      }
+      .loginOrReg {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 2px;
+        margin-top: 16px;
+        span  {
+          cursor: pointer;
+        }
+      }
+      .fee_love span{
+        font-size: 16px;
+      }
+    }
+    .totalBalancesHide {
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .etf-infoDisclosure {
+      padding: 16px 30px;
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        line-height: 28px;
+        span {
+          font-size: 12px;
+        }
+        b {
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+    .etf-adjustRecord {
+      height: 230px;
+      box-sizing: border-box;
+      .__rail-is-vertical, .__bar-is-vertical {
+        width: 8px!important;
+      }
+    }
+    .knowledgeTest-container {
+        font-size: 14px;
+        line-height: 22px;
+        .knowledgeTest-option {
+          min-height: 60px;
+          margin-top: 20px;
+          padding: 12px 12px 12px 20px;
+          border-radius: 2px;
+          border-width: 1px;
+          border-style: solid;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          span {
+            white-space: wrap;
+          }
+          aside {
+            width: 16px;
+            margin-left: 5px;
+          }
+        }
+    }
+    .input-flex-box {
+      display: flex;
+      margin-bottom: 12px;
+      align-items: center;
+      .newTrade-input {
+        margin-bottom: 0;
+        flex: 1;
+        input {
+          width: inherit;
+          padding-right: 5px;
+        }
+      }
+      .newTrade-set-type {
+        display: flex;
+        margin-left: 10px;
+        .set-type-btn {
+          cursor pointer;
+          height 32px;
+          width 85px;
+          border-radius: 2px;
+          border-width: 1px;
+          border-style: solid;
+          margin-right 8px;
+          box-sizing border-box;
+          line-height 32px;
+          text-align center;
+        }
+        .set-type-btn:nth-child(2) {
+          margin-right 0;
+        }
+      }
+    }
+    .set-btc {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .switch-inline {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        span {
+          margin-left: 8px;
+        }
+      }
+    }
+    .set-num-list {
+      padding-right: 0;
+      width: 100%;
+      float: none;
+    }
+  }
+  .ts-content-text {
+    line-height: 24px;
+    height: 65px;
+  }
+  @media (max-width: 460px){
+      .top-mag {
+        height: 50px !important;
+        .trade-type{
+          display:block;
+          line-height:30px;
+        }
+        .lov {
+          float: none !important;
+          line-height: 20px !important;
+          height:20px !important;
+          .lovText{
+            display:block;
+          }
+        }
+      }
+  }
+  .new-pro-trade {
+    .newTrade-box.newTrade-box-ex-container {
+      box-sizing: border-box;
+      padding: 0;
+      margin-top: 0;
+      flex: 1;
+      .title-block {
+        margin-bottom: 0;
+      }
+      .trade-form {
+        padding: 0;
+        .loginOrReg, .common-button {
+          margin-top: 28px!important;
+        }
+        .top-mag {
+        }
+        .volume-trade {
+          margin-bottom: 0;
+        }
+      }
+      .tradePage-change_bolck {
+        margin-bottom: 20px;
+      }
+      .order-type {
+        margin-bottom: 4px;
+        padding: 0 16px;
+        .order-transactionType {
+          display: flex;
+          margin-bottom: 3px;
+        }
+      }
+
+      .trade_way {
+        padding: 10px 16px;
+        margin-bottom: 0;
+      }
+    }
+
+    .person-assets {
+      margin-top: 40px;
+      padding: 0 16px;
+      h6 {
+        display: flex;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .operation {
+        display: flex;
+        margin-bottom: 7px;
+        // span {
+        //   font-size: 14px;
+        //   width: 160px;
+        //   height: 30px;
+        //   line-height: 30px;
+        //   border-radius: 2px;
+        //   text-align: center;
+        //   margin-right: 12px;
+        //   &:last-child {
+        //     margin-right: 0;
+        //   }
+        // }
+        .common-button {
+          margin-right: 12px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+      }
+    }
+    .trade-form.newTrade-grid {
+      display: block;
+      
+      .lovText {
+        padding: 12px 16px;
+        font-size: 12px;
+      }
+      .profits {
+        font-size: 12px;
+      }
+      .set-type {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        .set-type-btn {
+          width: 153px;
+          height: 32px;
+          text-align: center;
+          line-height: 32px;
+          border-radius: 2px;
+          border-width: 1px;
+          border-style: solid;
+          cursor: pointer;
+        }
+      }
+    }
+  }

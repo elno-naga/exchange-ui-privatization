@@ -1,0 +1,100 @@
+.v5-market_recommend {
+  font-family: HarmonyOS-Medium;
+  font-weight: 500;
+
+  .recommend-list {
+    width: 1200px;
+    margin: auto;
+    padding: 20px 0 24px;
+    display: flex;
+  }
+
+  .recommend-item {
+    width: 288px;
+    height: 123px;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 16px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(6, 15, 27, 0.1);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      .hoverShow {
+        display: block !important;
+      }
+
+      .hoverHide {
+        display: none !important;
+      }
+    }
+  }
+
+  .symbol-name {
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 17px;
+
+    .icon-name {
+      float: left;
+    }
+
+    .change {
+      float: right;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  }
+
+  .symbol-price {
+    line-height: 28px;
+    margin-bottom: 12px;
+
+    .coin-price {
+      font-family: HarmonyOS-Medium;
+      font-weight: 700;
+      font-size: 22px;
+      margin-right: 8px;
+    }
+
+    .fait-price {
+      font-size: 12px;
+      vertical-align: bottom;
+    }
+  }
+
+  .symbol-vol {
+    font-size: 12px;
+    line-height: 16px;
+
+    .vol-num {
+      float: left;
+    }
+
+    .icon-button {
+      float: right;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 16px;
+
+      &.hoverShow {
+        display: none;
+      }
+    }
+  }
+}

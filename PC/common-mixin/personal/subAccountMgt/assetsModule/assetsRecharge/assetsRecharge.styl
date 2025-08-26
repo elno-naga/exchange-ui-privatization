@@ -1,0 +1,285 @@
+.recharge-modules {
+    font-family: HarmonyOS-Medium;
+    width:1180px;
+    margin: auto;
+    height: 100%;
+  .slide-fade-enter-active {
+    transition: all .5s;
+  }
+  .slide-fade-leave-active {
+    transition: all .5s;
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .copy {
+    cursor: pointer;
+  }
+  .recharge-form {
+    border-radius: 8px;
+  }
+  .recharge-header {
+    padding: 36px 0 0 40px;
+    font-size: 20px;
+    line-height: 28px;
+    .icon {
+      cursor pointer
+      margin-right: 16px;
+    }
+  }
+  .recharge-details {
+    padding: 30px 0 32px 40px;
+    display: flex;
+    position: relative;
+    .cut-line {
+      width: 1px;
+      height: 268px;
+      margin: 27px 80px 0 80px;
+    }
+    .details-left {
+      width: 340px;
+      >div{
+        &:first-child {
+          margin-bottom: 24px;
+        }
+      }
+      
+    }
+    .details-right{
+      .branchList{
+        li{
+          font-family: HarmonyOS-Medium;
+        }
+      }
+    }
+    .numberList {
+      width: 100%;
+      line-height: 16px;
+      font-size: 12px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      li {
+        margin-bottom: 12px;
+        font-family: HarmonyOS-Medium;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .numberList-key {
+      text-align: left;
+    }
+    .numberList-value {
+      text-align: right;
+    }
+    .details-warking {
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 24px;
+    }
+    .addressQRCode {
+      position: absolute;
+      top: 30px
+      right: 68px;
+      .qrcode-symbol {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 10px;
+      }
+      .qrcode-box {
+        padding: 6px;
+        border-style: solid;
+        border-width: 1px;
+        img {
+          width: 152px;
+          height: 152px;
+        }
+      }
+      .loading-layout {
+        position: absolute;
+        width: 164px;
+        height: 165px;
+        bottom: 1px;
+        left: 1px;
+        background: rgba(0, 0, 0, 0.78)
+        color: #D6DBE7;
+        font-size: 12px;
+        .layout-content {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+        }
+        img {
+          margin-right: 4px;
+        }
+        .loading img {
+          animation: rotate 1s linear infinite;
+        }
+        .reload {
+          cursor: pointer;
+        }
+      }
+    }
+    .details-title {
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 10px;
+      &.label-title {
+        margin-top: 24px;
+      }
+    }
+    .address, .addressPage  {
+      width: 360px;
+      height: 40px;
+      font-size: 14px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 4px;
+      input {
+        opacity 0;
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+      }
+    }
+    .address {
+      position: relative;
+      width: auto;
+      .address-long {
+        visibility: hidden;
+        transform: translateY(-5px);
+        opacity: 0;
+        position: absolute;
+        width: 340px;
+        padding: 9px 12px;
+        left: 0;
+        top: 40px;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28);
+        border-radius: 4px;
+        word-break: break-all;
+        z-index: 2;
+        transition: all 0.5s;
+      }
+      &:hover {
+        .address-long {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+    .addressPage {
+      position: relative;
+      .iconPage {
+        margin-right: 14px;
+        display: inline-block;
+      }
+      .iconPage-market {
+        word-break: break-all
+        box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+        position absolute
+        top 44px
+        width 340px
+        padding 20px
+        left 0
+        box-sizing border-box
+        border-radius: 4px;
+        font-size 12px
+        letter-spacing 0
+        line-height 20px
+        z-index 4
+      }
+    }
+  }
+  .rechargeRecord {
+    margin-top: 20px;
+    border-radius: 8px;
+    padding-bottom: 50px;
+    // border-top-style: solid;
+    // border-top-width: 20px;
+    box-sizing: border-box;
+    .rechargeRecord-title {
+      width: 100%;
+      padding: 0 24px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      font-size: 14px;
+    }
+    .table-coin {
+      display: flex;
+      align-items: center;
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        margin-right: 12px;
+      }
+      dd {
+        line-height: 18px;
+      }
+      .coinShowName {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .coinLongName {
+        font-size: 12px;
+      }
+    }
+    .copy {
+      margin-left: 4px;
+    }
+    .address-col {
+      position: relative;
+      .long-value {
+        visibility: hidden;
+        transform: translateY(-5px);
+        opacity: 0;
+        position: absolute;
+        width: 204px;
+        padding: 9px 12px;
+        left: 0;
+        top: 22px;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28);
+        border-radius: 8px;
+        word-break: break-all;
+        z-index: 2;
+        transition: all 0.5s;
+      }
+      &:hover {
+        .long-value {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  .copyValue {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+}

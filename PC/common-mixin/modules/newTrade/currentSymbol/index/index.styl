@@ -1,0 +1,400 @@
+.newTrade-content {
+  .newCurrentSymbol {
+    display: flex;
+    height: 64px;
+    margin-bottom: 5px;
+    padding-left: 16px;
+    padding-right: 21px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2px;
+    .symbol-info_container {
+      flex: 1;
+      flex-shrink: 0;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-right: 40px;
+      .symbol-info_item:last-child {
+        margin-right: 0
+      }
+      .slide-btn {
+        width: 20px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        z-index: 2;
+        cursor: pointer;
+        &.slide-btn-cur {
+          &:hover {
+            .hover_hide {
+              display: none;
+            }
+            .hover_show {
+              display: block;
+            }
+          }
+        }
+        .hover_hide {
+          display: block;
+        }
+        .hover_show {
+          display: none;
+        }
+      }
+      .icon-left {
+        left: 0;
+      }
+      .icon-right {
+        right: 0;
+      }
+    }
+    .currentSymbol-info {
+      display: flex;
+      flex: 1;
+      flex-shrink: 0;
+      height: 100%;
+      align-items: center;
+    }
+    .symbol-info_detail {
+      position: absolute;
+      top: 0;
+      transition: left 0.3s;
+      white-space: nowrap;
+      padding-top: 15px;
+      box-sizing: border-box;
+    }
+    .setting-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      .tradeTypeChange {
+        border-radius: 2px;
+        height: 24px;
+        overflow: hidden;
+        margin-right: 24px;
+        span {
+          display: inline-block;
+          font-size: 14px;
+          width: 78px;
+          height: 24px;
+          line-height: 24px;
+          text-align: center;
+          &:first-child {
+            border-radius: 2px 0 0 2px;
+          }
+          &:last-child {
+            border-radius: 0 2px 2px 0;
+          }
+        }
+      }
+      .setting-icon {
+        .hover {
+          display: none;
+        }
+        &:hover {
+          .hover {
+            display: inline-block;
+          }
+          .static {
+            display: none;
+          }
+        }
+      }
+    }
+    .symbol-info_item {
+      margin-right: 40px;
+      font-size: 12px;
+      font-weight: 500;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      >div:first-child {
+        margin-bottom: 5px;
+      }
+      &.applies {
+        margin-right: 5px;
+        min-width:140px;
+      }
+      .symbol-name {
+        font-size: 18px;
+        .coin-label {
+          position: relative;
+          padding: 0px 3px;
+          border-width: 1px;
+          border-style: solid;
+          font-size: 12px;
+          display: inline-block;
+          top: -3px;
+          border-radius: 2px;
+          margin-left: 4px;
+        }
+      }
+      .symbol-price {
+        font-size: 16px;
+      }
+    }
+    .eft-box {
+      display: inline-block;
+      .page-market {
+        position: absolute;
+        // top: 75px;
+        width: 360px;
+        padding: 20px;
+        // right: -5px;
+        box-sizing: border-box;
+        // font-family: HarmonyOS-Regular;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 20px;
+        z-index 99;
+        box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+        .page-market-even {
+          margin-bottom: 15px;
+        }
+        .page-market-click {
+          cursor: pointer;
+          margin-top: 5px;
+        }
+      }
+    }
+    .price-box {
+      display: inline-block;
+    }
+    .price-box-eft {
+      vertical-align: middle;
+      line-height: 16px;
+      margin-left: 5px;
+      .symbol-number {
+        // font-size: 12px!important;
+        display: block;
+        margin-left: 0!important;
+      }
+      .price-box-eft  {
+        display: block
+      }
+    }
+    .symbol-total {
+      line-height: 69px;
+      float: left;
+      padding-left: 16px;
+
+      span {
+        vertical-align: middle;
+      }
+
+      .symbol-name {
+        display: inline-block;
+        position: relative;
+        font-size: 18px;
+      }
+      .symbol-name{
+        position relative
+        .coin-label{
+          white-space:nowrap;
+          display:inline-block;
+          font-size:12px;
+          font-weight:400;
+          padding:0 4px;
+          border-radius:2px;
+          line-height:17px;
+          vertical-align top
+          margin-top 18px;
+          margin-right 5px;
+          position: relative;
+          overflow: hidden;
+          .coin-label {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            padding: 0;
+          }
+          .coin-bg {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.2;
+          }
+        }
+      }
+
+      .symbol-number {
+        font-size: 16px;
+        margin-left: 5px;
+      }
+
+      .symbol-property {
+        font-size: 12px;
+      }
+    }
+
+    .symbol-info {
+      float: right;
+      padding: 18px 16px 0 0;
+      height: 34px;
+
+      .info-item {
+        float: left;
+        margin-left: 20px;
+        font-size: 12px;
+        text-align: right;
+        position: relative
+        &:hover {
+          .page-market-jz {
+            display: block;
+          }
+        }
+        .page-market-jz {
+          display: none;
+          position: absolute;
+          top: 52px;
+          width: 360px;
+          padding: 20px;
+          // right: -5px;
+          box-sizing: border-box;
+          // font-family: HarmonyOS-Regular;
+          font-size: 12px;
+          letter-spacing: 0;
+          line-height: 20px;
+          z-index 99;
+          text-align: left;
+          box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+        }
+        .jzTit {
+          vertical-align: middle;
+          .icon {
+            font-size: 12px;
+            cursor: pointer
+          }
+        }
+        span {
+          display: block;
+        }
+
+        .vla {
+          margin-top: 10px;
+        }
+      }
+    }
+    .symbol-name-vla,
+    .market-show-button {
+      display: none;
+    }
+
+  }
+  .currency-notes-modal {
+    position: absolute;
+    left: 0px;
+    top: 59px;
+    z-index: 99;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: all 0.3s ease;
+  }
+
+  .fade-enter, .fade-leave-to {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+  @media (max-width: 600px){
+    .eft-box-icon-box {
+      display: none!important;
+    }
+    .newCurrentSymbol .symbol-total .symbol-name .coin-label {
+      margin-top: 0px!important;
+    }
+  }
+}
+
+.new-pro-trade {
+  .symbol-name {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    .coin-label {
+      position: static;
+      padding: 0px 3px;
+      border-width: 1px;
+      border-style: solid;
+      font-size: 12px;
+    }
+    .proTrade-arrow {
+      margin-left: 5px;
+      position: relative;
+      top: 0px;
+      svg {
+        vertical-align: middle;
+        transition: all 0.3s;
+        transform: rotate(180deg);
+      }
+    }
+    .trade-market {
+      width: 320px;
+      height: 0;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      overflow: hidden;
+      z-index: 20;
+      transition: all 0.3s;
+      .newTrade-market {
+        height: 100%;
+        .tbody {
+          height: 310px;
+        }
+      }
+
+    }
+    &:hover {
+      .proTrade-arrow svg {
+        transform: rotate(0);
+      }
+    }
+    .trade-market_show {
+      height: 413px;
+      box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+    }
+  }
+}
+// 专业版
+// .pro-trade {
+//   .newCurrentSymbol {
+//       position: absolute;
+//       top: -60px;
+//       // overflow: hidden;
+//       z-index: 999;
+//       left: 360px;
+//       border-bottom: none;
+//       border-left-width: 1px;
+//       border-left-style: solid;
+//       padding-left: 20px;
+//       padding-top: 12px;
+//       padding-bottom: 8px;
+//       background: none !important
+//       .symbol-total {
+//         padding: 0;
+//         .symbol-name {
+//           display: none;
+//         }
+//       }
+//       .symbol-info {
+//         padding-right 0!important
+//         .info-item {
+//           margin-left: 10px;
+//           padding-left: 10px;
+//         }
+//       }
+//   }
+//   &.hasEtfTip .newCurrentSymbol {
+//     top: -90px;
+//   }
+// }

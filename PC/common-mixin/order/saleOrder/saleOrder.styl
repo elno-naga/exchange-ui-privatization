@@ -1,0 +1,123 @@
+.v5-page-exchangeOrder {
+  .exchangeOrder-nav {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    position: relative;
+    padding-left: 32px;
+    .exchangeOrder-nav-switchs {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      .orderDownload {
+        font-size: 14px;
+        vertical-align: middle;
+        cursor: pointer;
+        & > span{
+          margin-left: 4px;
+          font-family: HarmonyOS-Medium;
+        }
+      }
+    }
+  }
+  .exchangeOrder-options {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 14px;
+    display:flex;
+    .search-box{
+      margin-right:20px;
+      float:left;
+    }
+    .select-options-box{
+      top:45px !important;
+    }
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top: 14px;
+    .common-select {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+  .exchangeOrder-table {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-top:28px;
+
+    .pagination-box {
+      margin-bottom: 32px;
+      position: relative;
+      right: -10px;
+    }
+
+    .pagination {
+      padding: 0 !important;
+    }
+
+    .table-head{
+      border:none !important;
+    }
+
+
+    .sale-tableCoin{
+      display:flex;
+      align-items:center;
+      &>img{
+        width:20px;
+        height:20px;
+        margin-right:8px;
+      }
+      .tableCoin-text{
+        display:flex;
+        font-size:14px;
+        flex-direction:column;
+      }
+    }
+    .sale-tableStatus{
+      //display:flex;
+      //align-items:center;
+      //justify-content:end;
+      .sale-statusDot{
+        //flex:0 0 8px;
+        display:inline-block;
+        width:8px;
+        height:8px;
+        border-radius:50%;
+      }
+      .sale-tableStatusText{
+        margin:0 4px;
+      }
+    }
+
+  }
+  .weight400{
+    font-weight:400;
+  }
+  .tableNownStyle {
+    vertical-align: middle;
+    cursor: no-drop;
+  }
+  .table-head th > div{
+    text-align: left;
+    padding: 0 2px 8px;
+  }
+  .table-head th:last-child > div{
+    text-align: right;
+  }
+  .table-body td > div{
+    text-align: left;
+    padding: 0 2px;
+  }
+  .table-body td:last-child > div{
+    text-align: right;
+  }
+  .h5Box{
+    min-height: 612px;
+  }
+  .fontSize12{
+    font-size:12px;
+  }
+}

@@ -1,0 +1,245 @@
+.assets-overview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .total-assets {
+    width: 100%;
+    height: 168px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 5px;
+    .icon-12 {
+      font-size: 12px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33px;
+      margin-bottom: 24px;
+    }
+    .hide-assets {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 24px;
+      cursor: pointer;
+      margin-left: 12px;
+      .icon {
+        vertical-align: 0.21em;
+      }
+    }
+    .folded-text {
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 12px;
+    }
+    .folded-num {
+      .btcNum {
+        display: inline-block;
+        font-size: 24px;
+        line-height: 31px;
+        font-weight: 500;
+      }
+      .fiatNum  {
+        font-size: 14px;
+      }
+    }
+    .num-hide {
+      font-size: 24px;
+      line-height: 31px;
+    }
+    .funcButton-list {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      font-weight: 500;
+      .common-button {
+        margin-left: 20px;
+      }
+    }
+  }
+  .assets-charts {
+    width: 485px;
+    height: 280px;
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    .charts-title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .echart-box {
+      flex: 1;
+      position: relative;
+    }
+    .coin-list {
+      position: absolute;
+      width: 200px;
+      right: 15px;
+      top: 30px;
+      .coin-item {
+        width: 100%;
+        height: 28px;
+        padding: 0 12px;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 4px;
+        box-sizing: border-box;
+        .spot {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border-radius: 1px;
+          vertical-align: middle;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .account-balance {
+    width: 100%;
+    flex: 1;
+    .account-item {
+      width: 100%;
+      height: 99px;
+      padding: 24px 24px 0 24px;
+      position: relative;
+      box-sizing: border-box;
+
+      &:first-child {
+        &:hover{
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+      }
+
+      .account-name {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 8px;
+      }
+      .account-balance_num {
+        margin-bottom: 20px;
+        .btcNum {
+          font-size: 20px;
+          line-height: 26px;
+          font-weight: 500;
+        }
+        .fiatNum {
+          font-size: 14px;
+        }
+        .num-display{
+          height: 30px;
+        }
+        .num-hide{
+          height: 30px;
+        }
+      }
+      .operation-btn {
+        position: absolute;
+        right: 24px;
+        bottom: 18px;
+        .common-button {
+          margin-left: 20px;
+        }
+      }
+      .bottom-line {
+        width: 100%;
+        height: 1px;
+      }
+      &:last-child {
+        .bottom-line {
+          display: none;
+        }
+      }
+    }
+  }
+  .transfer-form {
+    padding-bottom: 20px;
+    .bonus-vol {
+      cursor: pointer;
+      margin-top: 5px;
+      &:hover {
+        +.bonus-hint {
+          display: block;
+        }
+      }
+
+      >a {
+        border-bottom-style: dashed;
+        border-bottom-width: 1px;
+        cursor: pointer;
+      }
+    }
+
+    .bonus-hint {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      left: 0px;
+      padding: 10px;
+      z-index: 1000;
+      line-height: 1.8;
+      width: 340px;
+    }
+    .transfer-account {
+      display: flex;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+      &.reverse {
+        .exchange {
+          transform: translate3d(232px, 0, 0);
+        }
+        .other {
+          transform: translate3d(-232px, 0, 0);
+        }
+      }
+    }
+    .account-side {
+      width: 184px;
+      transition: all 0.3s;
+    }
+    .available {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+      position: relative
+    }
+    .change-icon {
+      padding: 35px 12px 0;
+      .icon {
+        cursor pointer
+      }
+    }
+    .transfer-all {
+      font-size: 14px;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+  }
+  .transfer-symbol, .transfer-coin {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .assets-loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: 1000;
+  }
+  .transfer-account-name{
+    font-size: 14px;
+  }
+}

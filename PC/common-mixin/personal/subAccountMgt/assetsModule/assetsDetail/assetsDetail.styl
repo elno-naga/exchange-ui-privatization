@@ -1,0 +1,148 @@
+.margin-right{
+  border-radius: 8px
+}
+// .margin-left{
+//   border-radius: 8px
+// }
+.assets-detail{
+    width:1180px;
+    height: 100%;
+    margin: auto;
+    font-family: HarmonyOS-Medium;
+    .risk-info {
+      .risk-title {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 10px;
+      }
+      .risk-lever {
+        display: flex;
+        .icon-36 {
+          font-size: 36px;
+          margin-right: 12px;
+        }
+        ul {
+          font-size: 12px;
+          line-height: 17px;
+        }
+      }
+    }
+    .top-bg{
+        box-sizing: border-box;
+    }
+    .top{
+        .title {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            padding: 32px 0;
+            span{
+                margin-left: 16px;
+            }
+        }
+        .assets-nav {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .assets-data{
+            padding: 40px 0px 60px 0px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            .account-box{
+                .title-row{
+                  margin-bottom: 16px;
+                    .hide-assets{
+                        width: 12px;
+                        margin-left: 8px;
+                        cursor: pointer;
+                    }
+                }
+                .balance-row{
+                    font-size: 24px;
+                    line-height: 45px;
+                    font-weight: 500;
+                    margin-bottom: 12px
+                }
+            }
+            .option-assets{
+                display:flex;
+                align-items: center;
+                //line-height: 75px;
+                button {
+                    height: 32px !important;
+                    line-height: 32px !important;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+    .bottom {
+        padding-bottom: 30px;
+        flex: 1;
+        position: relative;
+        border-radius: 8px;
+        .list-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            border-radius: 8px 8px 0 0;
+        }
+        .leverAccount-center,.otcAccount-center,.otcAccount-center{
+            min-height: 421px;
+        }
+        .otcAccount-center{
+          .common-pagination{
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+        }
+        .title {
+            font-size: 16px;
+            margin-right: 16px;
+        }
+        .hide {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        .hidetext {
+            font-size: 12px;
+        }
+        .icon {
+            vertical-align: 0;
+        }
+        }
+        .table-coin {
+            display: flex;
+            align-items: center;
+            img {
+                width: 24px;
+                height: 24px;
+                border-radius: 100%;
+                margin-right: 12px;
+            }
+            dd {
+                line-height: 18px;
+            }
+            .coinShowName {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .coinLongName {
+                font-size: 12px;
+            }
+        }
+        .table-btn_item {
+            display: inline-block;
+            position: relative;
+            margin-right: 20px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

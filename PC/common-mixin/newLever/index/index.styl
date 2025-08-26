@@ -1,0 +1,419 @@
+.page-content-chain .newTradeModel-margin {
+  .box-shadow {
+    box-shadow: 0px 3px 4px 1px rgba(0,0,0,0.28)!important;
+  }
+  .light-theme {
+    .box-shadow {
+      box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.06)!important;
+    }
+  }
+  .newTrade-content {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 3px;
+    font-family: HarmonyOS-Medium;
+    min-width: 1300px;
+    .tradeInfo-block {
+      flex: 1;
+      margin-right: 5px;
+    }
+    .tradeView-block {
+      display: flex;
+    }
+    .newTrading-view {
+      flex: 1;
+      .newTrade-box {
+        height: 417px;
+      }
+      .transaction {
+        margin-top: 5px;
+      }
+    }
+    .market-block {
+      width: 320px;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// 国际版 样式
+.Int-trade {
+  .trade-content {
+    padding: 0 5px 0 0;
+    .left-block {
+      left: 0;
+      top: 0;
+      height: 100%;
+    }
+    .right-block {
+      top: 0;
+      height: 100%;
+    }
+    .lever-transaction {
+      height: 400px;
+    }
+    .lever-main-block {
+      height: auto;
+      min-height: 800px;
+    }
+  }
+}
+// 响应式
+.mobile-trade-page {
+  .trade-content {
+    min-width: 320px;
+    background: none!important;
+    overflow: inherit!important;
+    .left-block {
+      // position: absolute;
+      // z-index: 100;
+      .market-header {
+        .kg {
+          .icon {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .trade-market {
+      z-index: 100;
+      position: fixed;
+      bottom: 44px;
+      top: 0;
+      left: 0;
+      transiton all 0.5s ease
+      -webkit-transition all 0.5s ease
+    }
+    .left-shrinks .trade-market {
+      width: 0;
+      left: -300px
+      overflow: hidden;
+    }
+    .lever-main-block {
+      // position: relatsive;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 54px 0;
+      height: auto; 
+      .currentSymbol {
+        .symbol-total {
+          padding-left: 10px;
+          line-height: 23px;
+          .symbol-number {
+            margin-left: 0;
+          }
+        }
+        .price-box {
+          display: none;
+        }
+        .symbol-info{
+          .info-item {
+            display: none;
+          }
+          .info-item-vol {
+            display: block;
+          }
+        }
+        .symbol-name {
+          font-size: 18px;
+        }
+        .symbol-name-vla {
+          display: inline;
+          font-size: 12px;
+        }
+        .market-show-button {
+          display: inline;
+          font-size: 23px;
+          float: left;
+          margin: 1px 6px 0 0;
+        }
+      }
+      .chart-box {
+          position: absolute;
+          left: -999999px;
+          width: 0;
+          overflow: hidden;
+        #myEchartsKline div {
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
+      .center-block {
+        .lever-transaction {
+          margin-top: 176px;
+          .title-block {
+            padding: 0 5px;
+          }
+        }
+      }
+      .trade-box.lever-tradeForm .trade-form,
+      .trade-box.trade-box-ex-container .trade-form {
+        padding: 0;
+      }
+      .trade-box.lever-tradeForm .trade-form .form-block,
+      .trade-box.trade-box-ex-container .trade-form .form-block {
+        padding: 0 5px;
+      }
+      .trade-box.trade-box-ex-container .trade-form .percentage .per-item {
+        margin: 0;
+      }
+      .trade-box.trade-box-ex-container .trade-form .percentage {
+        margin: -19px 0px 0 0px;
+      }
+    }
+    .right-block {
+      width: auto;
+      left: 5px;
+      top: 46px;
+      z-index: 1;
+      // 深度
+      .depth {
+        width: 100%;
+        height: 175px;
+        .block-content {
+          width: 100%;
+          top: 0 !important;
+        }
+        .current-price {
+          position: absolute;
+          width: 100%;
+          top: 130px;
+        }
+        .block-header {
+          display: none;
+        }
+        .trade-table-list-container {
+          width: 50%;
+          float: left;
+          box-sizing: border-box;
+          padding: 0;
+          &.buy {
+            
+            .thead {
+              display: block;
+            }
+            .tbody {
+              padding-left: 5px;
+            }
+          }
+          &.asks {
+            .tbody {
+              padding-right: 2px;
+            }
+          }
+
+          .asksOPtion {
+            position: relative;
+          }
+          .symbol-item {
+            padding-right: 5px;
+          }
+
+          .td-symbol, 
+          .td-symbol0 {
+            padding-left: 5%;
+            width: 45% !important;
+          }
+
+          .thead .td-symbol2, 
+          .tbody .td-rose {
+            display: none;
+          }
+          .td-price,
+          .td-symbol1{
+            float: right;
+            width: 45% !important;
+            padding-right: 4%;
+          }
+        }
+
+      }
+      .new-tradb {
+        display: none;
+      }
+    }
+    .currency-notes-modal-h5 {
+      position: static;
+      padding: 5px 0 0;
+      width: 100%;
+      clear: both;
+      display: none;
+      .currency-notes.currency-notes-contianer {
+        height: auto !important;
+        width: 100% !important; 
+        .flex-row {
+          padding: 16px 0;
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+          word-break: break-all;
+          font-size: 14px;
+          .key {
+            font-size: 14px;
+          }
+        }
+        .content {
+          height: auto;
+          min-height: 200px;
+          width: 100% !important;
+          .text {
+            font-size: 14px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+    .order-list{
+      display: none;
+    }
+    .ex-canter-echart-box {
+      min-height: 480px
+    }
+  }
+  &.mobile-trade-page2 {
+    .depth , .lever-transaction , .order-list{
+      display: none;
+    }
+    .trade-content .lever-main-block .chart-box {
+        position: static;
+        left: 0;
+        width: 100%;
+        overflow: auto;
+
+    }
+  }
+  &.mobile-trade-page3 {
+    .depth , .lever-transaction , .order-list{
+      display: none;
+    }
+    .currency-notes-modal-h5 {
+      display: block;
+    }
+  }
+  &.mobile-trade-page4 {
+    height: calc(100vh - 84px);
+    position: relative;
+    .depath-index-container,
+    .new-tradb,
+    .newTrade,
+    .block-content {
+      height 100%;
+    }
+    .right-block {
+      width: auto;
+      // left: 5px;
+      top: 41px;
+      position: absolute;
+      height: calc(100vh - 124px);
+    }
+    .depth , .lever-transaction , .order-list{
+      display: none;
+    }
+    .trade-content .right-block .new-tradb {
+     display: block;
+      position: relative;
+      transform: inherit;
+      top: 0px;
+      .newTrade-index-container.newTrade {
+        width: 100%;
+      }
+      .newTrade-index-container .thead span, .newTrade-index-container .tbody span {
+        width: 32% !important;
+      }
+      .newTrade-index-container .thead span.td-symbol, .newTrade-index-container .tbody span.td-symbol, .newTrade-index-container .thead span.td-symbol0, .newTrade-index-container .tbody span.td-symbol0 {
+        padding-left: 10px;
+      }
+      .newTrade-index-container .newTrade-tbody {
+        height: 100%;   
+        position: absolute;
+        left: 0;
+        top: 27px;
+        width: 100%;
+      }
+    }
+  }
+  &.mobile-trade-page5 {
+    .depth , .lever-transaction{
+      display: none;
+    }
+    .order-list{
+      display: block;
+    }
+    .trade-content .lever-main-block {
+      height: 35px !important;
+      padding-bottom: 0; 
+    }
+  }
+  .common-noticeDialog .dialog-frame {
+    width: 90%; 
+  }
+  .common-noticeDialog .dialog-frame-body {
+    width: 80%; 
+    margin-left: 10%;
+  }
+  @media (max-width: 460px) {
+    .lever-main-block {
+      min-height: initial
+    }
+    .trade-box.lever-tradeForm .title-block {
+      height: 30px;
+      position: relative
+    }
+    .title-block-op {
+      height: 60px!important;
+    }
+    .risk {
+      position: inherit!important;
+    }
+    #tradeModel-lever .risk-text {
+      bottom: inherit!important;
+      top: 60px;
+      width: 100%;
+      box-sizing: border-box
+    }
+  }
+  
+}
+// 专业版 样式
+.page-content-chain .newTradeModel-margin {
+  .newTrade-content {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    box-sizing: border-box;
+    .tradeInfo-block {
+      flex: 1;
+      margin-right: 5px;
+      overflow: hidden;
+    }
+    .tradeView-block {
+      width: 100%;
+      display: flex;
+    }
+    .newTrading-view {
+      flex: 1;
+    }
+    .market-block {
+      width: 320px;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+  }
+  .new-pro-trade {
+    .newTrade-content {
+      height: 1010px;
+    }
+    .depth-view {
+      margin-left: 5px;  
+    }
+  }
+}

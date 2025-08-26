@@ -1,0 +1,947 @@
+
+.kolTradersList {
+  width: 1200px;
+  margin: 40px auto 0;
+  .dialog-frame, .dialog-frame-body-center {
+    width: 600px !important;
+  }
+
+  .tabList {
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.1);
+    border-radius: 8px;
+    margin-bottom: 40px;
+    height: 72px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .tabList-box {
+      display: flex;
+      color: #16181D;
+      align-items: center;
+
+      .tabList-type {
+        height: 30px;
+        width: 72px;
+        background: #F2F4FB;
+        display: flex;
+        align-items: center;
+        margin-right: 28px;
+        justify-content: center;
+        border-radius: 4px;
+        cursor: pointer;
+
+        svg {
+          margin: 0 10px;
+        }
+      }
+
+      .tabList-item {
+        font-size: 14px;
+        line-height: 18px;
+        margin-right: 32px;
+        cursor: pointer;
+      }
+
+      .nomarl {
+        color: #16181D;
+      }
+    }
+
+    .tabList-search {
+      .common-search {
+        display: flex;
+        align-items: center;
+        width: 300px;
+        height: 40px;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 1px;
+        padding: 0 16px;
+        box-sizing: border-box;
+        background: rgba(242, 244, 251, 0.2) !important;
+        border: 1px solid #E0E5F2 !important;
+        color: #16181d !important;
+
+        svg.icon {
+          margin-right: 8px;
+        }
+
+        input {
+          border: 0;
+          flex: 1;
+          height: 100%;
+          font-size: 14px;
+          font-family: HarmonyOS-Medium;
+          color: #16181d !important;
+        }
+
+        input::-webkit-input-placeholder {
+          color: #6a6a6a !important;
+        }
+      }
+    }
+  }
+
+  .myOrder {
+    margin-bottom: 40px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 40px;
+    text-align: right;
+
+    span {
+      cursor: pointer;
+    }
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  .kolTradersList-table {
+    text-align: center;
+    font-size: 14px;
+    color: #16181D;
+
+    .c-v6-table {
+      font-size: 14px !important;
+      background: none !important;
+      .common-button-solid-disabled {
+        background: #E8EBF3 !important;
+      }
+    }
+    .common-skeleton.skeleton-dark {
+      background-color: #E8EBF3 !important;
+      background-image: none;
+    }
+
+    .fill-6-bg {
+      background-color: #E8EBF3 !important;
+    }
+    .fill-4-bg {
+      background-color: #E8EBF3 !important;
+    }
+
+    .text-2-cl {
+      color: #888FA1 !important;
+    }
+
+    .fill-2-bg {
+      background: none !important;
+    }
+
+    .fill-3-bg {
+      background: none !important;
+    }
+
+    .text-1-cl {
+      color: #16181D !important;
+    }
+
+    .fill-6-bd {
+      border-color: #E8EBF3 !important;
+    }
+
+    .c-v6-table .table-head {
+      padding: 0 0 4px;
+    }
+
+    .c-v6-table .table-body .tr-bg {
+      padding: 0;
+    }
+
+    .c-v6-table .table-body .tr-content {
+      height: 80px;
+      line-height: 80px;
+      display: flex;
+    }
+
+    .pagination {
+      padding: 0 !important;
+    }
+
+    .user-img {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+
+      .user-name {
+        margin: 0 8px;
+        font-size: 16px;
+        color: #21262B;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .user-top {
+        img {
+          height: 24px;
+          width: 20px;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .flow-full {
+      height: 32px;
+      line-height: 32px;
+      padding: 0;
+      text-align: center;
+      font-size: 14px;
+      background: #EB4D5C;
+      border-radius: 4px;
+      float: right;
+      color: #fff;
+      box-sizing: border-box;
+      width: 70px;
+    }
+
+    .kolTradersList-itemBox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .kolTradersList-itemList {
+      background: red;
+      width: 386px;
+      float: left;
+      margin-right: 21px;
+      margin-bottom: 20px;
+      position: relative;
+      padding: 28px 24px 0px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 28px -6px rgba(24, 39, 75, 0.15);
+      border-radius: 8px;
+
+      .topImg {
+        position: absolute;
+        top: 0;
+        left: 12px;
+
+        img {
+          height: 24px;
+          width: 20px;
+        }
+      }
+
+      .user-info {
+        display: flex;
+        justify-content: space-between;
+
+        .user-info-img {
+          display: flex;
+          align-items: center;
+
+          img {
+            height: 44px;
+            width: 44px;
+            margin-right: 12px;
+            border-radius: 50%;
+          }
+
+          .user-info-nameBox {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .user-info-name {
+            font-size: 16px;
+            line-height: 20px;
+            color: #21262B;
+            margin-bottom: 8px;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .user-info-number {
+            font-size: 12px;
+            line-height: 16px;
+            color: #888FA1;
+
+            img {
+              width: 13px;
+              height: 12px;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+
+      .user-profitRate {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .user-profitRate-val {
+          text-align: left;
+
+          .user-profitRate-valT {
+            font-size: 24px;
+            line-height: 32px;
+            margin-bottom: 4px;
+          }
+
+          .user-profitRate-valB {
+            font-size: 12px;
+            line-height: 16px;
+            color: #888FA1;
+          }
+        }
+      }
+
+      .user-data {
+        border-top: 1px solid #E8EBF3;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 0;
+        color: #16181D;
+
+        .user-dataBox-val {
+          font-size: 14px;
+          line-height: 18px;
+          margin-bottom: 4px;
+        }
+
+        .user-dataBox-title {
+          font-size: 12px;
+          line-height: 16px;
+          color: #888FA1;
+          text-align: left;
+        }
+
+        .user-dataBox-title-right {
+          text-align: right;
+        }
+      }
+    }
+
+    .kolTradersList-itemList:nth-child(3n) {
+      margin-right: 0px;
+    }
+  }
+
+
+  .dialogTip {
+    .fill-2-bg {
+      background: #FFFFFF !important;
+    }
+
+    .fill-3-bg {
+      background: #F2F4FB !important;
+    }
+
+    .text-1-cl {
+      color: #16181D !important;
+    }
+
+    .fill-6-bg {
+      background-color: #E8EBF3 !important;
+    }
+
+    .text-2-cl {
+      color: #888FA1 !important;
+    }
+
+    .fill-2-bg {
+      background: #fff !important;
+    }
+
+    .fill-3-bg {
+      background: #F2F4FB !important;
+    }
+
+    .text-1-cl, .text-1-cl {
+      color: #16181D !important;
+    }
+
+    .text-2-cl {
+      color: #888FA1 !important;
+    }
+
+    .fill-5-bd {
+      border-color: #E8EBF3 !important;
+    }
+
+    .fill-6-bd {
+      border-color: #E8EBF3 !important;
+    }
+
+    .fill-3-bd {
+      border-color: #F2F4FB !important;
+    }
+
+    .fill-6-bg {
+      background: #E8EBF3 !important;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #6a6a6a !important;
+    }
+
+    .dialog-frame-bottom {
+      padding: 12px 40px 32px !important;
+    }
+  }
+
+  .dialog-frame-body {
+    overflow: scroll;
+  }
+
+  .kolTradersSet {
+
+    .kolTradersSet-warnNote {
+      font-size: 12px;
+      line-height: 16px;
+      color: #FAAD14;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+      }
+    }
+
+    .kolTradersSet-title {
+      font-size: 14px;
+      line-height: 20px;
+      color: #16181D;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kolTradersSet-user {
+      display: flex;
+      justify-content: space-between;
+
+      .kolTradersSet-userInfo {
+        display: flex;
+
+        img {
+          height: 44px;
+          width: 44px;
+          margin-right: 12px;
+          border-radius: 50%;
+        }
+
+        .kolTradersSet-userInfo-nameBox {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .kolTradersSet-userInfo-name {
+            font-size: 16px;
+            line-height: 20px;
+            color: #21262B;
+            margin-bottom: 8px;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .kolTradersSet-userInfo-number {
+            font-size: 12px;
+            line-height: 16px;
+            color: #888FA1;
+          }
+        }
+      }
+
+      .kolTradersSet-userRate {
+        text-align: right;
+        margin-bottom: 40px;
+
+        .kolTradersSet-userRateT {
+          font-size: 16px;
+          line-height: 22px;
+          margin-bottom: 4px;
+        }
+
+        .kolTradersSet-userRateB {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .kolTradersSet-symbol {
+      overflow: hidden;
+      margin-bottom: 12px;
+
+      .kolTradersSet-symbolBox {
+        .kolTradersSet-symbolItem {
+          width: 150px;
+          height: 36px;
+          line-height: 36px;
+          text-align: center;
+          font-size: 14px;
+          float: left;
+          margin-right: 20px;
+          position: relative;
+          border-radius: 4px;
+          margin-bottom: 20px;
+          cursor: pointer;
+
+          svg {
+            position: absolute;
+            top: -3px;
+            right: 0;
+            font-size: 20px;
+          }
+        }
+
+        // .kolTradersSet-symbolItem:nth-child(4) {
+        // margin-right: 0px;
+        // }
+        .kolTradersList-top_button_active {
+          background: #fff;
+          border-style: solid;
+          border-width: 1px;
+        }
+
+        .kolTradersList-top_button {
+          background: #F6F8FB;
+          border: 1px solid #F6F8FB;
+        }
+      }
+    }
+
+    .kolTradersSet-model {
+      margin-bottom: 32px;
+
+      .kolTradersSet-model-item {
+        background: #F2F4FB;
+        border-radius: 8px;
+        padding: 16px;
+        box-sizing: border-box;
+        margin-bottom: 12px;
+
+        .kolTradersSet-model-radio {
+          font-size: 14px;
+          line-height: 20px;
+          color: #16181D;
+          margin-bottom: 8px;
+
+          span {
+            margin-left: 10px;
+            margin-bottom: 8px;
+          }
+        }
+
+        .kolTradersSet-model-text {
+          font-size: 12px;
+          line-height: 18px;
+          color: #888FA1;
+          padding-left: 24px;
+        }
+      }
+    }
+
+    .kolTradersSet-amount {
+      .kolTradersSet-amountBox {
+        position: relative;
+      }
+
+      .goTransfer {
+        margin-right: 12px;
+        cursor: pointer;
+      }
+
+      .kolTradersSet-balance {
+        font-size: 12px;
+        line-height: 18px;
+        color: #888FA1;
+        position: absolute;
+        right: 0;
+        top: 48px;
+      }
+    }
+
+    .kolTradersSet-overSet {
+      margin-top: 36px;
+
+      .kolTradersSet-overSet-inputBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: -10px;
+
+        .rate {
+          margin-right: 12px;
+        }
+
+        .kolTradersSet-overSet-btn {
+          height: 40px;
+          width: 80px;
+          border-radius: 4px;
+          text-align: center;
+          line-height: 40px;
+          position: relative;
+          margin-top: 10px;
+          cursor: pointer;
+          box-sizing: border-box;
+
+          svg {
+            position: absolute;
+            top: -3px;
+            right: 0;
+            font-size: 20px;
+          }
+        }
+
+        .kolTradersSet-overSet-btn-active {
+          background: #fff;
+          border-style: solid;
+          border-width: 1px;
+        }
+
+        .kolTradersSet-overSet-btn-noActive {
+          background: #F6F8FB;
+          border: 1px solid #F6F8FB;
+        }
+      }
+    }
+
+    .kolTradersSet-note {
+      margin-bottom: 28px;
+      margin-top: 32px;
+
+      span {
+        font-size: 12px;
+        line-height: 18px;
+        color: #888FA1;
+      }
+    }
+  }
+
+  .argee {
+    .dialog-markAll {
+      z-index: 1000;
+    }
+
+    .kolTrade-dialog-confirm {
+      font-size: 12px;
+      line-height: 24px;
+      color: #16181D;
+    }
+
+    .kolTrade-checkbox {
+      margin-top: 20px;
+      margin-bottom: 4px;
+      font-size: 12px;
+      line-height: 24px;
+      color: #16181D;
+
+      span {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .kolTraderInfo {
+    .dialog-frame, .dialog-frame-body-center {
+     width: 600px !important;
+    }
+
+    .info-icon-button {
+      &:hover +.info-icon-text {
+        display: block;
+      }
+    }
+
+    .info-icon-text {
+      display: none;
+      position: absolute;
+      // top: 75px;
+      // width: 360px;
+      padding: 20px;
+      // right: -5px;
+      box-sizing: border-box;
+      font-family: HarmonyOS-Regular;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: 20px;
+      z-index: 99;
+      box-shadow: 0 4px 10px 0 rgba(0,0,0,.1)!important
+      bottom: 90px;
+      background: #fff;
+    }
+
+    .info-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+
+      .info-top-left {
+        display: flex;
+
+        img {
+          height: 44px;
+          width: 44px;
+          margin-right: 12px;
+          border-radius: 50%;
+        }
+
+        .info-top-left-nameBox {
+          .info-top-left-name {
+            font-size: 16px;
+            line-height: 20px;
+            color: #21262B;
+            display: flex;
+            margin-bottom: 5px;
+
+            .info-top-left-name-text {
+              max-width: 250px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              display: inline-block;
+            }
+
+            .kolTradersDte-user_empty {
+              height: 20px;
+              background: rgba(235, 77, 92, 0.15);
+              border-radius: 2px;
+              font-size: 12px;
+              color: #EB4D5C;
+              line-height: 20px;
+              display: inline-block;
+              text-align: center;
+              padding: 0 4px;
+              box-sizing: border-box;
+              margin-left: 8px;
+            }
+
+            .kolTradersDte-user_hold {
+              height: 20px;
+              background: rgba(48, 120, 255, 0.15);
+              border-radius: 2px;
+              font-size: 12px;
+              color: #3078FF;
+              line-height: 20px;
+              display: inline-block;
+              text-align: center;
+              padding: 0 4px;
+              box-sizing: border-box;
+              margin-left: 8px;
+            }
+          }
+
+          .info-top-left-label {
+            font-size: 12px;
+            line-height: 18px;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #888FA1;
+          }
+        }
+      }
+
+      .info-top-right {
+        display: flex;
+        text-align: right;
+
+        .info-top-right-title {
+          font-size: 12px;
+          line-height: 17px;
+          color: #888FA1;
+        }
+
+        .info-top-right-day {
+          margin-right: 28px;
+
+          .info-top-right-val {
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 4px;
+            color: #21262b;
+          }
+        }
+
+        .info-top-right-rate {
+          .info-top-right-val {
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+
+    .info-table {
+      .InfoTabBox {
+        border-bottom: 1px solid #E8EBF3;
+        margin-bottom: 20px;
+      }
+
+      .other-info-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        color: #16181D;
+
+        .other-info-item {
+          width: 160px;
+          margin-right: 20px;
+          margin-bottom: 18px;
+
+          .other-info-item-title {
+            font-size: 12px;
+            line-height: 18px;
+            color: #888FA1;
+            margin-bottom: 8px;
+          }
+
+          .other-info-item-val {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+
+        .other-info-item:nth-child(3n-2) {
+          margin-right: 60px;
+        }
+
+        .other-info-item:nth-child(3n-1) {
+          width: 120px;
+        }
+
+        .other-info-item:nth-child(3n) {
+          margin-right: 0px;
+          text-align: right;
+        }
+      }
+
+      .history-info-box {
+        min-height: 200px;
+
+        .history-info-list {
+          .kolTradersDte-even {
+            border-bottom: 1px solid #E8EBF3;
+
+            .kolTradersDte-even-title {
+              font-size: 16px;
+              line-height: 20px;
+              color: #21262B;
+              margin-bottom: 20px;
+              display: flex;
+              margin-top: 20px;
+
+              .kolTradersDte-even-side {
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                font-size: 12px;
+                border-radius: 2px;
+                margin-right: 8px;
+                padding: 0 4px;
+              }
+
+              .label-color-buy {
+                background: rgba(19, 184, 135, 0.15);
+              }
+
+              .label-color-sell {
+                background: rgba(235, 77, 92, 0.15);
+              }
+            }
+
+            .kolTradersDte-even-dataBox {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-start;
+              color: #16181D;
+            }
+
+            .kolTradersDte-even-data {
+              width: 160px;
+              margin-right: 20px;
+              margin-bottom: 18px;
+
+              .kolTradersDte-even-data-title {
+                font-size: 12px;
+                line-height: 18px;
+                color: #888FA1;
+                margin-bottom: 8px;
+              }
+
+              .kolTradersDte-even-data-val {
+                font-size: 16px;
+                line-height: 22px;
+              }
+            }
+
+            .kolTradersDte-even-data:nth-child(3n-2) {
+              margin-right: 60px;
+            }
+
+            .kolTradersDte-even-data:nth-child(3n-1) {
+              width: 120px;
+            }
+
+            .kolTradersDte-even-data:nth-child(3n) {
+              margin-right: 0px;
+              text-align: right;
+            }
+
+            .kolTradersDte-even-data:last-child {
+              width: 160px;
+            }
+          }
+        }
+
+        .noData {
+          padding-top: 50px;
+          text-align: center;
+
+          img {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .echart-box {
+    width: 150px;
+    height: 50px;
+  }
+
+  .dialog-frame-body {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .dialog-frame-body::-webkit-scrollbar {
+    display: none;
+  }
+}
+.kolTradersSet {
+  width: 600px !important;
+}

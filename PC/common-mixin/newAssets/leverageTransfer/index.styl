@@ -1,0 +1,41 @@
+.v5-transfer-dialog {
+  .transfer-form {
+    padding-bottom: 20px;
+    .transfer-account {
+      display: flex;
+      margin-bottom: 32px;
+      &.reverse {
+        .exchange {
+          transform: translate3d(232px, 0, 0);
+        }
+        .other {
+          transform: translate3d(-232px, 0, 0);
+        }
+      }
+    }
+    .account-side {
+      width: 184px;
+      transition: all 0.3s;
+    }
+    .available {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+    .change-icon {
+      padding: 35px 12px 0;
+      .icon {
+        cursor pointer
+      }
+    }
+    .transfer-all {
+      font-size: 14px;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+  }
+  .transfer-symbol, .transfer-coin {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}

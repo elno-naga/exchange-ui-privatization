@@ -1,0 +1,106 @@
+.newTrade-select {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+// 展示容器
+  .s-selectd {
+    height: 23px;
+    box-sizing: border-box;
+    border-style solid
+    border-width 1px
+    position: relative;
+    font-size: 12px;
+    line-height: 23px;
+    min-width: 23px;
+    padding-left: 5px;
+    padding-right: 18px;
+    border-radius: 2px;
+    &.noSelect {
+      width: 23px;
+    }
+  }
+  // ICON
+  .icon-triangle {
+    svg {
+      position: absolute;
+      right: 6px;
+      bottom: 6px;
+      transition: all 0.3s;
+    }
+    // 展开样式
+    &.select-visible {
+      // 三角旋转180度
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  // 下拉框
+  .select-options-box {
+    position: absolute;
+    transform-origin: center top 0px;
+    top: 25px;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    box-shadow: 0 3px 4px 1px rgba(0,0,0,0.28);
+    border-radius: 2px;
+    font-size: 12px;
+    overflow: hidden;
+    .select-option-list {
+      border-radius: 2px;
+      .select-option-item {
+          line-height: 40px;
+          font-size: 12px;
+          height: 40px;
+          padding: 0 5px;
+          cursor: pointer;
+      }
+      .select-option-item-double {
+        padding: 8px 20px;
+        line-height: 20px;
+        cursor: pointer;
+      }
+    }
+    // 没有选项的样式
+    .not_option {
+      font-size: 12px;
+      line-height: 30px;
+      padding 0 20px;
+    }
+  }
+  // 展开动画
+  .slideInDown-enter-active {
+  transition: all .3s ease;
+  }
+  .slideInDown-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slideInDown-enter, .slideInDown-leave-to {
+    //transform: translateY(-15px);
+    opacity: 0;
+  }
+  // 错误 label 抖动 动画
+  @-webkit-keyframes shake {
+    59% {
+      margin-left: 0;
+    }
+    60%, 80% {
+      margin-left: 2px;
+    }
+    70%, 90% {
+      margin-left: -2px;
+    }
+  }
+  @keyframes shake {
+    59% {
+      margin-left: 0;
+    }
+    60%, 80% {
+      margin-left: 2px;
+    }
+    70%, 90% {
+      margin-left: -2px;
+    }
+  }
+}

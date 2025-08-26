@@ -1,0 +1,62 @@
+.contract-content {
+  position: relative;
+  padding: 5px;
+  min-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .contract-content-main {
+    position: relative;
+    margin-right: 360px;
+  }
+
+  .layout-block-Klinw {
+    position: relative;
+    padding-right: 325px;
+    padding-top: 5px;
+    // height: layoutHeight;
+  }
+
+  .layout-block-depth {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 320px;
+    float: left;
+    // overflow: hidden;
+    // height: layoutHeight;
+    z-index: 10;
+  }
+
+  .layout-block-trade {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 355px;
+    float: right;
+    height: calc(100% - 10px);
+  }
+  .layout-block-trade:hover {
+    z-index: 999;
+  }
+  .layout-block-order {
+    margin-top: 5px;
+  }
+
+  .zoomIn-enter-active {
+    transition: all .2s .5s ease;
+  }
+  .zoomIn-leave-active {
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .zoomIn-enter, .zoomIn-leave-to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  
+}
+@media screen and (min-width: 1660px) {
+  .contract-content .layout-block-depth {
+    top: 0;
+  }
+}
