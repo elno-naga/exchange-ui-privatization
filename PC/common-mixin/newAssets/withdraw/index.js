@@ -84,6 +84,19 @@ export default {
       popoverContent: '', // popover
       popoverParent: '',
       canUseAmount: '',
+
+      // Fallback bank list if API fails
+      fallbackBankList: [
+        { code: 'BCA', value: 'BCA' },
+        { code: 'MANDIRI', value: 'Mandiri' },
+        { code: 'BNI', value: 'BNI' },
+        { code: 'BRI', value: 'BRI' },
+        { code: 'PERMATA', value: 'Permata' },
+        { code: 'CIMB', value: 'CIMB Niaga' },
+      ],
+      selectedBank: 'BCA', // default selected
+      bankListFromApi: [],
+
     };
   },
   filters: {
@@ -116,6 +129,9 @@ export default {
       }
     },
     symbol(v) {
+      if (v === 'IDR' || v === 'IDRPERMATA') {
+      this.getBankList();
+    }
       if (v && this.market) {
         this.branchInit(this.market, this.usdtOpenOmni, 'withdraw');
         this.addressInit();
@@ -181,6 +197,21 @@ export default {
     },
   },
   computed: {
+
+    // if IDR is selected fetch bank list from API
+    isIDR() {
+      return this.symbol === 'IDR' || this.symbol === 'IDRPERMATA'
+          || this.coinSymbol === 'IDR' || this.coinSymbol === 'IDRPERMATA';
+    },
+
+    bankSelectOptions() {
+      if (!this.isIDR) return [];
+      if (this.bankListFromApi && this.bankListFromApi.length) {
+        return this.bankListFromApi;
+      }
+      return this.fallbackBankList;
+    },
+
     deepWatchGetEquity() {
       return {
         userInfoIsReady: this.userInfoIsReady,
@@ -502,6 +533,26 @@ export default {
     },
   },
   methods: {
+     onBankChange(item) {
+      this.selectedBank = item.code;
+    },
+    getBankList() {
+      this.axios({
+        url: 'finance/bank_list', // ganti sesuai endpoint asli
+      }).then(res => {
+        if (res.code.toString() === '0') {
+          this.bankListFromApi = res.data.map(b => ({
+            code: b.code,
+            value: b.name,
+          }));
+        } else {
+          this.bankListFromApi = [];
+        }
+      }).catch(() => {
+        this.bankListFromApi = [];
+      });
+    },
+
     getShowName(v) {
       let str = v;
       if (this.market) {
