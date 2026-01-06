@@ -88,6 +88,11 @@ export default {
     },
   },
   computed: {
+    // check if the currency is IDR related
+    isIDR() {
+      return this.symbol === 'IDR' || this.symbol === 'IDRPERMATA'
+          || this.coinSymbol === 'IDR' || this.coinSymbol === 'IDRPERMATA';
+    },
     userInfo() {
       return this.$store.state.baseData.userInfo;
     },

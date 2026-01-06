@@ -87,14 +87,14 @@ export default {
 
       // Fallback bank list if API fails
       fallbackBankList: [
+        { code: 'PERMATA', value: 'Permata' },
+        { code: 'BSB', value: 'Sahabat Sampoerna' },
         { code: 'BCA', value: 'BCA' },
         { code: 'MANDIRI', value: 'Mandiri' },
         { code: 'BNI', value: 'BNI' },
         { code: 'BRI', value: 'BRI' },
-        { code: 'PERMATA', value: 'Permata' },
-        { code: 'CIMB', value: 'CIMB Niaga' },
       ],
-      selectedBank: 'BCA', // default selected
+      selectedBank: 'PERMATA', // default selected
       bankListFromApi: [],
 
     };
