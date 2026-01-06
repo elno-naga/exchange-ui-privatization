@@ -358,6 +358,7 @@
           if (data) {
             if (!Number(data.code)) {
               window.isLogin = true;
+              this.$store.commit('baseData/SET_USER_INFO', data.data);
               const $loginSet = Array.prototype.slice.call(this.$commonHeader.querySelectorAll('.login-set'));
               $loginSet.forEach((target) => {
                 // eslint-disable-next-line no-param-reassign
