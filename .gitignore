@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# lock files
+package-lock.json
+
+# npm config (may contain secrets)
+.npmrc
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
