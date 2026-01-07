@@ -6,6 +6,7 @@ import {
   formatTime,
   getIconPath,
 } from "@/utils";
+import axios from "axios";
 
 export default {
   name: "page-recharge",
@@ -49,12 +50,25 @@ export default {
       nowTypeTable: 1, // 1最近充值记录
       popoverPosition: "",
       depositStatus: null, // init 页面后  GetEquity 函数是否执行后进行赋值
+      vaNumber: "",
+      vaLoading: false,
+      vaRetryCount: 0,
     };
   },
   watch: {
     paginationObjCurrentPage() {
       this.getTableList();
     },
+    symbol(newVal) {
+      if (newVal === "IDR" || newVal === "IDRPERMATA") {
+        this.createVA();
+      } else {
+        this.address = "";
+        this.addressLong = "";
+        this.vaNumber = "";
+      }
+    },
+
     setWatchPermission: {
       deep: true,
       handler(v) {
@@ -94,8 +108,8 @@ export default {
   },
   computed: {
     // fetch user info from store
-    userInfo() {
-      return this.$store.state.baseData.userInfo;
+    userId() {
+      return this.userInfo && this.userInfo.id ? this.userInfo.id : "";
     },
     firstName() {
       return this.userInfo && this.userInfo.firstName
@@ -112,12 +126,7 @@ export default {
     },
     // check if the currency is IDR related
     isIDR() {
-      return (
-        this.symbol === "IDR" ||
-        this.symbol === "IDRPERMATA" ||
-        this.coinSymbol === "IDR" ||
-        this.coinSymbol === "IDRPERMATA"
-      );
+      return this.symbol === "IDR" || this.symbol === "IDRPERMATA";
     },
     userInfo() {
       return this.$store.state.baseData.userInfo;
@@ -277,6 +286,62 @@ export default {
     },
   },
   methods: {
+    async createVA() {
+      if (!this.fullName || !this.userId) return;
+      if (this.vaLoading) return;
+
+      this.vaLoading = true;
+      this.vaRetryCount = 0;
+      this.vaNumber = "";
+
+      const payload = {
+        name: this.fullName,
+        chainup_user_id: this.userId,
+      };
+
+      const tryRequest = async () => {
+        try {
+          const res = await axios.post(
+        "/fe-xendit-api/xendit/va/create",
+        payload
+      );
+
+          if (
+            res &&
+            res.data &&
+            res.data.ok === true &&
+            res.data.data &&
+            Array.isArray(res.data.data.created) &&
+            res.data.data.created.length > 0 &&
+            res.data.data.created[0].account_number
+          ) {
+            const va = res.data.data.created[0].account_number;
+
+            this.vaNumber = va;
+            this.address = va;
+            this.addressLong = va;
+            this.vaLoading = false;
+            return;
+          }
+
+          throw new Error("VA not ready");
+        } catch (err) {
+          this.vaRetryCount += 1;
+
+          if (this.vaRetryCount < 3) {
+            setTimeout(tryRequest, 1200);
+          } else {
+            this.vaNumber = "VA belum tersedia";
+            this.address = "VA belum tersedia";
+            this.addressLong = "";
+            this.vaLoading = false;
+          }
+        }
+      };
+
+      tryRequest();
+    },
+
     // 去实名
     handClick() {
       this.$router.push("/personal/identityAuthen");
