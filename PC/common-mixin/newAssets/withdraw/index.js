@@ -1251,7 +1251,7 @@ export default {
           };
 
       if (params.symbol === "IDR" || params.symbol === "IDRPERMATA") {
-        params.bankCode = this.selectedBank;
+        params.bank_name = this.selectedBank;
       }
       
       this.axios({
