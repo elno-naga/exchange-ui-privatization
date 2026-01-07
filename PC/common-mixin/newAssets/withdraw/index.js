@@ -1,10 +1,16 @@
 import {
-  fixD, fixInput, getCoinShowName, colorMap, imgMap,
-  formatTime, getIconPath, sendVerigicationCode,
-} from '@/utils';
+  fixD,
+  fixInput,
+  getCoinShowName,
+  colorMap,
+  imgMap,
+  formatTime,
+  getIconPath,
+  sendVerigicationCode,
+} from "@/utils";
 
 export default {
-  name: 'page-withdraw',
+  name: "page-withdraw",
   data() {
     return {
       tabelLoading: false,
@@ -14,31 +20,32 @@ export default {
       colorMap,
       alertFlag: false, // alert变量
       detailsList: [
-        { key: 'sum', value: '--' },
-        { key: 'normal', value: '--' },
-        { key: 'lock', value: '--' },
+        { key: "sum", value: "--" },
+        { key: "normal", value: "--" },
+        { key: "lock", value: "--" },
       ],
       withdrawalLimitList: [
         // { key: 'withdrawalLimit', value: '0.0' },
-        { key: 'withdrawalLimit24', value: '0.0/0.0 USDT' },
+        { key: "withdrawalLimit24", value: "0.0/0.0 USDT" },
       ],
-      withdrawMin: '--', // 最小提币额度
-      withdrawMax: '--', // 最大提币额度
-      daywithdrawMax: '--', // 最大提币额度
-      feeMin: '--', // 最小手续费
-      feeMax: '--', // 最大手续费
+      withdrawMin: "--", // 最小提币额度
+      withdrawMax: "--", // 最大提币额度
+      daywithdrawMax: "--", // 最大提币额度
+      feeMin: "--", // 最小手续费
+      feeMax: "--", // 最大手续费
       tabelList: [], // 提现记录
       subTableData: [], // 提现记录详情
       financeListData: [],
       subTableDataId: null, // 提现记录详情ID
-      symbol: '',
-      addressValue: '', // 提现地址
+      symbol: "",
+      addressValue: "", // 提现地址
+      nameValue: "",
       detailsAddressList: {}, // axios返回的地址列表对象
-      pagesValue: '', // 地址标签
-      numberValue: '', // 提币数量
-      proceduresValue: '', // 手续费
+      pagesValue: "", // 地址标签
+      numberValue: "", // 提币数量
+      proceduresValue: "", // 手续费
       addressList: [], // 提现地址列表
-      havePageArr: ['XRP', 'EOS'], // 含有标签的币种
+      havePageArr: ["XRP", "EOS"], // 含有标签的币种
       paginationObj: {
         total: 0, // 数据总条数
         display: 10, // 每页显示条数
@@ -49,24 +56,24 @@ export default {
       defaultFeeFlag: true,
       defaultFee: null,
       symbol_withdraw_msg: null,
-      branchTip: '', // 多主链提示
+      branchTip: "", // 多主链提示
       notIdShowDialog: false,
       canLableEdit: false, // 标签可编辑
-      withdrawalbe: '',
-      withdrawalLimit: '',
-      dailyAmount: '', // 日提现额度
+      withdrawalbe: "",
+      withdrawalLimit: "",
+      dailyAmount: "", // 日提现额度
       withdrawCoinList: [], // 可提现币种列表
       inputHover: false, // 地址交互参数
       // inputFocus: false, // 地址交互参数
       clearHover: false, // 地址交互参数
       optionHover: false, // 地址交互参数
       optionSelect: null, // 地址交互参数
-      addressText: '', // 地址交互参数
+      addressText: "", // 地址交互参数
       helpIconHover: false, // icon交互参数
-      copyValue: '', // 复制数据
+      copyValue: "", // 复制数据
       showAddressDialog: false, // 添加地址
       addressCoinList: [], // 添加地址币种列表
-      verifyType: '', // 验证类型 address 添加地址  withdraw 体现
+      verifyType: "", // 验证类型 address 添加地址  withdraw 体现
       addressParams: {}, // 添加地址参数
       trustType: 0, // 信任提现地址 0 不信任 1 信任
       loading: false,
@@ -74,29 +81,28 @@ export default {
       showConfirmDialog: false, // 提笔确认弹窗
       nowType: 1, // 1为站外提现2为站内提现
       nowTypeTable: 1, // 1为站外提现2为站内提现
-      accountValue: '', // 账号
+      accountValue: "", // 账号
       hoverType: null, // 划过
       withdrawList: [], // 普通提现币种
       innerList: [], // 站内直转币种
       isPermission: true,
       typeList: [], // 验证选项
       popoverShow: false, // popover
-      popoverContent: '', // popover
-      popoverParent: '',
-      canUseAmount: '',
+      popoverContent: "", // popover
+      popoverParent: "",
+      canUseAmount: "",
 
       // Fallback bank list if API fails
       fallbackBankList: [
-        { code: 'PERMATA', value: 'Permata' },
-        { code: 'BSB', value: 'Sahabat Sampoerna' },
-        { code: 'BCA', value: 'BCA' },
-        { code: 'MANDIRI', value: 'Mandiri' },
-        { code: 'BNI', value: 'BNI' },
-        { code: 'BRI', value: 'BRI' },
+        { code: "PERMATA", value: "Permata" },
+        { code: "BSB", value: "Sahabat Sampoerna" },
+        { code: "BCA", value: "BCA" },
+        { code: "MANDIRI", value: "Mandiri" },
+        { code: "BNI", value: "BNI" },
+        { code: "BRI", value: "BRI" },
       ],
-      selectedBank: 'PERMATA', // default selected
+      selectedBank: "PERMATA", // default selected
       bankListFromApi: [],
-
     };
   },
   filters: {
@@ -107,14 +113,17 @@ export default {
       if (v) {
         return getCoinShowName(v, coinList);
       }
-      return '';
+      return "";
     },
     // 千分符
     thousands(num) {
       if (num) {
         const str = num.toString();
-        const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
-        return str.replace(reg, '$1,');
+        const reg =
+          str.indexOf(".") > -1
+            ? /(\d)(?=(\d{3})+\.)/g
+            : /(\d)(?=(?:\d{3})+$)/g;
+        return str.replace(reg, "$1,");
       }
       return num;
     },
@@ -129,11 +138,11 @@ export default {
       }
     },
     symbol(v) {
-      if (v === 'IDR' || v === 'IDRPERMATA') {
-      this.getBankList();
-    }
+      if (v === "IDR" || v === "IDRPERMATA") {
+        this.getBankList();
+      }
       if (v && this.market) {
-        this.branchInit(this.market, this.usdtOpenOmni, 'withdraw');
+        this.branchInit(this.market, this.usdtOpenOmni, "withdraw");
         this.addressInit();
         this.defInit();
         this.initDetails();
@@ -149,14 +158,18 @@ export default {
           this.setWithdrawCoinList();
         }
         if (v && this.symbol) {
-          this.branchInit(v, this.usdtOpenOmni, 'withdraw');
+          this.branchInit(v, this.usdtOpenOmni, "withdraw");
           this.addressInit();
           this.defInit();
         }
       },
     },
-    proceduresValue(v) { this.proceduresValue = fixInput(v, this.showPrecision); },
-    numberValue(v) { this.numberValue = fixInput(v, this.showPrecision); },
+    proceduresValue(v) {
+      this.proceduresValue = fixInput(v, this.showPrecision);
+    },
+    numberValue(v) {
+      this.numberValue = fixInput(v, this.showPrecision);
+    },
     addressValue(v) {
       const addressItem = this.addressList.find((val) => val.code === v);
       if (addressItem) {
@@ -167,22 +180,26 @@ export default {
     },
     verifyType(v) {
       const arr = [];
-      if (v === 'withdraw') {
+      if (v === "withdraw") {
         if (this.enforceGoogleAuth) {
-          arr.push('google');
+          arr.push("google");
         }
       }
       if (arr.length === 0) {
-        if (this.userInfo && this.userInfo.isCapitalPwordSet && v !== 'address') {
-          arr.push('fundCode');
+        if (
+          this.userInfo &&
+          this.userInfo.isCapitalPwordSet &&
+          v !== "address"
+        ) {
+          arr.push("fundCode");
         }
         if (this.userInfo && this.userInfo.googleStatus) {
-          arr.push('google');
+          arr.push("google");
         }
         if (this.userInfo && this.userInfo.isOpenMobileCheck) {
-          arr.push('mobile');
+          arr.push("mobile");
         } else if (this.userInfo && this.userInfo.email) {
-          arr.push('email');
+          arr.push("email");
         }
       }
       this.typeList = arr;
@@ -197,11 +214,14 @@ export default {
     },
   },
   computed: {
-
     // if IDR is selected fetch bank list from API
     isIDR() {
-      return this.symbol === 'IDR' || this.symbol === 'IDRPERMATA'
-          || this.coinSymbol === 'IDR' || this.coinSymbol === 'IDRPERMATA';
+      return (
+        this.symbol === "IDR" ||
+        this.symbol === "IDRPERMATA" ||
+        this.coinSymbol === "IDR" ||
+        this.coinSymbol === "IDRPERMATA"
+      );
     },
 
     bankSelectOptions() {
@@ -219,7 +239,9 @@ export default {
       };
     },
     // userInfo是否请求完毕
-    userInfoIsReady() { return this.$store.state.baseData.userInfoIsReady; },
+    userInfoIsReady() {
+      return this.$store.state.baseData.userInfoIsReady;
+    },
     userInfo() {
       return this.$store.state.baseData.userInfo;
     },
@@ -235,7 +257,8 @@ export default {
             flag = tagType;
           }
         } else if (this.market.followCoinList[this.symbol][this.activeBranch]) {
-          const { tagType } = this.market.followCoinList[this.symbol][this.activeBranch];
+          const { tagType } =
+            this.market.followCoinList[this.symbol][this.activeBranch];
           flag = tagType;
         }
       }
@@ -243,8 +266,7 @@ export default {
     },
     showSymbol() {
       let str = this.symbol;
-      if (this.coinList
-        && this.coinList[this.symbol]) {
+      if (this.coinList && this.coinList[this.symbol]) {
         str = getCoinShowName(this.symbol, this.coinList);
       }
       return str;
@@ -253,7 +275,9 @@ export default {
       return this.$store.state.baseData.is_enforce_google_auth || 0;
     },
     authTitleText() {
-      const text = this.enforceGoogleAuth ? 'assets.withdraw.enforceGoogleAuth' : 'assets.withdraw.safetyWarningError';
+      const text = this.enforceGoogleAuth
+        ? "assets.withdraw.enforceGoogleAuth"
+        : "assets.withdraw.safetyWarningError";
       return this.$t(text);
     },
     switchadd() {
@@ -267,11 +291,14 @@ export default {
     alertData() {
       const arr = [
         // 绑定谷歌验证
-        { text: this.$t('assets.withdraw.bindGoogle'), flag: this.OpenGoogle },
+        { text: this.$t("assets.withdraw.bindGoogle"), flag: this.OpenGoogle },
       ];
       if (!this.enforceGoogleAuth) {
         // 绑定手机验证
-        arr.push({ text: this.$t('assets.withdraw.bindPhone'), flag: this.OpenMobile });
+        arr.push({
+          text: this.$t("assets.withdraw.bindPhone"),
+          flag: this.OpenMobile,
+        });
       }
       return arr;
     },
@@ -287,17 +314,24 @@ export default {
     branchShowPrecision() {
       let v = 0;
       const { market } = this.$store.state.baseData;
-      if (market && market.followCoinList
-        && market.followCoinList[this.symbol]
-        && market.followCoinList[this.symbol][this.activeBranch]) {
+      if (
+        market &&
+        market.followCoinList &&
+        market.followCoinList[this.symbol] &&
+        market.followCoinList[this.symbol][this.activeBranch]
+      ) {
         v = market.followCoinList[this.symbol][this.activeBranch].showPrecision;
       }
       return v;
     },
     // finance/account_balance 接口返回成功的数据
-    exchangeData() { return this.$store.state.assets.exchangeData; },
+    exchangeData() {
+      return this.$store.state.assets.exchangeData;
+    },
     // market 接口
-    market() { return this.$store.state.baseData.market; },
+    market() {
+      return this.$store.state.baseData.market;
+    },
     // 提现按钮禁用状态
     btnDisabled() {
       let flag = true;
@@ -306,10 +340,18 @@ export default {
           flag = false;
         }
       } else {
-        if (this.addressValue.length && this.numberOptions.flag && this.proceduresFlag) {
+        if (
+          this.addressValue.length &&
+          this.numberOptions.flag &&
+          this.proceduresFlag
+        ) {
           flag = false;
         }
-        if (this.canLableEdit && (this.isHavePage.toString() === '2') && !this.pagesValue) {
+        if (
+          this.canLableEdit &&
+          this.isHavePage.toString() === "2" &&
+          !this.pagesValue
+        ) {
           flag = true;
         }
       }
@@ -319,31 +361,91 @@ export default {
     columns() {
       if (this.nowTypeTable === 2) {
         return [
-          { key: 'time', title: this.$t('assets.withdraw.transferTime'), width: '15%' }, // 转账时间
-          { key: 'addressTo', title: this.$t('assets.withdraw.sideAccount'), width: '45%' }, // 对方账号
-          { key: 'amount', title: this.$t('assets.withdraw.transferNumber'), width: '15%' }, // 转账数量
-          { key: 'fee', title: this.$t('assets.withdraw.withdrawFee'), width: '15%' }, // 手续费
-          { key: 'statusText', title: this.$t('assets.withdraw.withdrawStatus'), width: '10%' }, // 状态
+          {
+            key: "time",
+            title: this.$t("assets.withdraw.transferTime"),
+            width: "15%",
+          }, // 转账时间
+          {
+            key: "addressTo",
+            title: this.$t("assets.withdraw.sideAccount"),
+            width: "45%",
+          }, // 对方账号
+          {
+            key: "amount",
+            title: this.$t("assets.withdraw.transferNumber"),
+            width: "15%",
+          }, // 转账数量
+          {
+            key: "fee",
+            title: this.$t("assets.withdraw.withdrawFee"),
+            width: "15%",
+          }, // 手续费
+          {
+            key: "statusText",
+            title: this.$t("assets.withdraw.withdrawStatus"),
+            width: "10%",
+          }, // 状态
         ];
       }
       return [
-        { key: 'coin', title: this.$t('assets.recharge.RechargeCoin'), width: '10%' }, // 币种
-        { key: 'time', title: this.$t('assets.withdraw.withdrawTime'), width: '10%' }, // 提现时间
-        { key: 'amount', title: this.$t('assets.withdraw.withdrawVolume'), width: '10%' }, // 提币数量
-        { key: 'fee', title: this.$t('assets.flowingWater.withdrawFee'), width: '7%' }, // 手续费
-        { key: 'address', title: this.$t('assets.withdraw.withdrawAddress'), width: '15%' }, // 提币地址
-        { key: 'remark', title: this.$t('assets.flowingWater.withdrawRemarks'), width: '10%' }, // 备注
-        { key: 'updateAt', title: this.$t('assets.flowingWater.updataAt'), width: '10%' }, // 钱包处理时间
-        { key: 'txid', title: this.$t('assets.flowingWater.txid'), width: '15%' }, // 区块链交易ID
-        { key: 'statusText', title: this.$t('assets.withdraw.withdrawStatus'), width: '8%' }, // 状态
-        { key: 'operation', title: this.$t('assets.withdraw.withdrawOptions'), width: '5%' }, // 操作
+        {
+          key: "coin",
+          title: this.$t("assets.recharge.RechargeCoin"),
+          width: "10%",
+        }, // 币种
+        {
+          key: "time",
+          title: this.$t("assets.withdraw.withdrawTime"),
+          width: "10%",
+        }, // 提现时间
+        {
+          key: "amount",
+          title: this.$t("assets.withdraw.withdrawVolume"),
+          width: "10%",
+        }, // 提币数量
+        {
+          key: "fee",
+          title: this.$t("assets.flowingWater.withdrawFee"),
+          width: "7%",
+        }, // 手续费
+        {
+          key: "address",
+          title: this.$t("assets.withdraw.withdrawAddress"),
+          width: "15%",
+        }, // 提币地址
+        {
+          key: "remark",
+          title: this.$t("assets.flowingWater.withdrawRemarks"),
+          width: "10%",
+        }, // 备注
+        {
+          key: "updateAt",
+          title: this.$t("assets.flowingWater.updataAt"),
+          width: "10%",
+        }, // 钱包处理时间
+        {
+          key: "txid",
+          title: this.$t("assets.flowingWater.txid"),
+          width: "15%",
+        }, // 区块链交易ID
+        {
+          key: "statusText",
+          title: this.$t("assets.withdraw.withdrawStatus"),
+          width: "8%",
+        }, // 状态
+        {
+          key: "operation",
+          title: this.$t("assets.withdraw.withdrawOptions"),
+          width: "5%",
+        }, // 操作
       ];
     },
     // 用户是否开启手机
     OpenMobile() {
       let flag = false;
       const { userInfo } = this.$store.state.baseData;
-      if (userInfo && userInfo.isOpenMobileCheck.toString() === '1') {
+      if (userInfo && userInfo.isOpenMobileCheck.toString() === "1") {
         flag = true;
       }
       return flag;
@@ -360,7 +462,7 @@ export default {
     OpenGoogle() {
       let flag = false;
       const { userInfo } = this.$store.state.baseData;
-      if (userInfo && userInfo.googleStatus.toString() === '1') {
+      if (userInfo && userInfo.googleStatus.toString() === "1") {
         flag = true;
       }
       return flag;
@@ -369,7 +471,11 @@ export default {
     isOpenWhitelist() {
       let flag = false;
       const { userInfo } = this.$store.state.baseData;
-      if (userInfo && userInfo.withdrawWhitelistFlag !== undefined && userInfo.withdrawWhitelistFlag.toString() === '1') {
+      if (
+        userInfo &&
+        userInfo.withdrawWhitelistFlag !== undefined &&
+        userInfo.withdrawWhitelistFlag.toString() === "1"
+      ) {
         flag = true;
       }
       return flag;
@@ -390,14 +496,20 @@ export default {
     dialogConfirmDisabled() {
       let phone = true;
       let google = true;
-      if (this.OpenMobile) { phone = this.phoneValueFlag; }
-      if (this.OpenGoogle) { google = this.googleValueFlag; }
+      if (this.OpenMobile) {
+        phone = this.phoneValueFlag;
+      }
+      if (this.OpenGoogle) {
+        google = this.googleValueFlag;
+      }
       if ((phone && google) || this.loading) {
         return false;
       }
       return true;
     },
-    that() { return this; },
+    that() {
+      return this;
+    },
     // 提币数量的校验
     // 提现条件：
     // 1. 提现数量 > 手续费
@@ -405,7 +517,7 @@ export default {
     // 3. 提现最小限额 =< (提现数量 -手续费) =<提现最大限额
     numberOptions() {
       const obj = {
-        text: '', // 错误提示文案
+        text: "", // 错误提示文案
         flag: null, // 是否通过校验
         error: null, // 是否展示文案
       };
@@ -414,47 +526,56 @@ export default {
       const maxNum = parseFloat(this.withdrawMax) || 0; // 最大提币额
       const daymaxNum = parseFloat(this.daywithdrawMax) || 0; // 单日最大提币额
       const canUseAmount = parseFloat(this.canUseAmount) || 0; // 单日最大提币额
-      const spk = fixD(this.numberValue - this.proceduresValue, this.showPrecision); // 提币数量减手续费
+      const spk = fixD(
+        this.numberValue - this.proceduresValue,
+        this.showPrecision
+      ); // 提币数量减手续费
       if (this.numberValue.length === 0) {
         // 请输入提币数量
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError");
         obj.flag = false;
         obj.error = false;
         return obj;
-      } if (parseFloat(this.numberValue) === 0) {
+      }
+      if (parseFloat(this.numberValue) === 0) {
         // 请输入提币数量
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError");
         obj.flag = false;
         obj.error = true;
         return obj;
-      } if (parseFloat(this.numberValue) <= parseFloat(this.proceduresValue)) {
+      }
+      if (parseFloat(this.numberValue) <= parseFloat(this.proceduresValue)) {
         // 提币数量需大于矿工手续费
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError2');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError2");
         obj.flag = false;
         obj.error = true;
         return obj;
-      } if (parseFloat(this.numberValue) > haveNum) {
+      }
+      if (parseFloat(this.numberValue) > haveNum) {
         // 提币数量不得大于可用余额
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError3');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError3");
         obj.flag = false;
         obj.error = true;
         return obj;
-      } if (parseFloat(minNum) > spk || parseFloat(maxNum) < spk) {
+      }
+      if (parseFloat(minNum) > spk || parseFloat(maxNum) < spk) {
         // （提币数量-矿工手续费）需要大于最小提币额且小于最大提币额
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError4');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError4");
         obj.flag = false;
         obj.error = true;
         return obj;
-      } if (parseFloat(canUseAmount) < spk) {
+      }
+      if (parseFloat(canUseAmount) < spk) {
         // （提币数量-矿工手续费）需要小于单日最大提币额
-        obj.text = this.$t('assets.withdraw.NumberOfCoinsError5');
+        obj.text = this.$t("assets.withdraw.NumberOfCoinsError5");
         obj.flag = false;
         obj.error = true;
         return obj;
-      } if (this.switchadd === 1) {
+      }
+      if (this.switchadd === 1) {
         if (parseFloat(daymaxNum) < spk) {
           // （提币数量-矿工手续费）需要小于单日最大提币额
-          obj.text = this.$t('assets.withdraw.NumberOfCoinsError5');
+          obj.text = this.$t("assets.withdraw.NumberOfCoinsError5");
           obj.flag = false;
           obj.error = true;
           return obj;
@@ -492,21 +613,27 @@ export default {
       return (this.market && this.market.coinList) || null;
     },
     navTab() {
-      const arr = [{ name: this.$t('assets.withdraw.normal'), index: 1 }];
+      const arr = [{ name: this.$t("assets.withdraw.normal"), index: 1 }];
       if (this.exchangeData && this.symbol) {
-        if (this.exchangeData.allCoinMap[this.symbol].innerTransferOpen
-          && this.$store.state.baseData.is_inner_transfer_open) {
-          arr.push({ name: this.$t('assets.withdraw.innerTranfer'), index: 2 }); // 站内
+        if (
+          this.exchangeData.allCoinMap[this.symbol].innerTransferOpen &&
+          this.$store.state.baseData.is_inner_transfer_open
+        ) {
+          arr.push({ name: this.$t("assets.withdraw.innerTranfer"), index: 2 }); // 站内
         }
       }
       return arr;
     },
     navTabTable() {
-      const arr = [{ name: this.$t('assets.withdraw.RecentWithdrawalRecords'), index: 1 }];
+      const arr = [
+        { name: this.$t("assets.withdraw.RecentWithdrawalRecords"), index: 1 },
+      ];
       if (this.exchangeData && this.symbol) {
-        if (this.exchangeData.allCoinMap[this.symbol].innerTransferOpen
-          && this.$store.state.baseData.is_inner_transfer_open) {
-          arr.push({ name: this.$t('assets.withdraw.innerList'), index: 2 }); // 站内];
+        if (
+          this.exchangeData.allCoinMap[this.symbol].innerTransferOpen &&
+          this.$store.state.baseData.is_inner_transfer_open
+        ) {
+          arr.push({ name: this.$t("assets.withdraw.innerList"), index: 2 }); // 站内];
         }
       }
       return arr;
@@ -518,39 +645,41 @@ export default {
           return this.$store.state.baseData.publicInfo.switch.usdt_open_omni;
         }
       }
-      return '1';
+      return "1";
     },
     sendCodeType() {
-      let str = '';
+      let str = "";
       if (this.nowType === 2) {
         str = `${sendVerigicationCode.turnStraight},${sendVerigicationCode.turnStraightEmail}`;
-      } else if (this.verifyType === 'withdraw') {
+      } else if (this.verifyType === "withdraw") {
         str = sendVerigicationCode.withdraw;
-      } else if (this.verifyType === 'address') {
+      } else if (this.verifyType === "address") {
         str = sendVerigicationCode.addWithdrawAddress;
       }
       return str;
     },
   },
   methods: {
-     onBankChange(item) {
+    onBankChange(item) {
       this.selectedBank = item.code;
     },
     getBankList() {
       this.axios({
-        url: 'finance/bank_list', // ganti sesuai endpoint asli
-      }).then(res => {
-        if (res.code.toString() === '0') {
-          this.bankListFromApi = res.data.map(b => ({
-            code: b.code,
-            value: b.name,
-          }));
-        } else {
+        url: "finance/bank_list", // ganti sesuai endpoint asli
+      })
+        .then((res) => {
+          if (res.code.toString() === "0") {
+            this.bankListFromApi = res.data.map((b) => ({
+              code: b.code,
+              value: b.name,
+            }));
+          } else {
+            this.bankListFromApi = [];
+          }
+        })
+        .catch(() => {
           this.bankListFromApi = [];
-        }
-      }).catch(() => {
-        this.bankListFromApi = [];
-      });
+        });
     },
 
     getShowName(v) {
@@ -562,7 +691,7 @@ export default {
       return str;
     },
     handClick() {
-      this.$router.push('/personal/identityAuthen');
+      this.$router.push("/personal/identityAuthen");
     },
     defInit() {
       if (this.exchangeData && this.market) {
@@ -585,8 +714,10 @@ export default {
         const fix = (coinList[item] && coinList[item].showPrecision) || 0;
         const coinName = getCoinShowName(item, coinList);
         if (data[item].withdrawOpen) {
-          if (data[item].innerTransferOpen
-            && this.$store.state.baseData.is_inner_transfer_open) {
+          if (
+            data[item].innerTransferOpen &&
+            this.$store.state.baseData.is_inner_transfer_open
+          ) {
             innerList.push({
               img: coinList[item].icon,
               code: item,
@@ -663,23 +794,23 @@ export default {
     // 判断站内账户是否存在
     isExistAccount() {
       this.axios({
-        url: 'inner_transfer/user_auth',
+        url: "inner_transfer/user_auth",
         params: {
           transferUid: this.accountValue, // 对方账号
         },
       }).then((data) => {
-        if (data.code.toString() === '0') {
-          this.verifyType = 'withdraw';
+        if (data.code.toString() === "0") {
+          this.verifyType = "withdraw";
           this.dialogFlag = true;
         } else {
           // this.accountFlag = true;
-          this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+          this.$bus.$emit("tip", { text: data.msg, type: "error" });
         }
       });
     },
     // 查看全部充值记录
     lookAll() {
-      this.$router.push('/assets/flowingWater?nowType=2');
+      this.$router.push("/assets/flowingWater?nowType=2");
     },
     // 选择币种
     selectChange(item, name) {
@@ -692,22 +823,22 @@ export default {
     smartBack() {
       const from = document.referrer;
       // 如果来自站外（比如 baidu.com 或为空），则跳转到默认页面
-      const isFromOutside = from === '' || !from.includes(window.location.host);
+      const isFromOutside = from === "" || !from.includes(window.location.host);
       if (isFromOutside) {
-        window.location.replace('/');// 或 push
+        window.location.replace("/"); // 或 push
       } else {
         this.$router.back();
       }
     },
     setActiveBranch(v, name) {
-      this.addressValue = ''; // 提现地址
-      this.pagesValue = ''; // 地址标签
-      this.numberValue = ''; // 提币数量
-      this.defaultFee = '';
+      this.addressValue = ""; // 提现地址
+      this.pagesValue = ""; // 地址标签
+      this.numberValue = ""; // 提币数量
+      this.defaultFee = "";
       this.defaultFeeFlag = true;
-      this.proceduresValue = ''; // 手续费
-      this.feeMin = '--';
-      this.feeMax = '--';
+      this.proceduresValue = ""; // 手续费
+      this.feeMin = "--";
+      this.feeMax = "--";
       this.activeBranch = v;
       this.mainChainName = name;
       this.addressList = [];
@@ -717,11 +848,11 @@ export default {
     init() {
       // this.getEquity(this.symbol);
       if (this.userInfoIsReady) {
-      //   this.canAlert();
+        //   this.canAlert();
         this.getEquity(this.symbol);
       }
       if (!this.exchangeData) {
-        this.$store.dispatch('assetsExchangeData');
+        this.$store.dispatch("assetsExchangeData");
       }
     },
     // getEquity
@@ -731,12 +862,14 @@ export default {
         params.symbol = symbol;
       }
       this.axios({
-        url: 'sumsub/get_equity',
+        url: "sumsub/get_equity",
         params,
       }).then(({ code, data, msg }) => {
-        if (code.toString() === '0') {
-          const vf = this.haveBranch ? this.branchShowPrecision : this.showPrecision;
-          this.isPermission = (data.withdrawAmount && data.withdrawAmount > 0);
+        if (code.toString() === "0") {
+          const vf = this.haveBranch
+            ? this.branchShowPrecision
+            : this.showPrecision;
+          this.isPermission = data.withdrawAmount && data.withdrawAmount > 0;
           if (this.isPermission) {
             this.canAlert();
           }
@@ -745,11 +878,18 @@ export default {
             this.withdrawalLimitList = [
               // { key: 'withdrawalLimit', value: data.currentSymbolAmount ? `${fixD(data.currentSymbolAmount)}` : `${0}` },
               // { key: 'withdrawalLimit24', value: `${data.canUseAmount ? fixD(data.canUseAmount) : '0.0'}/${data.withdrawAmount ? fixD(data.withdrawAmount) : '0.0'} USDT` },
-              { key: 'withdrawalLimit24', value: `${data.canUseAmount ? fixD(data.canUseAmount, vf) : '0.00'}/${data.withdrawAmount ? fixD(data.withdrawAmount, vf) : '0.00'} ${symbol}` },
+              {
+                key: "withdrawalLimit24",
+                value: `${
+                  data.canUseAmount ? fixD(data.canUseAmount, vf) : "0.00"
+                }/${
+                  data.withdrawAmount ? fixD(data.withdrawAmount, vf) : "0.00"
+                } ${symbol}`,
+              },
             ];
           }
         } else {
-          this.$bus.$emit('tip', { text: msg, type: 'error' });
+          this.$bus.$emit("tip", { text: msg, type: "error" });
         }
       });
     },
@@ -772,7 +912,7 @@ export default {
     clearDialogData() {
       this.dialogFlag = false;
       this.typeList = [];
-      this.verifyType = '';
+      this.verifyType = "";
       this.confirmLoading = false;
     },
     // eslint-disable-next-line consistent-return
@@ -797,19 +937,21 @@ export default {
           obj.smsAuthCode = item.mobile;
         }
         this.innnerTransfer(obj);
-      } else if (this.verifyType === 'withdraw') {
+      } else if (this.verifyType === "withdraw") {
         if (item.mobile) {
           obj.smsAuthCode = item.mobile;
         }
         this.confirmWithdraw(obj);
-      } else if (this.verifyType === 'address') {
+      } else if (this.verifyType === "address") {
         if (item.mobile) {
           obj.smsValidCode = item.mobile;
         }
         this.confirmAddAddress(obj);
       }
     },
-    alertGo() { this.$router.push('/personal/userManagement'); },
+    alertGo() {
+      this.$router.push("/personal/userManagement");
+    },
     goAddress() {
       this.$router.push(`/assets/addressMent?symbol=${this.symbol}`);
     },
@@ -833,20 +975,23 @@ export default {
       this.optionSelect = item.code;
       this.trustType = Number(item.trustType) || 0;
       this.addressValue = item.code;
-      const addressItem = this.addressList.find((val) => val.code === item.code);
+      const addressItem = this.addressList.find(
+        (val) => val.code === item.code
+      );
       if (addressItem) {
         this.canLableEdit = false;
       } else {
         this.canLableEdit = true;
       }
       if (this.isHavePage && addressItem) {
-        const [, pagesValue] = this.detailsAddressList[item.code].address.split('_');
+        const [, pagesValue] =
+          this.detailsAddressList[item.code].address.split("_");
         this.pagesValue = pagesValue;
       }
     },
     // 全部提现
     allWithDraw() {
-      if (this.detailsList[1].value === '--') return;
+      if (this.detailsList[1].value === "--") return;
       this.numberValue = this.detailsList[1].value;
     },
     // 分页器
@@ -857,11 +1002,12 @@ export default {
     // 上半部分 左侧数据
     initDetails() {
       const obj = this.exchangeData.allCoinMap[this.symbol];
-      const normalBalance = Number(obj.normal_balance) || Number(obj.overcharge_balance);
+      const normalBalance =
+        Number(obj.normal_balance) || Number(obj.overcharge_balance);
       this.detailsList = [
-        { key: 'sum', value: fixD(obj.total_balance, this.showPrecision) }, // 总额
-        { key: 'normal', value: fixD(normalBalance, this.showPrecision) }, // 可用
-        { key: 'lock', value: fixD(obj.lock_balance, this.showPrecision) }, // 冻结
+        { key: "sum", value: fixD(obj.total_balance, this.showPrecision) }, // 总额
+        { key: "normal", value: fixD(normalBalance, this.showPrecision) }, // 可用
+        { key: "lock", value: fixD(obj.lock_balance, this.showPrecision) }, // 冻结
       ];
       this.symbol_withdraw_msg = obj.symbol_withdraw_msg || null; // 注意事项
       // this.withdrawMin = fixD(obj.withdraw_min, this.showPrecision); // 最小提币额
@@ -885,31 +1031,36 @@ export default {
     getBranchAddress(symbol) {
       const str = symbol || (this.haveBranch ? this.activeBranch : this.symbol);
       this.axios({
-        url: 'cost/Getcost',
+        url: "cost/Getcost",
         params: {
           symbol: str,
         },
       }).then((data) => {
-        if (data.code.toString() === '0') {
+        if (data.code.toString() === "0") {
           const list = [];
           const detailsList = {};
           const { userWithdrawAddrList } = data.data;
           userWithdrawAddrList.forEach((item) => {
             let value = item.address;
             if (this.isHavePage) {
-              [value] = item.address.split('_');
+              [value] = item.address.split("_");
             }
             list.push({
-              code: `${item.id}`, value, label: item.label, trustType: item.trustType,
+              code: `${item.id}`,
+              value,
+              label: item.label,
+              trustType: item.trustType,
             });
             detailsList[item.id] = item;
           });
-          const vf = this.haveBranch ? this.branchShowPrecision : this.showPrecision;
+          const vf = this.haveBranch
+            ? this.branchShowPrecision
+            : this.showPrecision;
           // this.feeMin = fixD(data.data.feeMin, this.branchShowPrecision);// 最大手续费
           // this.feeMax = fixD(data.data.feeMax, this.branchShowPrecision);// 最大手续费
           if (this.nowType === 1) {
-            this.feeMin = fixD(data.data.feeMin, vf);// 最大手续费
-            this.feeMax = fixD(data.data.feeMax, vf);// 最大手续费
+            this.feeMin = fixD(data.data.feeMin, vf); // 最大手续费
+            this.feeMax = fixD(data.data.feeMax, vf); // 最大手续费
             if (this.defaultFeeFlag) {
               this.defaultFeeFlag = false;
               this.defaultFee = `${data.data.defaultFee}`;
@@ -921,7 +1072,7 @@ export default {
             this.detailsAddressList = detailsList;
           }
           this.withdrawMin = fixD(data.data.withdraw_min, vf); // 最小提币额
-          this.withdrawMax = fixD(data.data.withdraw_max, vf);// 最大提币额
+          this.withdrawMax = fixD(data.data.withdraw_max, vf); // 最大提币额
         }
       });
     },
@@ -932,22 +1083,25 @@ export default {
         return;
       }
       this.axios({
-        url: 'addr/address_list',
+        url: "addr/address_list",
         params: {
           coinSymbol: this.haveBranch ? this.activeBranch : this.symbol,
         },
       }).then((data) => {
-        if (data.code.toString() === '0') {
+        if (data.code.toString() === "0") {
           const list = [];
           const detailsList = {};
           const { addressList } = data.data;
           addressList.forEach((item) => {
             let value = item.address;
             if (this.isHavePage) {
-              [value] = item.address.split('_');
+              [value] = item.address.split("_");
             }
             list.push({
-              code: `${item.id}`, value, label: item.label, trustType: item.trustType,
+              code: `${item.id}`,
+              value,
+              label: item.label,
+              trustType: item.trustType,
             });
             detailsList[item.id] = item;
           });
@@ -963,29 +1117,32 @@ export default {
     },
     // 发送验证码
     sendSmsCode() {
-      let operationType = '';
+      let operationType = "";
       if (this.nowType === 2) {
-        operationType = '34';
-      } else if (this.verifyType === 'withdraw') {
-        operationType = '10';
-      } else if (this.verifyType === 'address') {
-        operationType = '11';
+        operationType = "34";
+      } else if (this.verifyType === "withdraw") {
+        operationType = "10";
+      } else if (this.verifyType === "address") {
+        operationType = "11";
       }
       this.axios({
-        url: 'v4/common/smsValidCode',
+        url: "v4/common/smsValidCode",
         params: {
           operationType,
         },
       }).then((data) => {
-        if (data.code.toString() !== '0') {
+        if (data.code.toString() !== "0") {
           setTimeout(() => {
             // 倒计时重置
-            this.$bus.$emit('getCode-clear', 'withdrawGetcode');
+            this.$bus.$emit("getCode-clear", "withdrawGetcode");
             // tip框提示错误
-            this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+            this.$bus.$emit("tip", { text: data.msg, type: "error" });
           }, 2000);
         } else {
-          this.$bus.$emit('tip', { text: this.$t('login.phoneSendSuccess'), type: 'success' });
+          this.$bus.$emit("tip", {
+            text: this.$t("login.phoneSendSuccess"),
+            type: "success",
+          });
         }
       });
     },
@@ -1012,7 +1169,7 @@ export default {
       const pv = this.showPrecision;
       const amount = fixD(this.numberValue - this.proceduresValue, pv);
       this.axios({
-        url: 'inner_transfer/do_withdraw',
+        url: "inner_transfer/do_withdraw",
         params: {
           transferUid: this.accountValue, // 提现地址id
           fee: this.proceduresValue, // 手续费
@@ -1023,23 +1180,23 @@ export default {
       }).then((data) => {
         this.loading = false;
         this.confirmLoading = false;
-        if (data.code.toString() === '0') {
-          this.$store.dispatch('assetsExchangeData'); // 更新额度
+        if (data.code.toString() === "0") {
+          this.$store.dispatch("assetsExchangeData"); // 更新额度
           this.getTableList();
-          this.$bus.$emit('tip', { text: data.msg, type: 'success' });
+          this.$bus.$emit("tip", { text: data.msg, type: "success" });
           this.clearDialogData();
-          this.proceduresValue = '';
-          this.numberValue = '';
+          this.proceduresValue = "";
+          this.numberValue = "";
           // this.phoneValue = '';
           // this.googleValue = '';
-          this.accountValue = '';
+          this.accountValue = "";
           // this.dialogFlag = false;
           // 后端不能做额度及时更新，非要加一秒延迟，列表能及时更新额度，这个接口不行，真是666
           setTimeout(() => {
             this.getEquity(this.symbol);
           }, 1000);
         } else {
-          this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+          this.$bus.$emit("tip", { text: data.msg, type: "error" });
         }
       });
     },
@@ -1050,7 +1207,7 @@ export default {
         this.confirmWithdraw();
         return;
       }
-      this.verifyType = 'withdraw';
+      this.verifyType = "withdraw";
       this.dialogFlag = true;
     },
     // 提现
@@ -1062,43 +1219,54 @@ export default {
       if (this.pagesValue) {
         address = `${this.addressValue}_${this.pagesValue}`;
       }
-      const pv = this.haveBranch ? this.branchShowPrecision : this.showPrecision;
+      const pv = this.haveBranch
+        ? this.branchShowPrecision
+        : this.showPrecision;
       const amount = fixD(this.numberValue - this.proceduresValue, pv);
-      const addressItem = this.addressList.find((item) => item.code === this.addressValue);
+      const addressItem = this.addressList.find(
+        (item) => item.code === this.addressValue
+      );
       if (!addressItem) {
-        addressId = '';
+        addressId = "";
       } else {
-        address = '';
+        address = "";
       }
-      const params = obj ? {
-        ...obj,
-        inputAddress: address, // 提现地址
-        addressId, // 提现地址id
-        fee: this.proceduresValue, // 手续费
-        amount, // 提现金额（不包含手续费
-        symbol: this.haveBranch ? this.activeBranch : this.symbol,
-        trustType: this.trustType,
-      } : {
-        inputAddress: address, // 提现地址
-        addressId, // 提现地址id
-        fee: this.proceduresValue, // 手续费
-        amount, // 提现金额（不包含手续费
-        symbol: this.haveBranch ? this.activeBranch : this.symbol,
-        trustType: this.trustType,
-      };
+      const params = obj
+        ? {
+            ...obj,
+            inputAddress: address, // 提现地址
+            addressId, // 提现地址id
+            fee: this.proceduresValue, // 手续费
+            amount, // 提现金额（不包含手续费
+            symbol: this.haveBranch ? this.activeBranch : this.symbol,
+            trustType: this.trustType,
+          }
+        : {
+            inputAddress: address, // 提现地址
+            addressId, // 提现地址id
+            fee: this.proceduresValue, // 手续费
+            amount, // 提现金额（不包含手续费
+            symbol: this.haveBranch ? this.activeBranch : this.symbol,
+            trustType: this.trustType,
+          };
+
+      if (params.symbol === "IDR" || params.symbol === "IDRPERMATA") {
+        params.bankCode = this.selectedBank;
+      }
+      
       this.axios({
-        url: 'finance/do_withdraw',
+        url: "finance/do_withdraw",
         params,
       }).then((data) => {
         this.loading = false;
         this.confirmLoading = false;
-        if (data.code.toString() === '0') {
+        if (data.code.toString() === "0") {
           this.getTableList(); // 获取列表
-          this.$store.dispatch('assetsExchangeData'); // 更新额度
-          this.$bus.$emit('tip', { text: data.msg, type: 'success' });
-          this.addressValue = '';
-          this.pagesValue = '';
-          this.numberValue = '';
+          this.$store.dispatch("assetsExchangeData"); // 更新额度
+          this.$bus.$emit("tip", { text: data.msg, type: "success" });
+          this.addressValue = "";
+          this.pagesValue = "";
+          this.numberValue = "";
           // this.proceduresValue = this.defaultFee;
           this.clearDialogData();
           // this.phoneValue = '';
@@ -1108,7 +1276,7 @@ export default {
             this.getEquity(this.symbol);
           }, 1000);
         } else {
-          this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+          this.$bus.$emit("tip", { text: data.msg, type: "error" });
         }
       });
     },
@@ -1118,7 +1286,7 @@ export default {
       this.confirmLoading = true;
       if (!obj) return;
       this.axios({
-        url: 'addr/add_withdraw_addr',
+        url: "addr/add_withdraw_addr",
         params: {
           ...this.addressParams,
           ...obj,
@@ -1127,10 +1295,10 @@ export default {
         this.loading = false;
         this.confirmLoading = false;
         this.clearDialogData();
-        if (data.code.toString() !== '0') {
-          this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+        if (data.code.toString() !== "0") {
+          this.$bus.$emit("tip", { text: data.msg, type: "error" });
         } else {
-          this.$bus.$emit('tip', { text: data.msg, type: 'success' });
+          this.$bus.$emit("tip", { text: data.msg, type: "success" });
           this.getBranchAddress();
         }
       });
@@ -1140,9 +1308,12 @@ export default {
       this.$nextTick(() => {
         const input = this.$refs.copyValue;
         input.select();
-        document.execCommand('copy');
+        document.execCommand("copy");
         // 地址复制成功
-        this.$bus.$emit('tip', { text: this.$t('assets.krw.copySuccess'), type: 'success' });
+        this.$bus.$emit("tip", {
+          text: this.$t("assets.krw.copySuccess"),
+          type: "success",
+        });
       });
     },
     // 撤销操作
@@ -1150,21 +1321,21 @@ export default {
       if (this.revokeList.indexOf(item.id) === -1) {
         this.revokeList.push(item.id);
         this.axios({
-          url: '/finance/cancel_withdraw',
+          url: "/finance/cancel_withdraw",
           headers: {},
           params: {
             withdrawId: item.id,
           },
-          method: 'post',
+          method: "post",
         }).then((data) => {
           const ind = this.revokeList.indexOf(item.id);
           this.revokeList.splice(ind, 1);
-          if (data.code.toString() === '0') {
+          if (data.code.toString() === "0") {
             this.getTableList();
-            this.$store.dispatch('assetsExchangeData'); // 更新额度
-            this.$bus.$emit('tip', { text: data.msg, type: 'success' });
+            this.$store.dispatch("assetsExchangeData"); // 更新额度
+            this.$bus.$emit("tip", { text: data.msg, type: "success" });
           } else {
-            this.$bus.$emit('tip', { text: data.msg, type: 'error' });
+            this.$bus.$emit("tip", { text: data.msg, type: "error" });
           }
         });
       }
@@ -1173,8 +1344,11 @@ export default {
     thousands(num) {
       if (num && parseFloat(num)) {
         const str = num.toString();
-        const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
-        return str.replace(reg, '$1,');
+        const reg =
+          str.indexOf(".") > -1
+            ? /(\d)(?=(\d{3})+\.)/g
+            : /(\d)(?=(?:\d{3})+$)/g;
+        return str.replace(reg, "$1,");
       }
       return num;
     },
@@ -1182,7 +1356,7 @@ export default {
     getTableList() {
       this.tabelLoading = true;
       this.axios({
-        url: 'record/new_withdraw_list',
+        url: "record/new_withdraw_list",
         params: {
           pageSize: this.paginationObj.display, // 每页条数
           page: this.paginationObj.currentPage, // 页码
@@ -1191,7 +1365,7 @@ export default {
         },
       }).then((data) => {
         this.tabelLoading = false;
-        if (data.code.toString() === '0') {
+        if (data.code.toString() === "0") {
           const list = [];
           this.financeListData = data.data.financeList;
           const { coinList } = this;
@@ -1204,8 +1378,9 @@ export default {
             if (address && address.length > 15) {
               address = `${address.slice(0, 8)}...${address.slice(-6)}`;
             }
-            const showPrecision = (coinList[item.symbol] && coinList[item.symbol].showPrecision)
-              || 0;
+            const showPrecision =
+              (coinList[item.symbol] && coinList[item.symbol].showPrecision) ||
+              0;
             const amount = fixD(item.amount, showPrecision);
             const fee = fixD(item.fee, showPrecision);
             if (this.nowTypeTable === 1) {
@@ -1213,24 +1388,28 @@ export default {
                 index,
                 id: item.id,
                 coin: item.symbol, // 币种
-                time: item.createdAtTime ? formatTime(item.createdAtTime) : '- -', // 时间
+                time: item.createdAtTime
+                  ? formatTime(item.createdAtTime)
+                  : "- -", // 时间
                 amount: this.thousands(amount), // 充值数量
                 fee: this.thousands(fee), // 手续费
                 address, // 充值地址
                 addressLong: item.addressTo,
                 remark: item.label,
-                updateAt: item.walletTime ? formatTime(item.walletTime) : '- -', // 处理时间
-                txid: txid || '- -', // 交易ID
+                updateAt: item.walletTime ? formatTime(item.walletTime) : "- -", // 处理时间
+                txid: txid || "- -", // 交易ID
                 txidLong: item.txid,
                 status: item.status,
                 statusText: item.status_text, // 状态
-                operation: this.$t('assets.flowingWater.Cancel'),
+                operation: this.$t("assets.flowingWater.Cancel"),
               });
             } else if (this.nowTypeTable === 2) {
               list.push({
                 index,
                 id: item.id,
-                time: item.createdAtTime ? formatTime(item.createdAtTime) : '- -', // 时间
+                time: item.createdAtTime
+                  ? formatTime(item.createdAtTime)
+                  : "- -", // 时间
                 addressTo: item.addressTo,
                 amount: this.thousands(amount), // 充值数量
                 fee: this.thousands(fee), // 手续费
@@ -1239,13 +1418,14 @@ export default {
             }
           });
           this.tabelList = [...list];
-          this.paginationObj.total = data.data.count > 30 ? 30 : data.data.count;
+          this.paginationObj.total =
+            data.data.count > 30 ? 30 : data.data.count;
         }
       });
     },
     // 去认证
     gotoAuth() {
-      this.$router.push('/personal/identityAuthen');
+      this.$router.push("/personal/identityAuthen");
     },
     // 添加提币地址
     addWithdrawAddress() {
@@ -1258,7 +1438,7 @@ export default {
     // 添加提币
     showConfirmVerify(params) {
       this.addressParams = params;
-      this.verifyType = 'address';
+      this.verifyType = "address";
       this.$refs.addAddress.clear();
       this.showAddressDialog = false;
       this.dialogFlag = true;
