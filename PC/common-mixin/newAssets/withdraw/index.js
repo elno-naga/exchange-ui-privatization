@@ -101,7 +101,7 @@ export default {
         { code: "BNI", value: "BNI" },
         { code: "BRI", value: "BRI" },
       ],
-      selectedBank: "PERMATA", // default selected
+      selectedBank: null, // default selected
       bankListFromApi: [],
     };
   },
@@ -140,7 +140,11 @@ export default {
     symbol(v) {
       if (v === "IDR" || v === "IDRPERMATA") {
         this.getBankList();
+        if (!this.selectedBank) {
+          this.selectedBank = this.getDefaultBankBySymbol(v);
+        }
       }
+
       if (v && this.market) {
         this.branchInit(this.market, this.usdtOpenOmni, "withdraw");
         this.addressInit();
@@ -151,6 +155,7 @@ export default {
         }
       }
     },
+
     market: {
       immediate: true,
       handler(v) {
@@ -663,10 +668,15 @@ export default {
     onBankChange(item) {
       this.selectedBank = item.code;
     },
+
+    getDefaultBankBySymbol(symbol) {
+      if (symbol === "IDR") return "SAHABAT_SAMPOERNA";
+      if (symbol === "IDRPERMATA") return "PERMATA";
+      return null;
+    },
+
     getBankList() {
-      this.axios({
-        url: "finance/bank_list", // ganti sesuai endpoint asli
-      })
+      this.axios({ url: "finance/bank_list" })
         .then((res) => {
           if (res.code.toString() === "0") {
             this.bankListFromApi = res.data.map((b) => ({
@@ -679,9 +689,18 @@ export default {
         })
         .catch(() => {
           this.bankListFromApi = [];
+        })
+        .finally(() => {
+          // ensure selectedBank valid
+          const isValid = this.bankSelectOptions.find(
+            (b) => b.code === this.selectedBank
+          );
+
+          if (!this.selectedBank || !isValid) {
+            this.selectedBank = this.getDefaultBankBySymbol(this.symbol);
+          }
         });
     },
-
     getShowName(v) {
       let str = v;
       if (this.market) {
@@ -1214,64 +1233,84 @@ export default {
     confirmWithdraw(obj) {
       this.loading = true;
       this.confirmLoading = true;
+
+      const rawSymbol = this.symbol;
+
       let addressId = this.addressValue;
       let address = this.addressValue;
-      if (this.pagesValue) {
-        address = `${this.addressValue}_${this.pagesValue}`;
+
+      const addressItem = this.addressList.find(
+        (item) => item.code === this.addressValue
+      );
+
+      // if selected from saved list, use real address value
+      if (addressItem) {
+        address = addressItem.value;
       }
+
+      if (this.pagesValue) {
+        address = `${address}_${this.pagesValue}`;
+      }
+
       const pv = this.haveBranch
         ? this.branchShowPrecision
         : this.showPrecision;
       const amount = fixD(this.numberValue - this.proceduresValue, pv);
-      const addressItem = this.addressList.find(
-        (item) => item.code === this.addressValue
-      );
-      if (!addressItem) {
-        addressId = "";
-      } else {
-        address = "";
-      }
-      const params = obj
-        ? {
-            ...obj,
-            inputAddress: address, // 提现地址
-            addressId, // 提现地址id
-            fee: this.proceduresValue, // 手续费
-            amount, // 提现金额（不包含手续费
-            symbol: this.haveBranch ? this.activeBranch : this.symbol,
-            trustType: this.trustType,
-          }
-        : {
-            inputAddress: address, // 提现地址
-            addressId, // 提现地址id
-            fee: this.proceduresValue, // 手续费
-            amount, // 提现金额（不包含手续费
-            symbol: this.haveBranch ? this.activeBranch : this.symbol,
-            trustType: this.trustType,
-          };
 
-      if (params.symbol === "IDR" || params.symbol === "IDRPERMATA") {
-        params.bank_name = this.selectedBank;
+      // for cryptocurrency withdraw
+      if (!["IDR", "IDRPERMATA"].includes(this.symbol)) {
+        if (addressItem) {
+          // selected from list
+          address = "";
+        } else {
+          // manual input
+          addressId = "";
+        }
+      } else {
+        // for fiat withdraw, always use inputAddress
+        addressId = "";
       }
-      
+
+      const params = {
+        ...(obj || {}),
+        inputAddress: address,
+        addressId,
+        fee: this.proceduresValue,
+        amount,
+        symbol: this.haveBranch ? this.activeBranch : rawSymbol,
+        trustType: this.trustType,
+      };
+
+      // append bank for fiat
+      if (rawSymbol === "IDR" || rawSymbol === "IDRPERMATA") {
+        const bank =
+          this.selectedBank || this.getDefaultBankBySymbol(rawSymbol);
+
+        if (params.inputAddress && !params.inputAddress.endsWith(`-${bank}`)) {
+          params.inputAddress = `${params.inputAddress}-${bank}`;
+        }
+
+        params.bank_name = bank;
+      }
+
       this.axios({
         url: "finance/do_withdraw",
         params,
       }).then((data) => {
         this.loading = false;
         this.confirmLoading = false;
+
         if (data.code.toString() === "0") {
-          this.getTableList(); // 获取列表
-          this.$store.dispatch("assetsExchangeData"); // 更新额度
+          this.getTableList();
+          this.$store.dispatch("assetsExchangeData");
           this.$bus.$emit("tip", { text: data.msg, type: "success" });
+
           this.addressValue = "";
           this.pagesValue = "";
           this.numberValue = "";
-          // this.proceduresValue = this.defaultFee;
+
           this.clearDialogData();
-          // this.phoneValue = '';
-          // this.googleValue = '';
-          // this.dialogFlag = false;
+
           setTimeout(() => {
             this.getEquity(this.symbol);
           }, 1000);
@@ -1280,6 +1319,7 @@ export default {
         }
       });
     },
+
     // 添加地址
     confirmAddAddress(obj) {
       this.loading = true;
@@ -1375,6 +1415,9 @@ export default {
               txid = `${txid.slice(0, 8)}...${txid.slice(-6)}`;
             }
             let address = item.addressTo;
+            if (item.symbol === "IDR" || item.symbol === "IDRPERMATA") {
+              address = item.addressTo.split("-")[0]
+            }
             if (address && address.length > 15) {
               address = `${address.slice(0, 8)}...${address.slice(-6)}`;
             }
