@@ -60,23 +60,31 @@ export default {
     paginationObjCurrentPage() {
       this.getTableList();
     },
+    activeBranch(newVal) {
+      if ((this.symbol === "IDR" || this.symbol === "IDRPERMATA") && newVal) {
+        this.applyVAByBranch();
+      }
+    },
     symbol(newVal) {
-      console.log("Symbol changed to:", newVal);
-
       if (newVal === "IDR" || newVal === "IDRPERMATA") {
+        if (!this.activeBranch) {
+          this.activeBranch = newVal === "IDRPERMATA" ? "PERMATA" : "BSB";
+        }
+
         if (!this.vaList.length && !this.vaLoading && this.vaRetryCount === 0) {
           this.createVA();
         } else {
-          this.applyVABySymbol();
+          this.applyVAByBranch();
         }
       }
     },
+
     vaList(newVal) {
       if (
         newVal.length &&
         (this.symbol === "IDR" || this.symbol === "IDRPERMATA")
       ) {
-        this.applyVABySymbol();
+        this.applyVAByBranch();
       }
     },
 
@@ -329,7 +337,7 @@ export default {
           Array.isArray(res.data.data.created)
         ) {
           this.vaList = res.data.data.created;
-          this.applyVABySymbol();
+          this.applyVAByBranch();
 
           if (!this.vaNumber) {
             throw new Error("Target VA not found yet");
@@ -354,34 +362,43 @@ export default {
       }
     },
 
-    applyVABySymbol() {
+    getBankByBranch(branch) {
+      if (!branch) return null;
+
+      const b = String(branch).trim().toUpperCase();
+
+      if (b.includes("PERMATA")) return "PERMATA";
+      if (b === "BSB" || b.includes("SAMPOERNA")) return "SAHABAT_SAMPOERNA";
+
+      return null;
+    },
+
+    applyVAByBranch() {
+      console.log("applyVAByBranch", {
+        activeBranch: this.activeBranch,
+        vaList: this.vaList,
+      });
+
       if (!Array.isArray(this.vaList) || !this.vaList.length) {
-        console.warn("VA list kosong");
+        this.address = "Memuat VA...";
+        this.vaNumber = "";
         return;
       }
 
-      const bankCodeMap = {
-        IDRPERMATA: "PERMATA",
-        IDR: "SAHABAT_SAMPOERNA",
-      };
-
-      const targetBank = bankCodeMap[this.symbol];
-      if (!targetBank) return;
-
-      console.log("Current symbol:", this.symbol);
-      console.log("Target bank:", targetBank);
-      console.log("VA list:", this.vaList);
-
-      const va = this.vaList.find(
-        (v) => String(v.bank_code).trim().toUpperCase() === targetBank
-      );
+      let va;
+      if (this.activeBranch === "IDRPERMATA") {
+        va = this.vaList.find((v) => v.bank_code.toUpperCase() === "PERMATA");
+      } else if (this.activeBranch === "IDR") {
+        va = this.vaList.find(
+          (v) => v.bank_code.toUpperCase() === "SAHABAT_SAMPOERNA"
+        );
+      }
 
       if (va && va.account_number) {
         this.vaNumber = va.account_number;
         this.address = va.account_number;
         this.addressLong = va.account_number;
       } else {
-        console.warn(`VA dengan bank_code ${targetBank} tidak ditemukan`);
         this.vaNumber = "";
         this.address = "VA belum tersedia";
         this.addressLong = "";
@@ -410,9 +427,14 @@ export default {
       if (this.activeBranch !== v) {
         this.branchLoading = true;
       }
+
       this.activeBranch = v;
-      this.initAddress();
+
+      if (this.symbol !== "IDR" && this.symbol !== "IDRPERMATA") {
+        this.initAddress();
+      }
     },
+
     async init() {
       const data = await this.getEquity();
       console.log("ceshi");
