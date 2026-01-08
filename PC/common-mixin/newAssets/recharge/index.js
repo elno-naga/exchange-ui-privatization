@@ -53,6 +53,7 @@ export default {
       vaNumber: "",
       vaLoading: false,
       vaRetryCount: 0,
+      vaList: [],
     };
   },
   watch: {
@@ -60,12 +61,22 @@ export default {
       this.getTableList();
     },
     symbol(newVal) {
+      console.log("Symbol changed to:", newVal);
+
       if (newVal === "IDR" || newVal === "IDRPERMATA") {
-        this.createVA();
-      } else {
-        this.address = "";
-        this.addressLong = "";
-        this.vaNumber = "";
+        if (!this.vaList.length && !this.vaLoading && this.vaRetryCount === 0) {
+          this.createVA();
+        } else {
+          this.applyVABySymbol();
+        }
+      }
+    },
+    vaList(newVal) {
+      if (
+        newVal.length &&
+        (this.symbol === "IDR" || this.symbol === "IDRPERMATA")
+      ) {
+        this.applyVABySymbol();
       }
     },
 
@@ -84,9 +95,14 @@ export default {
           }
           if (v.market && v.symbol) {
             this.branchInit(v.market, this.usdtOpenOmni, "recharge");
-            if (this.isPermission === 1) {
+            if (
+              this.isPermission === 1 &&
+              this.symbol !== "IDR" &&
+              this.symbol !== "IDRPERMATA"
+            ) {
               this.initAddress();
             }
+
             this.initDetails();
             // 获取table表数据
             this.getTableList();
@@ -290,8 +306,8 @@ export default {
       if (!this.fullName || !this.userId) return;
       if (this.vaLoading) return;
 
+      if (!this.vaLoading) this.vaRetryCount = 0;
       this.vaLoading = true;
-      this.vaRetryCount = 0;
       this.vaNumber = "";
 
       const payload = {
@@ -299,47 +315,77 @@ export default {
         chainup_user_id: this.userId,
       };
 
-      const tryRequest = async () => {
-        try {
-          const res = await axios.post(
-        "/fe-xendit-api/xendit/va/create",
-        payload
-      );
+      try {
+        const res = await axios.post(
+          "/fe-xendit-api/xendit/va/create",
+          payload
+        );
 
-          if (
-            res &&
-            res.data &&
-            res.data.ok === true &&
-            res.data.data &&
-            Array.isArray(res.data.data.created) &&
-            res.data.data.created.length > 0 &&
-            res.data.data.created[0].account_number
-          ) {
-            const va = res.data.data.created[0].account_number;
+        if (
+          res &&
+          res.data &&
+          res.data.ok &&
+          res.data.data &&
+          Array.isArray(res.data.data.created)
+        ) {
+          this.vaList = res.data.data.created;
+          this.applyVABySymbol();
 
-            this.vaNumber = va;
-            this.address = va;
-            this.addressLong = va;
-            this.vaLoading = false;
-            return;
+          if (!this.vaNumber) {
+            throw new Error("Target VA not found yet");
           }
-
-          throw new Error("VA not ready");
-        } catch (err) {
-          this.vaRetryCount += 1;
-
-          if (this.vaRetryCount < 3) {
-            setTimeout(tryRequest, 1200);
-          } else {
-            this.vaNumber = "VA belum tersedia";
-            this.address = "VA belum tersedia";
-            this.addressLong = "";
-            this.vaLoading = false;
-          }
+          this.vaRetryCount = 0;
+          this.vaLoading = false;
+          return;
         }
+
+        throw new Error("VA not ready");
+      } catch (err) {
+        this.vaRetryCount += 1;
+
+        if (this.vaRetryCount < 3) {
+          setTimeout(() => this.createVA(), 1200);
+        } else {
+          this.vaNumber = "VA belum tersedia";
+          this.address = "VA belum tersedia";
+          this.addressLong = "";
+          this.vaLoading = false;
+        }
+      }
+    },
+
+    applyVABySymbol() {
+      if (!Array.isArray(this.vaList) || !this.vaList.length) {
+        console.warn("VA list kosong");
+        return;
+      }
+
+      const bankCodeMap = {
+        IDRPERMATA: "PERMATA",
+        IDR: "SAHABAT_SAMPOERNA",
       };
 
-      tryRequest();
+      const targetBank = bankCodeMap[this.symbol];
+      if (!targetBank) return;
+
+      console.log("Current symbol:", this.symbol);
+      console.log("Target bank:", targetBank);
+      console.log("VA list:", this.vaList);
+
+      const va = this.vaList.find(
+        (v) => String(v.bank_code).trim().toUpperCase() === targetBank
+      );
+
+      if (va && va.account_number) {
+        this.vaNumber = va.account_number;
+        this.address = va.account_number;
+        this.addressLong = va.account_number;
+      } else {
+        console.warn(`VA dengan bank_code ${targetBank} tidak ditemukan`);
+        this.vaNumber = "";
+        this.address = "VA belum tersedia";
+        this.addressLong = "";
+      }
     },
 
     // 去实名
@@ -479,6 +525,9 @@ export default {
       this.initAddress();
     },
     initAddress() {
+      if (this.symbol === "IDR" || this.symbol === "IDRPERMATA") {
+        return;
+      }
       this.branchLoading = true;
       this.showReLoad = false;
       const { tagType } = this.coinList[this.symbol];

@@ -95,7 +95,7 @@ export default {
       // Fallback bank list if API fails
       fallbackBankList: [
         { code: "PERMATA", value: "Permata" },
-        { code: "BSB", value: "Sahabat Sampoerna" },
+        { code: "SAHABAT_SAMPOERNA", value: "Sahabat Sampoerna" },
         { code: "BCA", value: "BCA" },
         { code: "MANDIRI", value: "Mandiri" },
         { code: "BNI", value: "BNI" },
